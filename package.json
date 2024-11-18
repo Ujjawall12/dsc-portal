@@ -1,0 +1,16 @@
+{
+  "workspaces": [
+    "src/frontend",
+    "src/backend"
+  ],
+  "name": "dsc-portal",
+  "version": "1.0.0",
+  "description": "This project is being developed in a phased manner to ensure incremental improvements and feature additions. Below are the details of each stage:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
