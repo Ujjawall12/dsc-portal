@@ -19,32 +19,4 @@
     font-weight: 100 200 300 400 500 600 700 800 900;
     src: url("./Fonts/Exo/Exo-VariableFont_wght.ttf");
   }
-  @font-face {
-    font-family: "Chakra_Petch";
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 200 300 400 500 600 700 800 900;
-    src: url("./Fonts/Chakra_Petch/ChakraPetch-VariableFont_wght.ttf");
-  }
-  @font-face {
-    font-family: "Hedvig_letters_Sans";
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 200 300 400 500 600 700 800 900;
-    src: url("./Fonts/Hedvig_letters_Sans/HedvigLettersSans-VariableFont_wght.ttf");
-  }
-  @font-face {
-    font-family: "Nunito_Sans";
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 200 300 400 500 600 700 800 900;
-    src: url("./Fonts/Nunito_Sans/NunitoSans-VariableFont_wght.ttf");
-  }
-  @font-face {
-    font-family: "Tektur";
-    font-style: normal;
-    font-display: swap;
-    font-weight: 100 200 300 400 500 600 700 800 900;
-    src: url("./Fonts/Tektur/Tektur-VariableFont_wght.ttf");
-  }
 }

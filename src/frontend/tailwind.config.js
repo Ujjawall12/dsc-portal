@@ -5,10 +5,6 @@ export default {
     extend: {
       fontFamily: {
         Exo: ["Exo", "sans-serif"],
-        Chakra: ["Chakra_Petch", "sans-serif"],
-        Hedvig: ["Hedvig_letters_Sans", "sans-serif"],
-        Nunito_Sans: ["Nunito_Sans", "sans-serif"],
-        Tektur: ["Tektur", "sans-serif"],
       },
     },
   },
