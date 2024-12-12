@@ -5,8 +5,6 @@ import AboutUs from "pages/AboutUs";
 import Events from "pages/Events";
 import Team from "pages/Team";
 import Resources from "pages/Resources";
-import NotFound from "pages/NotFound";
-import SomethingWentWrong from "pages/SomethingWentWrong";
 
 function App() {
   return (
@@ -17,8 +15,6 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/team" element={<Team />} />
         <Route path="/resources" element={<Resources />} />
-        <Route path="/broke" element={<SomethingWentWrong />} />
-        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

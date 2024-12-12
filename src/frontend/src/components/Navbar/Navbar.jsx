@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import NavbarLogo from "./Components/NavbarLogo";
 import DarkModeButton from "./Components/DarkModeButton";
 import links, { LINKS_GROUP_ONE_COUNT } from "./Data/Links";
+import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -18,24 +18,65 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const linkVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const logoVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0 },
+  };
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const darkModeButtonVariants = {
+    initial: { color: "rgb(23,23,23)" },
+    animate: { color: "currentColor" },
+  };
+
   return isMobile ? (
     <NavbarMobile />
   ) : (
-    <div className="sticky top-0 left-0 right-0 flex w-screen h-12 justify-between items-center px-4 py-8 bg-white dark:bg-neutral-900">
-      <NavbarLogo />
+    <motion.div
+      className="sticky top-0 left-0 right-0 flex w-screen h-12  justify-between items-center px-4 py-8 bg-white dark:bg-neutral-900"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <motion.div variants={logoVariants}>
+        <NavbarLogo />
+      </motion.div>
       <div className="flex flex-row gap-12">
         <div className="flex flex-row gap-4">
           {links.slice(0, LINKS_GROUP_ONE_COUNT).map((link) => (
-            <NavbarButton key={link.text} text={link.text} to={link.to} />
+            <motion.div key={link.text} variants={linkVariants}>
+              <NavbarButton text={link.text} to={link.to} />
+            </motion.div>
           ))}
         </div>
         <div className="flex flex-row gap-2 items-center">
-          <DarkModeButton />
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={darkModeButtonVariants}
+          >
+            <DarkModeButton />
+          </motion.div>
           {links.slice(LINKS_GROUP_ONE_COUNT).map((link) => (
-            <NavbarButton key={link.text} text={link.text} to={link.to} />
+            <motion.div key={link.text} variants={linkVariants}>
+              <NavbarButton text={link.text} to={link.to} />
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

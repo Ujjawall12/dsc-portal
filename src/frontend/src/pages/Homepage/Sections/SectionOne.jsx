@@ -2,14 +2,41 @@ import CTA_Button from "@/components/CTA_Button";
 import TextHighlighter from "@/components/Homepage/TextHighlighter";
 import Card from "components/Homepage/SectionOne/Card";
 import cardList from "../Data/CardList";
+import { motion } from "framer-motion";
 
 function SectionOne() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const textVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
-    <section
+    <motion.section
       className={`flex flex-col w-full min-h-[150vh] md:min-h-[120vh] lg:min-h-[90vh] md:h-screen dark:bg-neutral-900 bg-white`}
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
     >
       <div className="flex flex-row justify-around items-center basis-1/2 flex-1 overflow-hidden">
-        <div className="flex flex-col gap-4 items-center flex-1 flex-shrink-0 px-20 sm:px-24 md:px-48 lg:px-12">
+        <motion.div
+          className="flex flex-col gap-4 items-center flex-1 flex-shrink-0 px-20 sm:px-24 md:px-48 lg:px-12"
+          variants={textVariants}
+        >
           <div className="flex flex-col gap-4 items-center lg:items-start">
             <span
               style={{ lineHeight: "1.5" }}
@@ -38,26 +65,28 @@ function SectionOne() {
             </span>
             <CTA_Button className="lg:hidden mt-8" />
           </div>
-        </div>
+        </motion.div>
         <div className="min-h-32 flex-1 flex-shrink-0 justify-center items-center hidden lg:flex"></div>
       </div>
-      <div
+      <motion.div
         className={`flex flex-col sm:grid sm:grid-cols-4 md:grid-cols-3 lg:flex lg:flex-row dark:bg-neutral-800 bg-neutral-200 p-1 gap-1`}
+        variants={containerVariants}
       >
         <Card className="md:col-start-1 md:col-end-3 items-center hidden lg:flex">
           <CTA_Button />
         </Card>
         {cardList.map((card, index) => (
-          <Card
-            key={index}
-            image={card.image}
-            title={card.title}
-            description={card.description}
-            className={card.className}
-          />
+          <motion.div key={index} variants={itemVariants}>
+            <Card
+              image={card.image}
+              title={card.title}
+              description={card.description}
+              className={card.className}
+            />
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 
