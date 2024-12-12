@@ -2,6 +2,7 @@ import { useState } from "react";
 import NavbarButton from "./Components/NavbarButton";
 import closeIcon from "../assets/X.svg";
 import menuIcon from "../assets/hamburger.svg";
+import NavbarLogo from "./Components/NavbarLogo";
 
 export default function NavbarMobile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,12 +14,10 @@ export default function NavbarMobile() {
   return (
     <div className="sticky top-0 left-0 right-0 flex flex-col w-screen h-12 justify-between items-center px-4">
       <div className="flex flex-row justify-between items-center w-full">
-        <div className="flex flex-row items-end gap-2">
-          <img className="h-8" src="/knight.png" alt="logo" />
-          <span className="font-Exo font-medium text-lg text-neutral-700">
-            DEVELOPERS CLUB
-          </span>
-        </div>
+        <NavbarLogo />
+        <span className="font-Exo font-medium text-lg text-neutral-700">
+          DEVELOPERS CLUB
+        </span>
         <button onClick={toggleMenu} className="text-neutral-700">
           <img
             src={isOpen ? closeIcon : menuIcon}
