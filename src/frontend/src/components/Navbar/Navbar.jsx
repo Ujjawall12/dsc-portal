@@ -46,7 +46,7 @@ export default function Navbar() {
     <NavbarMobile />
   ) : (
     <motion.div
-      className="sticky top-0 left-0 right-0 flex w-screen h-12  justify-between items-center px-4 py-8 bg-white dark:bg-neutral-900"
+      className="sticky top-0 left-0 right-0 flex w-screen h-12  justify-between items-center px-4 py-8 bg-white dark:bg-neutral-900 border-b-2 border-b-neutral-100 dark:border-b-neutral-800 z-50"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
