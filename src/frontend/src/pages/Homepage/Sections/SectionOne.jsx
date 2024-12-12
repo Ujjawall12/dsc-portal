@@ -44,7 +44,7 @@ function SectionOne() {
         <div className="min-h-32 flex-1 flex-shrink-0 justify-center items-center hidden lg:flex"></div>
       </div>
       <div
-        className={`grid grid-cols-4 sm:grid-cols-3 lg:flex lg:flex-row dark:bg-neutral-800 bg-neutral-200 p-1 gap-1`}
+        className={`flex flex-col sm:grid sm:grid-cols-4 md:grid-cols-3 lg:flex lg:flex-row dark:bg-neutral-800 bg-neutral-200 p-1 gap-1`}
       >
         <Card className="md:col-start-1 md:col-end-3 items-center hidden lg:flex">
           <CTA_Button />
@@ -53,19 +53,19 @@ function SectionOne() {
           image={workshop}
           title="Workshops & Talks"
           description="Highlight opportunities to learn cutting-edge technologies like Flutter, Firebase, and Machine Learning."
-          className="sm:col-span-1 col-span-2"
+          className="md:col-span-1 col-span-2"
         />
         <Card
           image={laptop}
           title="Team Projects"
           description="Showcase GDSC project highlights and the benefits of team collaboration."
-          className="sm:col-span-1 col-span-2"
+          className="md:col-span-1 col-span-2"
         />
         <Card
           image={community}
           title="Community Support"
           description="Highlight the community's support for developers and innovators."
-          className="sm:col-span-1 col-span-4"
+          className="md:col-span-1 col-span-4"
         />
       </div>
     </section>

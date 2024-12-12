@@ -21,7 +21,7 @@ export default function Card({
 }) {
   return (
     <div
-      className={`flex flex-row gap-2 items-start justify-center flex-1 bg-white dark:bg-neutral-900 rounded-md h-full px-12 py-12 ${className}`}
+      className={`flex flex-row gap-2 items-start justify-center flex-1 bg-white dark:bg-neutral-900 rounded-md h-full px-10 py-12 ${className}`}
     >
       {children ? (
         children
