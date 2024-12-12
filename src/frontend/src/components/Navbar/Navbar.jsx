@@ -2,9 +2,11 @@ import NavbarButton from "./Components/NavbarButton";
 import NavbarMobile from "./NavbarMobile";
 import { useEffect, useState } from "react";
 import NavbarLogo from "./Components/NavbarLogo";
+import DarkModeButton from "./Components/DarkModeButton";
 
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -18,7 +20,7 @@ export default function Navbar() {
   return isMobile ? (
     <NavbarMobile />
   ) : (
-    <div className="sticky top-0 left-0 right-0 flex w-screen h-12 justify-between items-center px-4 py-8">
+    <div className="sticky top-0 left-0 right-0 flex w-screen h-12 justify-between items-center px-4 py-8 bg-white dark:bg-neutral-900">
       <NavbarLogo />
       <div className="flex flex-row gap-12">
         <div className="flex flex-row gap-4">
@@ -29,6 +31,7 @@ export default function Navbar() {
           <NavbarButton text="Resources" to="/resources" />
         </div>
         <NavbarButton text="Become a Member" to="/login" type="black" />
+        <DarkModeButton />
       </div>
     </div>
   );

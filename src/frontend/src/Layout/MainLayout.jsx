@@ -3,7 +3,7 @@ import Navbar from "components/Navbar/Navbar";
 
 function MainLayout({ children }) {
   return (
-    <div className="relative min-h-screen w-screen flex flex-col py-2 gap-4">
+    <div className="relative min-h-screen w-screen flex flex-col py-2 gap-4 bg-white dark:bg-neutral-900">
       <Navbar />
       <main className="flex-grow">{children}</main>
     </div>

@@ -22,10 +22,14 @@ export default function NavbarButton({
   const baseClasses =
     "flex flex-row gap-2 px-4 py-1 min-w-24 rounded-full items-center justify-center transition-colors sm:px-2 sm:py-0.5 sm:text-xs lg:py-1.5";
   const defaultClasses = `outline outline-1 ${
-    isActiveLink ? "outline-neutral-800" : "outline-neutral-300"
-  } hover:bg-neutral-100`;
-  const blackClasses = "bg-black hover:bg-neutral-800";
-  const redClasses = "bg-red-500 hover:bg-red-700 text-white";
+    isActiveLink
+      ? "outline-neutral-800 dark:outline-neutral-200"
+      : "outline-neutral-300 dark:outline-neutral-600"
+  } hover:bg-neutral-100 dark:hover:bg-neutral-800`;
+  const blackClasses =
+    "bg-black hover:bg-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-700";
+  const redClasses =
+    "bg-red-500 hover:bg-red-700 text-white dark:bg-red-600 dark:hover:bg-red-800";
 
   const content = (
     <>
@@ -33,14 +37,16 @@ export default function NavbarButton({
         <div
           className={`rounded-full w-2 h-2 ${
             isActiveLink
-              ? "bg-black outline-none"
-              : "bg-transparent outline outline-1 outline-neutral-400"
+              ? "bg-black dark:bg-neutral-200 outline-none"
+              : "bg-transparent outline outline-1 outline-neutral-400 dark:outline-neutral-600"
           }`}
         ></div>
       )}
       <span
         className={`${
-          type === "default" ? "text-neutral-700" : "text-white"
+          type === "default"
+            ? "text-neutral-700 dark:text-neutral-200"
+            : "text-white"
         } text-sm ${isActiveLink && "font-semibold"} ${
           type === "black" && "font-Exo tracking-widest"
         }`}
