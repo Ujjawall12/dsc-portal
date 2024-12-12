@@ -1,6 +1,6 @@
-import workshop from "/workshop.svg";
-import laptop from "/laptop.svg";
-import community from "/community.svg";
+import workshop from "assets/workshop.svg";
+import laptop from "assets/laptop.svg";
+import community from "assets/community.svg";
 
 const cardList = [
   {
