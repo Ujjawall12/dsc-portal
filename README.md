@@ -310,3 +310,4 @@ Ensure sensitive pages (e.g., admin panel) are restricted.
 1. UI
    1. [Content Manager](https://dribbble.com/shots/21350223-Connect-PMS-Configuration)
    2. [List](https://dribbble.com/tags/community-platform)
+   3. [Homepage](https://dribbble.com/shots/22611851-Dimension-dev-Re-Design)
