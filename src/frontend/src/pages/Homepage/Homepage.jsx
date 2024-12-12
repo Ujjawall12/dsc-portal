@@ -1,5 +1,5 @@
-import MainLayout from "../../Layout/MainLayout";
-import SectionOne from "./Sections/SectionOne";
+import MainLayout from "Layout/MainLayout";
+import SectionOne from "pages/Homepage/Sections/SectionOne";
 
 function Homepage() {
   return (

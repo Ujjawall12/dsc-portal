@@ -1,4 +1,4 @@
-import MainLayout from "../Layout/MainLayout";
+import MainLayout from "Layout/MainLayout";
 
 function Events() {
   return <MainLayout></MainLayout>;

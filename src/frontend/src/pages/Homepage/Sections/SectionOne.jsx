@@ -1,4 +1,4 @@
-import Card from "../../../components/Homepage/SectionOne/Card";
+import Card from "components/Homepage/SectionOne/Card";
 
 function SectionOne() {
   return (

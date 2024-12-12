@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import caretRight from "../../../assets/caretRight.svg";
+import caretRight from "assets/caretRight.svg";
 
 Card.propTypes = {
   className: PropTypes.string,

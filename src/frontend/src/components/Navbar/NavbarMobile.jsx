@@ -1,7 +1,7 @@
 import { useState } from "react";
 import NavbarButton from "./Components/NavbarButton";
-import closeIcon from "../assets/X.svg";
-import menuIcon from "../assets/hamburger.svg";
+import closeIcon from "assets/X.svg";
+import menuIcon from "assets/hamburger.svg";
 import NavbarLogo from "./Components/NavbarLogo";
 
 export default function NavbarMobile() {
