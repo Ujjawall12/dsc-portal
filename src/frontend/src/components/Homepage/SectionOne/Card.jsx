@@ -40,7 +40,7 @@ export default function Card({
                 {title}
               </span>
               <Link to={link} className="w-5 h-5">
-                <img src={caretRight} alt="arrow" />
+                <img src={caretRight} alt="arrow" className="dark:invert" />
               </Link>
             </div>
             <span className="text-sm text-neutral-500 dark:text-neutral-400">

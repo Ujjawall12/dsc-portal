@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const TextHighlighter = ({ text, className }) => {
   const highlightedText = {
-    padding: "0 0.3em",
+    padding: "0 0.2em",
     borderRadius: "0.3em",
     margin: "0 0.2em",
   };

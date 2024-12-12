@@ -11,10 +11,11 @@ function SectionOne() {
       className={`flex flex-col w-full min-h-[150vh] md:min-h-[120vh] lg:min-h-[90vh] md:h-screen dark:bg-neutral-900 bg-white`}
     >
       <div className="flex flex-row justify-around items-center basis-1/2 flex-1 overflow-hidden">
-        <div className="flex flex-col gap-4 items-center flex-1 flex-shrink-0">
-          <div className="flex flex-col gap-4 max-w-[80%] overflow-hidden ">
+        <div className="flex flex-col gap-4 items-center flex-1 flex-shrink-0 px-20 sm:px-24 md:px-48 lg:px-12">
+          <div className="flex flex-col gap-4 items-center lg:items-start">
             <span
-              className={`font-Exo leading-relaxed font-medium text-4xl dark:text-neutral-300 text-neutral-700`}
+              style={{ lineHeight: "1.5" }}
+              className={`font-Exo text-center lg:text-left font-medium text-2xl sm:text-3xl md:text-4xl dark:text-neutral-300 text-neutral-700`}
             >
               Empowering
               <TextHighlighter
@@ -32,7 +33,7 @@ function SectionOne() {
                 className="text-neutral-700 dark:text-neutral-800 bg-red-200 dark:bg-red-300"
               />
             </span>
-            <span className="font-Exo font-normal text-md dark:text-neutral-300 text-neutral-600">
+            <span className="font-Exo font-normal text-center lg:text-start text-md dark:text-neutral-300 text-neutral-600">
               Google Developer Student Clubs are university-based communities
               where students collaborate, learn, and solve real-world problems
               with technology.

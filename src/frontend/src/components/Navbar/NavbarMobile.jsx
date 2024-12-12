@@ -14,7 +14,7 @@ export default function NavbarMobile() {
   };
 
   return (
-    <div className="sticky top-0 left-0 right-0 py-2 flex flex-col w-screen h-12 justify-between items-center px-4 bg-white dark:bg-neutral-900">
+    <div className="sticky z-10 top-0 left-0 right-0 py-2 flex flex-col w-screen h-12 justify-between items-center px-4 bg-white dark:bg-neutral-900">
       <div className="flex flex-row justify-between items-center w-full">
         <NavbarLogo />
         <button
@@ -24,7 +24,7 @@ export default function NavbarMobile() {
           <img
             src={isOpen ? closeIcon : menuIcon}
             alt={isOpen ? "Close" : "Menu"}
-            className="h-6 w-6"
+            className="h-6 w-6 dark:invert"
           />
         </button>
       </div>
@@ -41,7 +41,11 @@ export default function NavbarMobile() {
                 isOpen ? "transform -translate-x-48" : ""
               }`}
             >
-              <img src={closeIcon} alt="Close" className="h-6 w-6" />
+              <img
+                src={closeIcon}
+                alt="Close"
+                className="h-6 w-6 dark:invert"
+              />
             </button>
             <div className="flex flex-col gap-4 mt-4 w-full">
               {links.map((link) => (
