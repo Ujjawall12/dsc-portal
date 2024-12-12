@@ -8,7 +8,13 @@
   "description": "This project is being developed in a phased manner to ensure incremental improvements and feature additions. Below are the details of each stage:",
   "main": "index.js",
   "scripts": {
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "start:frontend": "npm --prefix src/frontend start",
+    "start:backend": "npm --prefix src/backend start",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
   },
   "keywords": [],
   "author": "",

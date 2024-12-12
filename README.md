@@ -1,5 +1,37 @@
 # DSC Portal
 
+## How to Start the Project
+
+To start the project, follow these steps:
+
+1. **Start the Root Project:**
+
+   Navigate to the root folder and run:
+
+   ```bash
+   npm start
+   ```
+
+2. **Start the Frontend:**
+
+   Navigate to the frontend folder and run:
+
+   ```bash
+   cd src/frontend
+   bun run dev
+   ```
+
+3. **Start the Backend:**
+
+   Navigate to the backend folder and run:
+
+   ```bash
+   cd src/backend
+   node server.js
+   ```
+
+This will start both the frontend and backend servers, allowing you to work on the project.
+
 ## Stages of Development
 
 This project is being developed in a phased manner to ensure incremental improvements and feature additions. Below are the details of each stage:
@@ -161,8 +193,6 @@ This project is being developed in a phased manner to ensure incremental improve
 #### **Hosting:**
 
 - Azure virtual machines for deployment.
-
----
 
 ---
 
