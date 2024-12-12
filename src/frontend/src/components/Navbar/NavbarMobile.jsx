@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NavbarButton from "./NavbarButton";
+import NavbarButton from "./Components/NavbarButton";
 import closeIcon from "../assets/X.svg";
 import menuIcon from "../assets/hamburger.svg";
 

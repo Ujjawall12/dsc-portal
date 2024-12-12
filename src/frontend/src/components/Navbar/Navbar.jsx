@@ -1,4 +1,4 @@
-import NavbarButton from "./NavbarButton";
+import NavbarButton from "./Components/NavbarButton";
 import NavbarMobile from "./NavbarMobile";
 import { useEffect, useState } from "react";
 
