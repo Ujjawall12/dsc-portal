@@ -19,4 +19,11 @@
     font-weight: 100 200 300 400 500 600 700 800 900;
     src: url("./Fonts/Exo/Exo-VariableFont_wght.ttf");
   }
+  @font-face {
+    font-family: "Tektur";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 200 300 400 500 600 700 800 900;
+    src: url("./Fonts/Tektur/Tektur.ttf");
+  }
 }

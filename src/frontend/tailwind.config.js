@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         Exo: ["Exo", "sans-serif"],
+        Tektur: ["Tektur", "sans-serif"],
       },
     },
   },
