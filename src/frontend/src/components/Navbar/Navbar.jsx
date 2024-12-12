@@ -3,6 +3,7 @@ import NavbarMobile from "./NavbarMobile";
 import { useEffect, useState } from "react";
 import NavbarLogo from "./Components/NavbarLogo";
 import DarkModeButton from "./Components/DarkModeButton";
+import links, { LINKS_GROUP_ONE_COUNT } from "./Data/Links";
 
 export default function Navbar() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -24,14 +25,16 @@ export default function Navbar() {
       <NavbarLogo />
       <div className="flex flex-row gap-12">
         <div className="flex flex-row gap-4">
-          <NavbarButton text="Home" to="/" />
-          <NavbarButton text="About Us" to="/about" />
-          <NavbarButton text="Events" to="/events" />
-          <NavbarButton text="Team" to="/team" />
-          <NavbarButton text="Resources" to="/resources" />
+          {links.slice(0, LINKS_GROUP_ONE_COUNT).map((link) => (
+            <NavbarButton key={link.text} text={link.text} to={link.to} />
+          ))}
         </div>
-        <NavbarButton text="Become a Member" to="/login" type="black" />
-        <DarkModeButton />
+        <div className="flex flex-row gap-2 items-center">
+          <DarkModeButton />
+          {links.slice(LINKS_GROUP_ONE_COUNT).map((link) => (
+            <NavbarButton key={link.text} text={link.text} to={link.to} />
+          ))}
+        </div>
       </div>
     </div>
   );

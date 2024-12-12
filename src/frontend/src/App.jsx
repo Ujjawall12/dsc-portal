@@ -8,17 +8,15 @@ import Resources from "pages/Resources";
 
 function App() {
   return (
-    <div className="bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/resources" element={<Resources />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/resources" element={<Resources />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

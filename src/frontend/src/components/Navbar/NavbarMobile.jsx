@@ -4,6 +4,7 @@ import closeIcon from "assets/X.svg";
 import menuIcon from "assets/hamburger.svg";
 import NavbarLogo from "./Components/NavbarLogo";
 import DarkModeButton from "./Components/DarkModeButton";
+import links, { LINKS_GROUP_ONE_COUNT } from "./Data/Links";
 
 export default function NavbarMobile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,12 +14,9 @@ export default function NavbarMobile() {
   };
 
   return (
-    <div className="sticky top-0 left-0 right-0 flex flex-col w-screen h-12 justify-between items-center px-4 bg-white dark:bg-neutral-900">
+    <div className="sticky top-0 left-0 right-0 py-2 flex flex-col w-screen h-12 justify-between items-center px-4 bg-white dark:bg-neutral-900">
       <div className="flex flex-row justify-between items-center w-full">
         <NavbarLogo />
-        <span className="font-Exo font-medium text-lg text-neutral-700 dark:text-neutral-300">
-          DEVELOPERS CLUB
-        </span>
         <button
           onClick={toggleMenu}
           className="text-neutral-700 dark:text-neutral-300"
@@ -46,16 +44,17 @@ export default function NavbarMobile() {
               <img src={closeIcon} alt="Close" className="h-6 w-6" />
             </button>
             <div className="flex flex-col gap-4 mt-4 w-full">
-              <NavbarButton text="Home" to="/" />
-              <NavbarButton text="About Us" to="/about" />
-              <NavbarButton text="Events" to="/events" />
-              <NavbarButton text="Team" to="/team" />
-              <NavbarButton text="Resources" to="/resources" />
+              {links.map((link) => (
+                <NavbarButton key={link.text} text={link.text} to={link.to} />
+              ))}
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <NavbarButton text="Become a Member" to="/login" type="black" />
-            <DarkModeButton />
+            <DarkModeButton textOnly={true} />
+            {/* {links.slice(LINKS_GROUP_ONE_COUNT).map((link) => (
+              <NavbarButton key={link.text} text={link.text} to={link.to} />
+            ))} */}
+
             <NavbarButton
               text="Close"
               button={true}

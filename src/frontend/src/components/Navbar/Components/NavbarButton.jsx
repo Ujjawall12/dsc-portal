@@ -27,7 +27,7 @@ export default function NavbarButton({
       : "outline-neutral-300 dark:outline-neutral-600"
   } hover:bg-neutral-100 dark:hover:bg-neutral-800`;
   const blackClasses =
-    "bg-black hover:bg-neutral-800 dark:bg-neutral-900 dark:hover:bg-neutral-700";
+    "bg-black hover:bg-neutral-800 dark:bg-neutral-200 dark:hover:bg-neutral-600";
   const redClasses =
     "bg-red-500 hover:bg-red-700 text-white dark:bg-red-600 dark:hover:bg-red-800";
 
@@ -48,7 +48,7 @@ export default function NavbarButton({
             ? "text-neutral-700 dark:text-neutral-200"
             : "text-white"
         } text-sm ${isActiveLink && "font-semibold"} ${
-          type === "black" && "font-Exo tracking-widest"
+          type === "black" && "font-Exo tracking-widest dark:text-neutral-800"
         }`}
       >
         {text}

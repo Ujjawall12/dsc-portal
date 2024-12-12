@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import sun from "assets/sun.jsx";
 import moon from "assets/moon.jsx";
 import toggleDarkMode from "../../../utils/toggleDarkMode";
 
-export default function DarkModeButton() {
+DarkModeButton.propTypes = {
+  textOnly: PropTypes.bool,
+};
+
+export default function DarkModeButton({ textOnly = false }) {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -19,9 +24,19 @@ export default function DarkModeButton() {
   return (
     <button
       onClick={() => toggleDarkMode(darkMode, setDarkMode)}
-      className="ml-4 p-2 dark:bg-gray-200 bg-neutral-900 rounded-full"
+      className={`${
+        textOnly ? "w-full h-7" : "h-8 w-8"
+      } flex items-center justify-center dark:bg-gray-200 bg-neutral-900 rounded-full transition-colors duration-300 ease-in-out`}
     >
-      {darkMode ? sun : moon}
+      {textOnly ? (
+        <span className="dark:text-gray-900 text-white text-sm h-[22px]">
+          {darkMode ? "Light Mode" : "Dark Mode"}
+        </span>
+      ) : darkMode ? (
+        sun
+      ) : (
+        moon
+      )}
     </button>
   );
 }
