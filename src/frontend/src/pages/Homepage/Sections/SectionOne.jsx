@@ -1,6 +1,9 @@
 import CTA_Button from "@/components/CTA_Button";
 import TextHighlighter from "@/components/Homepage/TextHighlighter";
 import Card from "components/Homepage/SectionOne/Card";
+import community from "/community.svg";
+import laptop from "/laptop.svg";
+import workshop from "/workshop.svg";
 
 function SectionOne() {
   return (
@@ -42,12 +45,27 @@ function SectionOne() {
       <div
         className={`grid grid-cols-4 sm:grid-cols-3 lg:flex lg:flex-row dark:bg-neutral-800 bg-neutral-200 p-1 gap-1`}
       >
-        <Card className="md:col-start-1 md:col-end-3 hidden lg:flex">
+        <Card className="md:col-start-1 md:col-end-3 items-center hidden lg:flex">
           <CTA_Button />
         </Card>
-        <Card className="sm:col-span-1 col-span-2" />
-        <Card className="sm:col-span-1 col-span-2" />
-        <Card className="sm:col-span-1 col-span-4" />
+        <Card
+          image={workshop}
+          title="Workshops & Talks"
+          description="Highlight opportunities to learn cutting-edge technologies like Flutter, Firebase, and Machine Learning."
+          className="sm:col-span-1 col-span-2"
+        />
+        <Card
+          image={laptop}
+          title="Team Projects"
+          description="Showcase GDSC project highlights and the benefits of team collaboration."
+          className="sm:col-span-1 col-span-2"
+        />
+        <Card
+          image={community}
+          title="Community Support"
+          description="Highlight the community's support for developers and innovators."
+          className="sm:col-span-1 col-span-4"
+        />
       </div>
     </section>
   );

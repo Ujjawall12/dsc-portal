@@ -7,6 +7,7 @@ Card.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   link: PropTypes.string,
+  image: PropTypes.string,
   children: PropTypes.node,
 };
 
@@ -15,6 +16,7 @@ export default function Card({
   title = "Card Title",
   description = "Lorem",
   link = "",
+  image = "",
   children,
 }) {
   return (
@@ -26,7 +28,11 @@ export default function Card({
       ) : (
         <>
           <div className="h-8 w-8">
-            <img src="/knight.png" alt="arrow" />
+            <img
+              src={image || "/knight.png"}
+              alt="arrow"
+              className="dark:invert"
+            />
           </div>
           <div className="flex flex-col gap-1 flex-1">
             <div className="flex flex-row gap-2 items-center">
