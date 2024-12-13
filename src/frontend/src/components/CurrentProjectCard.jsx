@@ -1,9 +1,13 @@
+// this image will be dynamically fetched from the backend
 import computer from 'assets/computer.jpg';
+import { motion } from 'framer-motion';
 
 export default function CurrentProjectCard() {
   return (
-    <div
+    <motion.div
       id='current-project-card'
+      initial={{ x: '120px' }}
+      animate={{ x: 0 }}
       style={{
         backgroundImage: `url(${computer})`,
         backgroundSize: 'cover',
@@ -25,6 +29,6 @@ export default function CurrentProjectCard() {
       <button className='btn btn-primary bg-green-700 mt-auto'>
         View Project
       </button>
-    </div>
+    </motion.div>
   );
 }

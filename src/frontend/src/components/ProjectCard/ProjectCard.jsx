@@ -43,7 +43,7 @@ export default function ProjectCard({ id }) {
   }
 
   return (
-    <div className='flex flex-col md:flex-row h-fit self-stretch rounded-lg dark:bg-neutral-800 shadow-slate-300 dark:shadow-neutral-700 overflow-hidden max-w-xs min-w-xs md:max-w-5xl outline outline-1 outline-gray-100'>
+    <div className='flex flex-col md:flex-row h-fit self-stretch rounded-lg shadow-slate-300 dark:shadow-neutral-700 overflow-hidden max-w-xs min-w-xs md:max-w-5xl outline outline-1 outline-gray-100 dark:outline-gray-700'>
       <div
         className='relative h-52 md:aspect-square aspect-auto'
         id='project-card-image'
@@ -67,7 +67,7 @@ export default function ProjectCard({ id }) {
         </div>
       </div>
       <div
-        className='flex bg-white flex-col gap-2 p-4 w-full'
+        className='flex bg-white flex-col gap-2 p-4 w-full dark:bg-neutral-900'
         id='project-card-details'
       >
         <div className='flex flex-row justify-between'>
@@ -94,7 +94,7 @@ export default function ProjectCard({ id }) {
         </span>
         <button
           onClick={() => navigate(projectData.link)}
-          className='btn-primary mt-auto dark:bg-neutral-900 dark:text-white'
+          className='btn-primary mt-auto dark:bg-neutral-800 dark:text-white'
         >
           View Project
         </button>
