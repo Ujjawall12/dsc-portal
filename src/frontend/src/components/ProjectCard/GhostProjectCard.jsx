@@ -1,6 +1,6 @@
 export default function GhostProjectCard() {
   return (
-    <div className="flex flex-col md:flex-row h-fit self-stretch rounded-lg drop-shadow-md shadow-lg bg-white dark:bg-neutral-800 shadow-slate-300 dark:shadow-neutral-700 overflow-hidden max-w-xs min-w-xs md:max-w-5xl">
+    <div className="flex flex-col md:flex-row h-fit self-stretch rounded-lg bg-neutral-50 dark:bg-neutral-800 shadow-slate-300 dark:shadow-neutral-700 overflow-hidden max-w-xs min-w-xs md:max-w-5xl">
       <div className="relative h-52 md:aspect-square aspect-auto ghost-card"></div>
       <div className="flex flex-col gap-2 p-4 w-full">
         <div className="flex flex-row justify-between">

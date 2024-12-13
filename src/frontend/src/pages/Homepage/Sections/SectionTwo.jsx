@@ -17,6 +17,8 @@ export default function SectionTwo() {
         id="project-card-container"
       >
         <ProjectCard />
+        <ProjectCard />
+        <ProjectCard />
       </div>
     </div>
   );
