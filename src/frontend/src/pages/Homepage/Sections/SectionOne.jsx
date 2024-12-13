@@ -34,7 +34,7 @@ function SectionOne() {
     >
       <div className="flex flex-row justify-around items-center basis-1/2 flex-1 overflow-hidden">
         <motion.div
-          className="flex flex-col gap-4 items-center flex-1 flex-shrink-0 px-20 sm:px-24 md:px-48 lg:px-12"
+          className="flex flex-col gap-4 items-center flex-1 flex-shrink-0 px-6 sm:px-24 md:px-48 lg:px-12"
           variants={textVariants}
         >
           <div className="flex flex-col gap-4 items-center lg:items-start">
@@ -69,7 +69,7 @@ function SectionOne() {
         <div className="min-h-32 flex-1 flex-shrink-0 justify-center items-center hidden lg:flex"></div>
       </div>
       <motion.div
-        className={`flex flex-col sm:grid sm:grid-cols-4 md:grid-cols-3 lg:flex lg:flex-row dark:bg-neutral-800 bg-neutral-200 p-1 gap-1`}
+        className={`flex flex-col sm:grid sm:grid-cols-3 md:grid-cols-3 lg:flex lg:flex-row dark:bg-neutral-800 bg-neutral-200 p-1 gap-1`}
         variants={containerVariants}
       >
         <Card className="md:col-start-1 md:col-end-3 items-center hidden lg:flex">

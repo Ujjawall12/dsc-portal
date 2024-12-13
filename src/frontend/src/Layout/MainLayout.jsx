@@ -5,7 +5,7 @@ function MainLayout({ children }) {
   return (
     <div className="relative min-h-screen w-screen flex flex-col gap-4 bg-white dark:bg-neutral-900">
       <Navbar />
-      <main className="flex-1 flex flex-col gap-12">{children}</main>
+      <main className="flex-1 flex flex-col gap-20">{children}</main>
     </div>
   );
 }
