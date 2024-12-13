@@ -1,6 +1,6 @@
 // Features Projects
 
-import ProjectCard from "@/components/ProjectCard";
+import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import SectionHeading from "@/components/SectionHeading";
 
 export default function SectionTwo() {
