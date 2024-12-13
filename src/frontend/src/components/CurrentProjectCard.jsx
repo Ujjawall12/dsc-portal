@@ -15,7 +15,7 @@ export default function CurrentProjectCard() {
         backgroundRepeat: 'no-repeat',
         backdropFilter: 'blur(10px)',
       }}
-      className='relative overflow-hidden flex flex-col gap-4 rounded-xl self-stretch w-72 h-96 p-4 group'
+      className='relative overflow-hidden hidden lg:flex flex-col gap-4 rounded-xl self-stretch w-72 h-96 p-4 group'
     >
       <div className='-z-10 absolute top-0 left-0 right-0 h-full w-full bg-gradient-to-t from-transparent to-neutral-900'></div>
       <div className='grid grid-cols-2 w-[52rem] group-hover:-translate-x-1/2 transition-transform'>
