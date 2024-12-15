@@ -15,6 +15,7 @@ Card.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
   text: PropTypes.string,
+  link: PropTypes.string,
   imageSrc: PropTypes.string,
   imageAlt: PropTypes.string,
   svgContent: PropTypes.element,
@@ -33,6 +34,7 @@ function Card({
   subheading,
   text,
   imageSrc,
+  link,
   imageAlt,
   svgContent,
 }) {
@@ -51,7 +53,11 @@ function Card({
           <img src={imageSrc} alt={imageAlt} className={imageClassName} />
         </div>
       ) : (
-        <div className='flex items-center justify-center'>
+        <a
+          href={link}
+          target='_blank'
+          className='flex items-center justify-center'
+        >
           <svg
             className={svgClassName}
             xmlns='http://www.w3.org/2000/svg'
@@ -59,7 +65,7 @@ function Card({
           >
             {svgContent}
           </svg>
-        </div>
+        </a>
       )}
     </div>
   );
@@ -76,7 +82,7 @@ const cardData = [
   },
   {
     parentClassName:
-      'bg-neutral-900 sm:col-span-5 sm:row-span-6 lg:col-span-4 lg:row-span-4 flex flex-col justify-between px-4 pt-3 pb-6 hover:bg-neutral-800 cursor-pointer transition-colors hover:text-white dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-100 dark:hover:text-white',
+      'bg-neutral-900 sm:col-span-5 sm:row-span-6 lg:col-span-4 lg:row-span-4 flex flex-col justify-between px-4 pt-3 pb-6 hover:bg-neutral-800 cursor-grab transition-colors hover:text-white dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-100 dark:hover:text-white text-neutral-200',
     contentType: 'text',
     heading: '03',
     subheading: 'Core Values',
@@ -88,7 +94,7 @@ const cardData = [
   },
   {
     parentClassName:
-      'bg-neutral-200 sm:col-span-5 sm:row-span-2 sm:col-start-1 sm:row-start-3 lg:row-span-2 lg:col-start-auto lg:row-start-auto flex flex-col justify-between px-6 pt-3 pb-6 hover:bg-neutral-100 cursor-pointer transition-colors hover:text-neutral-800 dark:bg-slate-600 dark:hover:bg-slate-500 dark:text-white dark:hover:text-white text-neutral-800',
+      'bg-neutral-200 sm:col-span-5 sm:row-span-2 sm:col-start-1 sm:row-start-3 lg:row-span-2 lg:col-start-auto lg:row-start-auto flex flex-col justify-between px-6 pt-3 pb-6 hover:bg-neutral-100 cursor-grab transition-colors hover:text-neutral-800 dark:bg-slate-600 dark:hover:bg-slate-500 dark:text-white dark:hover:text-white text-neutral-800',
     contentType: 'text',
     heading: '01',
     subheading: 'Mission',
@@ -100,7 +106,7 @@ const cardData = [
   },
   {
     parentClassName:
-      'bg-neutral-200 sm:col-span-7 sm:row-span-2 lg:col-span-5 lg:row-span-2 flex flex-col justify-between px-6 pt-3 pb-6 hover:bg-neutral-100 cursor-pointer transition-colors hover:text-neutral-800',
+      'bg-neutral-200 sm:col-span-7 sm:row-span-2 lg:col-span-5 lg:row-span-2 flex flex-col justify-between px-6 pt-3 pb-6 hover:bg-neutral-100 cursor-grab transition-colors hover:text-neutral-800',
     contentType: 'text',
     heading: '02',
     subheading: 'Vision',
@@ -112,7 +118,7 @@ const cardData = [
   },
   {
     parentClassName:
-      'bg-orange-600 sm:col-span-9 sm:row-span-2 lg:col-span-4 lg:row-span-4 lg:col-start-5 lg:row-start-4 lg:row-start-auto row-start-3 flex flex-col justify-between px-4 pt-3 pb-6 hover:bg-orange-500 cursor-pointer transition-colors hover:text-white',
+      'bg-orange-600 sm:col-span-9 sm:row-span-2 lg:col-span-4 lg:row-span-4 lg:col-start-5 lg:row-start-4 lg:row-start-auto row-start-3 flex flex-col justify-between px-4 pt-3 pb-6 hover:bg-orange-500 cursor-grab transition-colors hover:text-white',
     contentType: 'text',
     heading: '150+',
     subheading: 'Countries with Active GDSCs',
@@ -124,7 +130,7 @@ const cardData = [
   },
   {
     parentClassName:
-      'bg-neutral-200 sm:col-span-5 sm:row-span-2 lg:col-start-1 lg:col-span-4 lg:row-span-3 flex flex-col justify-between gap-3 p-4 hover:bg-neutral-100 cursor-pointer transition-colors hover:text-neutral-800 dark:bg-slate-600 dark:hover:bg-slate-500 dark:text-white dark:hover:text-white text-neutral-800',
+      'bg-neutral-200 sm:col-span-5 sm:row-span-2 lg:col-start-1 lg:col-span-4 lg:row-span-3 flex flex-col justify-between gap-3 p-4 hover:bg-neutral-100 cursor-grab transition-colors hover:text-neutral-800 dark:bg-slate-600 dark:hover:bg-slate-500 dark:text-white dark:hover:text-white text-neutral-800',
     contentType: 'text',
     heading: '35+',
     subheading: 'Active Members in Our Chapter',
@@ -143,6 +149,7 @@ const cardData = [
     imageClassName: 'w-1/3',
   },
   {
+    link: 'https://www.google.com',
     parentClassName:
       'sm:bg-neutral-200 bg-neutral-200 dark:bg-[#0a66c2] h-32 sm:h-auto sm:w-auto sm:col-span-3 sm:col-start-1 sm:row-start-5 lg:col-span-2 lg:row-span-1 lg:row-start-4 flex items-center justify-center hover:bg-[#0a66c2] dark:bg-slate-600 dark:hover:bg-[#0a66c2] cursor-pointer transition-colors hover:text-neutral-800 group',
     contentType: 'svg',
@@ -153,6 +160,7 @@ const cardData = [
     ),
   },
   {
+    link: 'https://www.google.com',
     parentClassName:
       'instagram bg-neutral-200 hidden sm:flex sm:col-span-3 sm:row-start-6 lg:col-span-2 lg:row-span-1 lg:col-start-auto lg:row-start-4 flex items-center justify-center cursor-pointer transition-colors bg-[linear-gradient(45deg,_#405de6,_#5851db,_#833ab4,_#c13584,_#e1306c,_#fd1d1d)] hover:bg-[linear-gradient(45deg,_#405de6,_#5851db,_#833ab4,_#c13584,_#e1306c,_#fd1d1d)] instagram',
     contentType: 'svg',
@@ -166,7 +174,7 @@ const cardData = [
 export default function SectionThree() {
   return (
     <div className='flex flex-col gap-2 sm:gap-4 px-20 h-screen items-center'>
-      <h1 className='font-sans font-medium text-2xl sm:text-5xl mb-2 self-center text-center dark:text-white'>
+      <h1 className='font-sans font-medium text-2xl sm:text-5xl self-center mb-2 text-center dark:text-white'>
         Introducing our
         <br /> Intentions in Focus
       </h1>
@@ -176,7 +184,7 @@ export default function SectionThree() {
       </span>
       <div
         id='grid'
-        className='section-three-grid flex flex-col sm:grid grid-cols-17 grid-rows-9 gap-3 flex-1 self-stretch mt-6'
+        className='section-three-grid flex flex-col sm:grid grid-cols-17 grid-rows-7 gap-3 flex-1 self-stretch mt-6'
       >
         {cardData.map((card, index) => (
           <Card key={index} {...card} />
