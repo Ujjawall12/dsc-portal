@@ -43,6 +43,10 @@ body {
     font-weight: 100 200 300 400 500 600 700 800 900;
     src: url('./Fonts/Tektur/Tektur.ttf');
   }
+  @font-face {
+    font-family: 'Urbanist';
+    src: url('./Fonts/Urbanist/urban.ttf');
+  }
 }
 
 @layer components {
@@ -111,14 +115,15 @@ body {
 }
 @keyframes moveStars {
   0% {
-    top: -180%;
+    top: -85%;
   }
   100% {
-    top: 0;
+    top: 0%;
   }
 }
 
 .animate-stars {
+  transform: scale3d(0);
   animation: moveStars 5s linear infinite;
 }
 

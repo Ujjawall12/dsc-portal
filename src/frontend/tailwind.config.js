@@ -7,6 +7,7 @@ export default {
       fontFamily: {
         Exo: ['Exo', 'sans-serif'],
         Tektur: ['Tektur', 'sans-serif'],
+        Urbanist: ['Urbanist', 'sans-serif'],
       },
       gridTemplateColumns: {
         17: 'repeat(17, minmax(0, 1fr))',

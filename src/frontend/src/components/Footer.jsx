@@ -35,14 +35,25 @@ const lists = {
 export default function Footer() {
   return (
     <div className='flex flex-col w-full'>
-      <div className='w-4/5 h-64 rounded-xl overflow-hidden relative bg-violet-300 mx-auto translate-y-16 footer-head'>
+      <div className='w-4/5 h-64 flex flex-row items-center rounded-xl overflow-hidden px-6 py-4 relative bg-violet-300 mx-auto translate-y-16 footer-head'>
         <img
           src={stars}
           alt='stars'
-          className='w-full mx-auto absolute animate-stars'
+          className='-z-10 w-full mx-auto absolute animate-stars top-0 left-0'
         />
+        <div className='flex flex-col gap-2'>
+          <span className='text-neutral-200 text-4xl font-Urbanist'>
+            Get Started Already?
+          </span>
+          <span className='text-slate-300 text-4xl font-Urbanist'>
+            Join Our Community today!!
+          </span>
+        </div>
+        <button className='w-28 h-11 bg-violet-300 ml-auto rounded-md text-neutral-900 font-medium text-md font-Urbanist tracking-wider hover:bg-violet-400 transition-colors active:bg-violet-200'>
+          Join
+        </button>
       </div>
-      <div className='flex flex-row gap-4 bg-slate-900 dark:bg-neutral-950 font-sans py-32 px-8'>
+      <div className='flex flex-row gap-4 bg-slate-900 dark:bg-neutral-950 font-sans py-32 px-8 footer-content'>
         <div className='flex flex-col flex-1 gap-4'>
           <img src={icon} alt='icon' className='w-12 h-12' />
           <span className='text-neutral-200 text-xl font-semibold'>
