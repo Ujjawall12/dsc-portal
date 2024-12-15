@@ -1,20 +1,19 @@
 import image from 'assets/rasp_one.png';
 import cat from 'assets/cat.png';
-import PropTypes from 'prop-types';
-import Card from '../../../components/Homepage/SectionThree/Card'; // Import the Card component
+import Card from 'components/Homepage/SectionThree/Card';
 
 const cardData = [
   {
     parentClassName:
-      'bg-[#f1ecda] sm:col-span-12 sm:row-span-2 lg:col-span-8 lg:row-span-3 flex items-center justify-center',
+      'bg-[#f1ecda] sm:col-span-12 sm:row-span-1 lg:col-span-8 lg:row-span-3 flex items-center justify-center',
     contentType: 'image',
     imageSrc: image,
     imageAlt: 'raspberry pi',
-    imageClassName: 'w-1/2 lg:w-1/3',
+    imageClassName: 'w-1/3',
   },
   {
     parentClassName:
-      'bg-neutral-900 sm:col-span-5 sm:row-span-6 lg:col-span-4 lg:row-span-4 flex flex-col justify-between px-4 pt-3 pb-6 hover:bg-neutral-800 cursor-grab transition-colors hover:text-white dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-100 dark:hover:text-white text-neutral-200',
+      'bg-neutral-900 sm:col-span-5 sm:row-span-4 lg:col-span-4 lg:row-span-4 flex flex-col justify-between px-4 pt-3 pb-6 hover:bg-neutral-800 cursor-grab transition-colors hover:text-white dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:text-neutral-100 dark:hover:text-white text-neutral-200',
     contentType: 'text',
     heading: '03',
     subheading: 'Core Values',
@@ -26,7 +25,7 @@ const cardData = [
   },
   {
     parentClassName:
-      'bg-neutral-200 sm:col-span-5 sm:row-span-2 sm:col-start-1 sm:row-start-3 lg:row-span-2 lg:col-start-auto lg:row-start-auto flex flex-col justify-between px-6 pt-3 pb-6 hover:bg-neutral-100 cursor-grab transition-colors hover:text-neutral-800 dark:bg-slate-600 dark:hover:bg-slate-500 dark:text-white dark:hover:text-white text-neutral-800',
+      'bg-neutral-200 sm:col-span-5 sm:row-span-1 sm:col-start-1 sm:row-start-2 lg:row-span-2 lg:col-start-auto lg:row-start-auto flex flex-col justify-between px-6 pt-3 pb-6 hover:bg-neutral-100 cursor-grab transition-colors hover:text-neutral-800 dark:bg-slate-600 dark:hover:bg-slate-500 dark:text-white dark:hover:text-white text-neutral-800',
     contentType: 'text',
     heading: '01',
     subheading: 'Mission',
@@ -38,7 +37,7 @@ const cardData = [
   },
   {
     parentClassName:
-      'bg-neutral-200 sm:col-span-7 sm:row-span-2 lg:col-span-5 lg:row-span-2 flex flex-col justify-between px-6 pt-3 pb-6 hover:bg-neutral-100 cursor-grab transition-colors hover:text-neutral-800',
+      'bg-neutral-200 sm:col-span-7 sm:row-span-1 lg:col-span-5 lg:row-span-2 flex flex-col justify-between px-6 pt-3 pb-6 hover:bg-neutral-100 cursor-grab transition-colors hover:text-neutral-800',
     contentType: 'text',
     heading: '02',
     subheading: 'Vision',
@@ -62,7 +61,7 @@ const cardData = [
   },
   {
     parentClassName:
-      'bg-neutral-200 sm:col-span-5 sm:row-span-2 lg:col-start-1 lg:col-span-4 lg:row-span-3 flex flex-col justify-between gap-3 p-4 hover:bg-neutral-100 cursor-grab transition-colors hover:text-neutral-800 dark:bg-slate-600 dark:hover:bg-slate-500 dark:text-white dark:hover:text-white text-neutral-800',
+      'bg-neutral-200 sm:col-span-5 sm:row-span-1 lg:col-start-1 lg:col-span-4 lg:row-span-3 flex flex-col justify-between gap-3 p-4 hover:bg-neutral-100 cursor-grab transition-colors hover:text-neutral-800 dark:bg-slate-600 dark:hover:bg-slate-500 dark:text-white dark:hover:text-white text-neutral-800',
     contentType: 'text',
     heading: '35+',
     subheading: 'Active Members in Our Chapter',
@@ -74,7 +73,7 @@ const cardData = [
   },
   {
     parentClassName:
-      'bg-[#6295af] sm:col-span-12 sm:row-span-2 lg:col-span-9 lg:row-span-3 flex items-center justify-center',
+      'bg-[#6295af] sm:col-span-12 sm:row-span-1 lg:col-span-9 lg:row-span-3 flex items-center justify-center',
     contentType: 'image',
     imageSrc: cat,
     imageAlt: 'cat',
@@ -83,7 +82,7 @@ const cardData = [
   {
     link: 'https://www.google.com',
     parentClassName:
-      'sm:bg-neutral-200 bg-neutral-200 dark:bg-[#0a66c2] h-32 sm:h-auto sm:w-auto sm:col-span-3 sm:col-start-1 sm:row-start-5 lg:col-span-2 lg:row-span-1 lg:row-start-4 flex items-center justify-center hover:bg-[#0a66c2] dark:bg-slate-600 dark:hover:bg-[#0a66c2] cursor-pointer transition-colors hover:text-neutral-800 group',
+      'sm:bg-neutral-200 bg-neutral-200 dark:bg-[#0a66c2] h-32 sm:h-auto sm:w-auto sm:col-span-3 sm:col-start-1 sm:row-start-3 lg:col-span-2 lg:row-span-1 lg:row-start-4 flex items-center justify-center hover:bg-[#0a66c2] dark:bg-slate-600 dark:hover:bg-[#0a66c2] cursor-pointer transition-colors hover:text-neutral-800 group',
     contentType: 'svg',
     svgClassName:
       'stroke-neutral-700 fill-neutral-700 w-12 h-12 group-hover:stroke-white group-hover:fill-white transition-colors dark:fill-white',
@@ -94,7 +93,7 @@ const cardData = [
   {
     link: 'https://www.google.com',
     parentClassName:
-      'instagram bg-neutral-200 hidden sm:flex sm:col-span-3 sm:row-start-6 lg:col-span-2 lg:row-span-1 lg:col-start-auto lg:row-start-4 flex items-center justify-center cursor-pointer transition-colors bg-[linear-gradient(45deg,_#405de6,_#5851db,_#833ab4,_#c13584,_#e1306c,_#fd1d1d)] hover:bg-[linear-gradient(45deg,_#405de6,_#5851db,_#833ab4,_#c13584,_#e1306c,_#fd1d1d)] instagram',
+      'instagram bg-neutral-200 hidden sm:flex sm:col-span-3 sm:row-start-4 lg:col-span-2 lg:row-span-1 lg:col-start-auto lg:row-start-4 flex items-center justify-center cursor-pointer transition-colors bg-[linear-gradient(45deg,_#405de6,_#5851db,_#833ab4,_#c13584,_#e1306c,_#fd1d1d)] hover:bg-[linear-gradient(45deg,_#405de6,_#5851db,_#833ab4,_#c13584,_#e1306c,_#fd1d1d)] instagram',
     contentType: 'svg',
     svgClassName: 'stroke-neutral-700 fill-white w-12 h-12 transition-colors',
     svgContent: (
@@ -116,7 +115,7 @@ export default function SectionThree() {
       </span>
       <div
         id='grid'
-        className='section-three-grid flex flex-col sm:grid grid-cols-17 grid-rows-7 gap-3 flex-1 self-stretch mt-6'
+        className='section-three-grid flex flex-col sm:grid grid-rows-5 lg:grid-rows-7 grid-cols-17 gap-3 lg:flex-1 self-stretch mt-6'
       >
         {cardData.map((card, index) => (
           <Card key={index} {...card} />
