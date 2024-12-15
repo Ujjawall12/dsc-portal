@@ -1,7 +1,7 @@
 import image from 'assets/rasp_one.png';
 import cat from 'assets/cat.png';
 import PropTypes from 'prop-types';
-import Card from '../../../components/Homepage/Card'; // Import the Card component
+import Card from '../../../components/Homepage/SectionThree/Card'; // Import the Card component
 
 const cardData = [
   {
