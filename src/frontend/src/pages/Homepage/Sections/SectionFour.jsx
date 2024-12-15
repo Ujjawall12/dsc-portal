@@ -1,5 +1,56 @@
 import SectionHeading from '@/components/SectionHeading';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+BentoLink.propTypes = {
+  link: PropTypes.string,
+  svg: PropTypes.element,
+  parentClassName: PropTypes.string,
+  text: PropTypes.string,
+  textClassName: PropTypes.string,
+};
+
+function BentoLink({
+  link = '',
+  svg = '',
+  parentClassName = '',
+  text = '',
+  textClassName = '',
+}) {
+  return (
+    <Link
+      to={link}
+      className={`transition-colors duration-300 relative overflow-hidden group cursor-pointer ${parentClassName}`}
+    >
+      {svg}
+      <span
+        className={`text-white font-semibold text-3xl ml-2 absolute -bottom-12 left-1/2 transition-transform duration-300 whitespace-nowrap ${textClassName}`}
+      >
+        {text}
+      </span>
+    </Link>
+  );
+}
+
+const list = [
+  {
+    link: '#home',
+    svg: (
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        viewBox='0 0 24 24'
+        className='size-16 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
+      >
+        <path d='M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z' />
+        <path d='m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z' />
+      </svg>
+    ),
+    parentClassName:
+      'bg-blue-500 col-span-1 h-48 row-span-1 rounded-s-full rounded-tr-full hover:bg-blue-700',
+    text: 'Home',
+    textClassName: '-translate-x-[58%] group-hover:-translate-y-[260%]',
+  },
+];
 
 export default function SectionFour() {
   return (
@@ -12,23 +63,15 @@ export default function SectionFour() {
         <a
           id='homeIcon'
           href='#home'
-          className='bg-blue-500 col-span-1 h-48 row-span-1 rounded-s-full rounded-tr-full cursor-pointer hover:bg-blue-700 transition-colors duration-300 relative overflow-hidden group'
+          className='bg-blue-500 col-span-1 h-48 row-span-1 rounded-s-full rounded-tr-full hover:bg-blue-700'
         >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 24 24'
-            className='size-16 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
-          >
-            <path d='M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z' />
-            <path d='m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z' />
-          </svg>
-          <span className='text-white font-semibold text-3xl ml-2 absolute -bottom-12 left-1/2 -translate-x-[58%] group-hover:-translate-y-[260%] transition-transform duration-300 whitespace-nowrap'>
+          <span className='-translate-x-[58%] group-hover:-translate-y-[260%]'>
             Home
           </span>
         </a>
         <Link
           to='/about'
-          className='bg-red-300 col-span-3 row-span-1 rounded-tl-full rounded-br-full cursor-pointer hover:bg-red-500 transition-colors duration-300 relative overflow-hidden group'
+          className='bg-red-300 col-span-3 row-span-1 rounded-tl-full rounded-br-full hover:bg-red-500'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -43,13 +86,13 @@ export default function SectionFour() {
             />
           </svg>
 
-          <span className='text-white font-semibold text-3xl ml-2 absolute -bottom-12 left-1/2 -translate-x-[60%] group-hover:-translate-y-[260%] transition-transform duration-300 whitespace-nowrap'>
+          <span className='-translate-x-[60%] group-hover:-translate-y-[260%]'>
             About
           </span>
         </Link>
         <Link
           to='/events'
-          className='bg-green-500 col-span-1 row-span-1 rounded-bl-full cursor-pointer hover:bg-green-700 transition-colors duration-300 relative overflow-hidden group'
+          className='bg-green-500 col-span-1 row-span-1 rounded-bl-full hover:bg-green-700'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
@@ -64,15 +107,27 @@ export default function SectionFour() {
               clipRule='evenodd'
             />
           </svg>
-          <span className='text-white font-semibold text-3xl ml-2 absolute -bottom-12 left-1/2 -translate-x-[35%] group-hover:-translate-y-[260%] transition-transform duration-300 whitespace-nowrap'>
+          <span className='-translate-x-[35%] group-hover:-translate-y-[260%]'>
             Events
           </span>
         </Link>
-        <div className='bg-yellow-400 col-span-1 row-span-2 rounded-s-full rounded-br-full'></div>
         <Link
-          to='/team'
-          className='col-span-3 row-span-2 bg-clip-content relative overflow-hidden group'
+          to='/resources'
+          className='bg-yellow-400 col-span-1 row-span-2 rounded-s-full rounded-br-full'
         >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 24 24'
+            fill='currentColor'
+            className='size-16 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
+          >
+            <path d='M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z' />
+          </svg>
+          <span className='-translate-x-[50%] group-hover:-translate-y-[500%]'>
+            Resources
+          </span>
+        </Link>
+        <Link to='/team' className='col-span-3 row-span-2'>
           <div className='-z-10 bg-violet-400 group-hover:bg-violet-600 h-full w-1/3 rounded-tr-full absolute right-0'></div>
           <div className='-z-10 bg-violet-400 group-hover:bg-violet-600 h-full w-2/3 absolute left-0'></div>
           <svg
@@ -87,13 +142,13 @@ export default function SectionFour() {
               clipRule='evenodd'
             />
           </svg>
-          <span className='text-white font-semibold text-3xl ml-2 absolute -bottom-12 left-1/2 -translate-x-[50%] group-hover:-translate-y-[500%] transition-transform duration-300 whitespace-nowrap'>
+          <span className='-translate-x-[50%] group-hover:-translate-y-[500%]'>
             Meet the Team
           </span>
         </Link>
         <Link
           to='/projects'
-          className='bg-neutral-800 col-span-1 row-span-2 rounded-tl-full relative group'
+          className='bg-neutral-800 col-span-1 row-span-2 rounded-tl-full relative group overflow-hidden'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
