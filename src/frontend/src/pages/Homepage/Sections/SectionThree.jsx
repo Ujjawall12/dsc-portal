@@ -104,7 +104,7 @@ const cardData = [
 
 export default function SectionThree() {
   return (
-    <div className='flex flex-col gap-2 sm:gap-4 px-20 min-h-screen items-center'>
+    <div className='flex flex-col gap-2 sm:gap-4 px-8 sm:px-20 min-h-screen items-center'>
       <h1 className='font-sans font-medium text-2xl sm:text-5xl self-center mb-2 text-center dark:text-white'>
         Introducing our
         <br /> Intentions in Focus
