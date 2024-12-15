@@ -30,22 +30,25 @@ body {
 
 @layer base {
   @font-face {
-    font-family: "Exo";
+    font-family: 'Exo';
     font-style: normal;
     font-display: swap;
     font-weight: 100 200 300 400 500 600 700 800 900;
-    src: url("./Fonts/Exo/Exo-VariableFont_wght.ttf");
+    src: url('./Fonts/Exo/Exo-VariableFont_wght.ttf');
   }
   @font-face {
-    font-family: "Tektur";
+    font-family: 'Tektur';
     font-style: normal;
     font-display: swap;
     font-weight: 100 200 300 400 500 600 700 800 900;
-    src: url("./Fonts/Tektur/Tektur.ttf");
+    src: url('./Fonts/Tektur/Tektur.ttf');
   }
 }
 
 @layer components {
+  .section-three-grid > div {
+    border-radius: 12px;
+  }
   .btn-primary {
     background-color: #1a202c; /* neutral-900 */
     color: white;
@@ -78,5 +81,35 @@ body {
     background: linear-gradient(90deg, #3a3a3a 25%, #2a2a2a 50%, #3a3a3a 75%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite linear;
+  }
+
+  .instagram {
+    background: linear-gradient(
+      45deg,
+      #405de6,
+      #5851db,
+      #833ab4,
+      #c13584,
+      #e1306c,
+      #fd1d1d
+    );
+    background-size: 200% 200%;
+    animation: instagramBackground 4s ease infinite;
+  }
+
+  .instagram:hover {
+    animation-duration: 2s;
+  }
+}
+
+@keyframes instagramBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
