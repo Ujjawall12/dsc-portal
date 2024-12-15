@@ -20,11 +20,11 @@ function BentoLink({
   return (
     <Link
       to={link}
-      className={`transition-colors duration-300 relative overflow-hidden group cursor-pointer ${parentClassName}`}
+      className={`transform-gpu transition-colors duration-300 relative overflow-hidden group cursor-pointer ${parentClassName}`}
     >
       {svg}
       <span
-        className={`text-white font-semibold ltext-xl g:text-3xl ml-2 absolute -bottom-12 left-1/2 transition-transform duration-300 whitespace-nowrap ${textClassName}`}
+        className={`text-white font-semibold text-xl lg:text-3xl ml-2 absolute -bottom-12 left-1/2 transition-transform duration-300 whitespace-nowrap ${textClassName} transform-gpu`}
       >
         {text}
       </span>
@@ -39,7 +39,7 @@ const list = [
       <svg
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 24 24'
-        className='size-7 sm:size-10 md:size-12 lg:size-16 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
+        className='transform-gpu size-7 sm:size-10 md:size-12 lg:size-16 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
       >
         <path d='M11.47 3.841a.75.75 0 0 1 1.06 0l8.69 8.69a.75.75 0 1 0 1.06-1.061l-8.689-8.69a2.25 2.25 0 0 0-3.182 0l-8.69 8.69a.75.75 0 1 0 1.061 1.06l8.69-8.689Z' />
         <path d='m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 0-.75-.75h-3a.75.75 0 0 0-.75.75V21a.75.75 0 0 1-.75.75H5.625a1.875 1.875 0 0 1-1.875-1.875v-6.198a2.29 2.29 0 0 0 .091-.086L12 5.432Z' />
@@ -57,7 +57,7 @@ const list = [
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 24 24'
         fill='currentColor'
-        className='size-7 sm:size-10 md:size-12 lg:size-16 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
+        className='transform-gpu size-7 sm:size-10 md:size-12 lg:size-16 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
       >
         <path
           fillRule='evenodd'
@@ -78,7 +78,7 @@ const list = [
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 24 24'
         fill='currentColor'
-        className='size-7 sm:size-10 md:size-12 lg:size-16 fill-white absolute top-1/2 left-1/2 -translate-x-[20%] -translate-y-[60%] group-hover:-translate-y-[80%] transition-transform duration-300'
+        className='transform-gpu size-7 sm:size-10 md:size-12 lg:size-16 fill-white absolute top-1/2 left-1/2 -translate-x-[20%] -translate-y-[60%] group-hover:-translate-y-[80%] transition-transform duration-300'
       >
         <path d='M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z' />
         <path
@@ -100,7 +100,7 @@ const list = [
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 24 24'
         fill='currentColor'
-        className='size-7 sm:size-10 md:size-12 lg:size-16 fill-white absolute top-1/2 left-1/2 -translate-x-[45%] -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
+        className='transform-gpu size-7 sm:size-10 md:size-12 lg:size-16 fill-white absolute top-1/2 left-1/2 -translate-x-[45%] -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
       >
         <path d='M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z' />
       </svg>
@@ -118,7 +118,7 @@ const list = [
         <svg
           xmlns='http://www.w3.org/2000/svg'
           viewBox='0 0 24 24'
-          className='size-7 sm:size-10 md:size-12 lg:size-16 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
+          className='transform-gpu size-7 sm:size-10 md:size-12 lg:size-16 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
         >
           <path d='M15.75 8.25a.75.75 0 0 1 .75.75c0 1.12-.492 2.126-1.27 2.812a.75.75 0 1 1-.992-1.124A2.243 2.243 0 0 0 15 9a.75.75 0 0 1 .75-.75Z' />
           <path
@@ -140,7 +140,7 @@ const list = [
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 24 24'
         fill='currentColor'
-        className='size-7 sm:size-10 md:size-12 lg:size-14 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
+        className='transform-gpu size-7 sm:size-10 md:size-12 lg:size-14 fill-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:-translate-y-[80%] transition-transform duration-300'
       >
         <path
           fillRule='evenodd'

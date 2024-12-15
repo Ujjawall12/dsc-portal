@@ -65,7 +65,7 @@ export default function Footer() {
             skills.
           </span>
         </div>
-        <div className='flex flex-col sm:flex-row md:flex-col my-8 md:my-0 gap-4 flex-1 sm:items-center'>
+        <div className='flex flex-col sm:flex-row md:flex-col lg:flex-row my-8 md:my-0 gap-4 flex-1 sm:items-center md:items-start md:ml-12 lg:ml-0'>
           {Object.entries(lists).map(([key, value]) => (
             <div
               key={key}
@@ -102,7 +102,7 @@ export default function Footer() {
             <span className='text-neutral-200 text-sm font-medium'>
               Enter your discord ID here to join our server
             </span>
-            <div className='flex flex-row gap-4 mt-4 '>
+            <div className='flex flex-row gap-4 mt-8'>
               <input
                 type='text'
                 className='w-64 h-10 rounded-md px-2 py-1 outline outline-1 text-sm neutral-neutral-300 bg-slate-800 placeholder:tex-neutral-400 text-white'
