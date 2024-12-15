@@ -1,4 +1,36 @@
+import icon from '/knight.png';
 import stars from 'assets/stars_two.png';
+
+const lists = {
+  'ABOUT US': [
+    {
+      title: 'About Us',
+      link: '/about-us',
+    },
+    {
+      title: 'Our Team',
+      link: '/our-team',
+    },
+    {
+      title: 'Events',
+      link: '/events',
+    },
+  ],
+  'GET INVOLVED': [
+    {
+      title: 'Join Us',
+      link: '/join-us',
+    },
+    {
+      title: 'Our Projects',
+      link: '/projects',
+    },
+    {
+      title: 'Resources',
+      link: '/resources',
+    },
+  ],
+};
 
 export default function Footer() {
   return (
@@ -10,7 +42,63 @@ export default function Footer() {
           className='w-full mx-auto absolute animate-stars'
         />
       </div>
-      <div className='flex flex-row gap-4 min-h-72 bg-blue-200'></div>
+      <div className='flex flex-row gap-4 bg-slate-900 dark:bg-neutral-950 font-sans py-32 px-8'>
+        <div className='flex flex-col flex-1 gap-4'>
+          <img src={icon} alt='icon' className='w-12 h-12' />
+          <span className='text-neutral-200 text-xl font-semibold'>
+            Google Developer Student Club
+          </span>
+          <span className='text-neutral-200 text-sm font-medium'>
+            A Google Developers program for university students to learn mobile
+            and web development skills, design thinking skills and leadership
+            skills.
+          </span>
+        </div>
+        {Object.entries(lists).map(([key, value]) => (
+          <div key={key} className='flex flex-col gap-4 flex-1 items-center'>
+            <div className='flex flex-col gap-2'>
+              <span className='text-neutral-400 text-xs tracking-widest font-medium'>
+                {key}
+              </span>
+              <ul className='flex flex-col gap-2 mt-8'>
+                {value.map((item) => (
+                  <li key={item.title}>
+                    <a
+                      href={item.link}
+                      className='text-neutral-200 text-sm font-medium hover:text-neutral-100 transition-colors'
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+        <div className='flex flex-col gap-4 flex-1'>
+          <span className='text-neutral-400 text-xs tracking-widest font-medium'>
+            NOT SURE WHERE TO START?
+          </span>
+          <div className='flex flex-col gap-1 mt-6'>
+            <span className='text-neutral-200 text-sm font-medium'>
+              Join us on Discord
+            </span>
+            <span className='text-neutral-200 text-sm font-medium'>
+              Enter your discord ID here to join our server
+            </span>
+            <div className='flex flex-row gap-4 mt-4 '>
+              <input
+                type='text'
+                className='w-64 h-10 rounded-md px-2 py-1 outline outline-1 text-sm neutral-neutral-300 bg-slate-800 placeholder:tex-neutral-400 text-white'
+                placeholder='Discord ID'
+              />
+              <button className='w-24 h-10 bg-violet-300 rounded-md text-neutral-900 font-medium text-sm hover:bg-violet-400 transition-colors focus:bg-violet-200'>
+                Join
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
