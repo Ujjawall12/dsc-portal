@@ -35,7 +35,7 @@ const lists = {
 export default function Footer() {
   return (
     <div className='flex flex-col w-full'>
-      <div className='w-4/5 h-64 flex flex-row items-center rounded-xl overflow-hidden px-6 py-4 relative bg-violet-300 mx-auto translate-y-16 footer-head'>
+      <div className='w-4/5 h-64 flex flex-col sm:flex-row sm:items-center rounded-xl overflow-hidden px-6 py-4 relative bg-violet-300 mx-auto translate-y-16 footer-head'>
         <img
           src={stars}
           alt='stars'
@@ -49,7 +49,7 @@ export default function Footer() {
             Join Our Community today!!
           </span>
         </div>
-        <button className='w-28 h-11 bg-violet-300 ml-auto rounded-md text-neutral-900 font-medium text-md font-Urbanist tracking-wider hover:bg-violet-400 transition-colors active:bg-violet-200'>
+        <button className='w-28 h-11 bg-violet-300 mt-auto sm:mt-0 sm:ml-auto rounded-md text-neutral-900 font-medium text-md font-Urbanist tracking-wider hover:bg-violet-400 transition-colors active:bg-violet-200'>
           Join
         </button>
       </div>
