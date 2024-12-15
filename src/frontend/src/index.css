@@ -96,12 +96,11 @@ body {
     background-size: 200% 200%;
     animation: instagramBackground 4s ease infinite;
   }
-
   .instagram:hover {
     animation-duration: 2s;
+    color: #6badeb;
   }
 }
-
 @keyframes instagramBackground {
   0% {
     background-position: 0% 50%;
