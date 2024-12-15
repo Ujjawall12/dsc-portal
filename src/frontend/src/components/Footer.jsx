@@ -39,13 +39,13 @@ export default function Footer() {
         <img
           src={stars}
           alt='stars'
-          className='-z-10 w-full mx-auto absolute animate-stars top-0 left-0'
+          className='-z-10 min-w-[1024px] w-full min-h-[1000px] mx-auto absolute animate-stars top-0 left-0'
         />
         <div className='flex flex-col gap-2'>
-          <span className='text-neutral-200 text-4xl font-Urbanist'>
+          <span className='text-neutral-200 lg:text-4xl text-xl sm:text-3xl font-Urbanist'>
             Get Started Already?
           </span>
-          <span className='text-slate-300 text-4xl font-Urbanist'>
+          <span className='text-slate-300 lg:text-4xl text-lg sm:text-2xl font-Urbanist'>
             Join Our Community today!!
           </span>
         </div>
@@ -53,7 +53,7 @@ export default function Footer() {
           Join
         </button>
       </div>
-      <div className='flex flex-row gap-4 bg-slate-900 dark:bg-neutral-950 font-sans py-32 px-8 footer-content'>
+      <div className='flex flex-col md:flex-row gap-4 bg-slate-900 dark:bg-neutral-950 font-sans py-32 px-8 footer-content'>
         <div className='flex flex-col flex-1 gap-4'>
           <img src={icon} alt='icon' className='w-12 h-12' />
           <span className='text-neutral-200 text-xl font-semibold'>
@@ -65,27 +65,32 @@ export default function Footer() {
             skills.
           </span>
         </div>
-        {Object.entries(lists).map(([key, value]) => (
-          <div key={key} className='flex flex-col gap-4 flex-1 items-center'>
-            <div className='flex flex-col gap-2'>
-              <span className='text-neutral-400 text-xs tracking-widest font-medium'>
-                {key}
-              </span>
-              <ul className='flex flex-col gap-2 mt-8'>
-                {value.map((item) => (
-                  <li key={item.title}>
-                    <a
-                      href={item.link}
-                      className='text-neutral-200 text-sm font-medium hover:text-neutral-100 transition-colors'
-                    >
-                      {item.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+        <div className='flex flex-col sm:flex-row md:flex-col my-8 md:my-0 gap-4 flex-1 sm:items-center'>
+          {Object.entries(lists).map(([key, value]) => (
+            <div
+              key={key}
+              className='flex flex-col gap-4 flex-1 md:items-center'
+            >
+              <div className='flex flex-col gap-2'>
+                <span className='text-neutral-400 text-xs tracking-widest font-medium'>
+                  {key}
+                </span>
+                <ul className='flex flex-col gap-2 mt-8'>
+                  {value.map((item) => (
+                    <li key={item.title}>
+                      <a
+                        href={item.link}
+                        className='text-neutral-200 text-sm font-medium hover:text-neutral-100 transition-colors'
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
         <div className='flex flex-col gap-4 flex-1'>
           <span className='text-neutral-400 text-xs tracking-widest font-medium'>
             NOT SURE WHERE TO START?
