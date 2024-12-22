@@ -17,6 +17,7 @@ const roles = {
       delete: true,
     },
   },
+
   faculty: {
     Projects: {
       read: true,
