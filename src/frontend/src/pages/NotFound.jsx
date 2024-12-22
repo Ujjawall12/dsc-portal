@@ -1,15 +1,14 @@
 import CTA_Button from '@/components/CTA_Button';
 import TextHighlighter from '@/components/Homepage/TextHighlighter';
 import MainLayout from '@/Layout/MainLayout';
+import Section from '@/Layout/Section';
 import { useNavigate } from 'react-router-dom';
 
 function NotFound() {
   const history = useNavigate();
   return (
     <MainLayout>
-      <section
-        className={`flex flex-col w-full min-h-screen dark:bg-neutral-900 bg-white`}
-      >
+      <Section>
         <div className='flex flex-col justify-center items-center flex-1 px-20 sm:px-24 md:px-48 lg:px-12'>
           <div className='flex flex-col gap-4 items-center'>
             <span
@@ -35,7 +34,7 @@ function NotFound() {
             />
           </div>
         </div>
-      </section>
+      </Section>
     </MainLayout>
   );
 }
