@@ -1,7 +1,7 @@
 const app = require('./app');
 
 const chalk = require('chalk');
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
   res.send('Server is running but is empty yet');
