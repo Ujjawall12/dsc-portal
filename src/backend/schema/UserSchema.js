@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const UserHistory = require('./UserHistorySchema');
-const Permissions = require('./PermissionsSchema');
 
 const UserSchema = new mongoose.Schema(
   {
@@ -22,6 +21,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       enum: [
         'admin',
+        'faculty',
         'teamLead',
         'subLead',
         'member',
@@ -46,10 +46,13 @@ const UserSchema = new mongoose.Schema(
   }
 );
 
-// Middleware to save history on update
 UserSchema.pre('findOneAndUpdate', async function (next) {
+  const userId = this.getQuery()._id;
+  await checkPermission(userId, 'update', 'users', next);
+
   const update = this.getUpdate();
   const user = await this.model.findOne(this.getQuery());
+
   const history = new UserHistory({
     userId: user._id,
     updatedField: Object.keys(update)[0],
