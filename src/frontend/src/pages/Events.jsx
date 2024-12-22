@@ -1,7 +1,7 @@
-import MainLayout from "Layout/MainLayout";
+import MainLayout from 'Layout/MainLayout';
 
-function Events() {
-  return <MainLayout></MainLayout>;
+function Events({ children }) {
+  return <MainLayout>{children}</MainLayout>;
 }
 
 export default Events;
