@@ -13,12 +13,8 @@ const roles = {
     Projects: {
       read: true,
       create: true,
-      update: (user, project) => {
-        return user.id === project.userId;
-      },
-      delete: (user, project) => {
-        return user.id === project.userId;
-      },
+      update: true,
+      delete: true,
     },
   },
   faculty: {
@@ -32,7 +28,9 @@ const roles = {
   teamLead: {
     Projects: {
       read: true,
-      create: true,
+      create: (project) => {
+        return project.groupProject;
+      },
       update: (user, project) => {
         return user.id === project.userId;
       },
