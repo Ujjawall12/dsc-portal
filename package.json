@@ -11,6 +11,9 @@
     "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
     "start:frontend": "npm --prefix src/frontend start",
     "start:backend": "npm --prefix src/backend start",
+    "dev:backend": "npm --prefix src/backend run dev",
+    "dev:frontend": "npm --prefix src/frontend run dev",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
