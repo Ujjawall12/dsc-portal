@@ -1,7 +1,7 @@
 import MainLayout from 'Layout/MainLayout';
 
-function Events({ children }) {
-  return <MainLayout>{children}</MainLayout>;
+function Events() {
+  return <MainLayout></MainLayout>;
 }
 
 export default Events;

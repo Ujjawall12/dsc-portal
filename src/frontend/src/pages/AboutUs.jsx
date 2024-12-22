@@ -1,7 +1,7 @@
 import MainLayout from 'Layout/MainLayout';
 
-function AboutUs({ children }) {
-  return <MainLayout>{children}</MainLayout>;
+function AboutUs() {
+  return <MainLayout></MainLayout>;
 }
 
 export default AboutUs;

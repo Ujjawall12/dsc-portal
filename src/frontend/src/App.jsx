@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Homepage from 'pages/Homepage/Homepage';
 import AboutUs from 'pages/AboutUs';
 import Events from 'pages/Events';
-import Team from 'pages/Team';
+import Team from '@/pages/Teams';
 import Resources from 'pages/Resources';
 import NotFound from './pages/NotFound';
 import SomethingWentWrong from './pages/SomethingWentWrong';
