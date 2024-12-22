@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const UserHistory = require('./UserHistorySchema');
+const Permissions = require('./PermissionsSchema');
 
 const UserSchema = new mongoose.Schema(
   {
@@ -19,8 +20,19 @@ const UserSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ['admin', 'member', 'participant'],
+      enum: [
+        'admin',
+        'teamLead',
+        'subLead',
+        'member',
+        'participant',
+        'oldMember',
+      ],
       default: 'participant',
+    },
+    permissions: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Permissions',
     },
     history: [
       {
