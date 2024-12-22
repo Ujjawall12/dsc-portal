@@ -1,7 +1,7 @@
 import MainLayout from 'Layout/MainLayout';
 
-function Teams() {
-  return <MainLayout></MainLayout>;
+function Teams({ children }) {
+  return <MainLayout>{children}</MainLayout>;
 }
 
 export default Teams;
