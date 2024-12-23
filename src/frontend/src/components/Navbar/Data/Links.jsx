@@ -3,7 +3,7 @@ const links = [
   { text: "About Us", to: "/about" },
   { text: "Events", to: "/events" },
   { text: "Team", to: "/team" },
-  { text: "Resources", to: "/resources" },
+  { text: "Projects", to: "/projects" },
   { text: "Membership", to: "/login", type: "black" },
 ];
 
