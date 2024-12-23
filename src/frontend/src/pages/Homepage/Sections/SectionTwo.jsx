@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-import ProjectCard from '@/components/ProjectCard/ProjectCard';
+import ProjectCard from '@/components/Projects/ProjectCard/ProjectCard';
 import SectionHeading from '@/components/SectionHeading';
 import CurrentProjectCard from '@/components/CurrentProjectCard';
 import ViewAllProjectCard from '@/components/ViewAllProjectCard';

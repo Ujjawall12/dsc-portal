@@ -4,7 +4,8 @@ import Homepage from 'pages/Homepage/Homepage';
 import AboutUs from 'pages/AboutUs';
 import Events from 'pages/Events';
 import Team from '@/pages/Teams';
-import Resources from 'pages/Resources';
+import Projects from './pages/ProjectsPage/Projects';
+import ProjectDetails from './pages/ProjectsPage/ProjectDetails';
 import NotFound from './pages/NotFound';
 import SomethingWentWrong from './pages/SomethingWentWrong';
 
@@ -16,7 +17,8 @@ function RouteList() {
         <Route path='/about' element={<AboutUs />} />
         <Route path='/events' element={<Events />} />
         <Route path='/team' element={<Team />} />
-        <Route path='/resources' element={<Resources />} />
+        <Route path='/projects' element={<Projects />} />
+        <Route path='/projects/:slug' element={<ProjectDetails />}/>
         <Route path='/break' element={<SomethingWentWrong />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
