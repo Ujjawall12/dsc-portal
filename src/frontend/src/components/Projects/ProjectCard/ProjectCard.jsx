@@ -50,7 +50,8 @@ export default function ProjectCard({ id }) {
       >
         <div className='-z-10 absolute h-full w-full bg-gradient-to-b from-neutral-800/80 via-gray-600/30 to-gray-800/40'></div>
         <img
-          src={projectData.image || '/sample-image.jpg'}
+        // removed projectData.image for now
+          src={'/sample-image.jpg'}
           alt='Project'
           className='object-cover h-full w-full absolute -z-20'
         />
