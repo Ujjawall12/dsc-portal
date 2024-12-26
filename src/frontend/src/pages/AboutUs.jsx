@@ -160,7 +160,7 @@ function AboutUs() {
               },
               {
                 question: 'How can I join?',
-                answer: 'You can register through the "Register" button or participate in our events and workshops.',
+                answer: 'You can join after giving interviews which occur nimbus every year.',
               },
               {
                 question: 'What technologies do you focus on?',
