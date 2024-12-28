@@ -31,6 +31,7 @@ function AboutUs() {
             {/* Anchor links for navigation */}
             <a href="#about" className="font-medium text-gray-700 hover:text-[#4285F4] transition-all duration-300 hover:underline underline-offset-4">About</a>
             <a href="#stats" className="font-medium text-gray-700 hover:text-[#34A853] transition-all duration-300 hover:underline underline-offset-4">Stats</a>
+            <a href="#domains" className="font-medium text-gray-700 hover:text-[#FBBC05] transition-all duration-300 hover:underline underline-offset-4">domains</a>
             <a href="#contact" className="font-medium text-gray-700 hover:text-[#EA4335] transition-all duration-300 hover:underline underline-offset-4">Contact</a>
             <a href="#faq" className="font-medium text-gray-700 hover:text-[#FBBC05] transition-all duration-300 hover:underline underline-offset-4">FAQ</a>
           </nav>
