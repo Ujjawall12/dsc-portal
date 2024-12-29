@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Section from '@/Layout/Section';
 import ProjectSidebar from '@/components/Projects/ProjectSidebar';
 import { SlidersHorizontalIcon } from 'lucide-react';
-import ProjectCard from '@/components/Projects/ProjectCard/ProjectCard';
+import ProjectInfoCard from '@/components/Projects/ProjectInfoCard';
 import ProjectVaulDrawer from '@/components/Projects/ProjectVaulDrawer';
 import { useSearchParams } from 'react-router-dom';
 
@@ -36,10 +36,112 @@ function Projects() {
 
     // while making the request to the backend create a useDebounce hook
   }
+
+
+  const projectData = [
+    {
+      id: 1,
+      title: "Smart Campus Initiative",
+      description: "Building IoT solutions for campus facilities management and automation.",
+      status: "Active",
+      category: "Technical Club",
+      tags: ["IoT", "Web Dev", "Hardware"],
+      teamSize: 5,
+      duration: "6 months",
+      image: "/projects/smart-campus.jpg"
+    },
+    {
+      id: 2,
+      title: "Digital Library System",
+      description: "Creating a modern digital catalog and booking system for the campus library.",
+      status: "Active",
+      category: "Academic Project",
+      tags: ["Web Dev", "Database", "UI/UX"],
+      teamSize: 4,
+      duration: "4 months",
+      image: "/projects/digital-library.jpg"
+    },
+    {
+      id: 3,
+      title: "Green Energy Monitor",
+      description: "Developing solar panel monitoring and optimization system for campus buildings.",
+      status: "Planning",
+      category: "Technical Club",
+      tags: ["IoT", "Data Analysis", "Hardware"],
+      teamSize: 6,
+      duration: "8 months",
+      image: "/projects/green-energy.jpg"
+    },
+    {
+      id: 4,
+      title: "Campus Navigation App",
+      description: "Mobile application for indoor and outdoor campus navigation with AR features.",
+      status: "In Progress",
+      category: "Student Initiative",
+      tags: ["Mobile Dev", "AR", "UI/UX"],
+      teamSize: 3,
+      duration: "5 months",
+      image: "/projects/navigation-app.jpg"
+    },
+    {
+      id: 5,
+      title: "Smart Parking System",
+      description: "Automated parking space detection and management system for campus lots.",
+      status: "Active",
+      category: "Technical Club",
+      tags: ["IoT", "Mobile Dev", "Hardware"],
+      teamSize: 4,
+      duration: "3 months",
+      image: "/projects/smart-parking.jpg"
+    },
+    {
+      id: 6,
+      title: "Student Collaboration Platform",
+      description: "Web platform for student project collaboration and resource sharing.",
+      status: "Completed",
+      category: "Academic Project",
+      tags: ["Web Dev", "Database", "Cloud"],
+      teamSize: 5,
+      duration: "7 months",
+      image: "/projects/collab-platform.jpg"
+    },
+    {
+      id: 7,
+      title: "Campus Events App",
+      description: "Real-time event management and notification system for campus activities.",
+      status: "Active",
+      category: "Student Initiative",
+      tags: ["Mobile Dev", "Web Dev", "UI/UX"],
+      teamSize: 4,
+      duration: "4 months",
+      image: "/projects/events-app.jpg"
+    },
+    {
+      id: 8,
+      title: "Lab Equipment Monitor",
+      description: "IoT-based monitoring system for laboratory equipment and resources.",
+      status: "Planning",
+      category: "Technical Club",
+      tags: ["IoT", "Hardware", "Data Analysis"],
+      teamSize: 3,
+      duration: "6 months",
+      image: "/projects/lab-monitor.jpg"
+    }
+  ];
   return <MainLayout>
     <Section>
       <div className='dark:text-white px-5'>
         {/* rest of the code for the projects will go here */}
+        <div className='min-h-[20vh]  w-full flex flex-col justify-center items-center p-5'>
+          <h2 className='font-bold text-neutral-700 dark:text-white text-5xl'>
+            Our <span className="px-2 py-2 pb-3 -rotate-3 bg-gradient-to-b from-orange-400  to-orange-600 text-white inline-block">
+                Projects
+              </span>
+          </h2>
+          <p className='text-neutral-700 dark:text-neutral-300 w-full max-w-xl text-center pt-2'>
+          Explore the innovative projects our developer community is working on
+          </p>
+        </div>
         <div className='space-y-6 w-full'>
           <div className='flex justify-center items-center w-full'>
             <form className='flex items-center justify-center gap-3 w-full' onSubmit={handleSubmit}>
@@ -55,28 +157,14 @@ function Projects() {
           </div>
           <div className='border dark:border-neutral-500 border-dashed'/>
           {/* here mapping function will come to map project on the basis of details */}
-          <div className='grid lg:grid-cols-2 gap-5'>
-            <div className='flex justify-center'>
-              <ProjectCard />
-            </div>
-            <div className='flex justify-center'>
-              <ProjectCard />
-            </div>
-            <div className='flex justify-center'>
-              <ProjectCard />
-            </div>
-            <div className='flex justify-center'>
-              <ProjectCard />
-            </div>
-            <div className='flex justify-center'>
-              <ProjectCard />
-            </div>
-            <div className='flex justify-center'>
-              <ProjectCard />
-            </div>
-            <div className='flex justify-center'>
-              <ProjectCard />
-            </div>
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7'>
+            {projectData.map((project) => {
+              return (
+                <div className='flex justify-center' key={project.id}>
+                    <ProjectInfoCard {...project}/>
+                </div>
+              )
+            })}
           </div>
           {/* projects cards below */}
           {/* todo: add search bar with filter button on right : align these at center */}
