@@ -1,4 +1,5 @@
 import MainLayout from "@/Layout/MainLayout";
+
 import { useParams } from "react-router-dom";
 import React from "react";
 import ExampleProjectHeroSection from "./projectDetailsComponents/projectTitle";
@@ -9,14 +10,12 @@ function ProjectDetails() {
   const { slug } = useParams();
 
   return <MainLayout>
-    <div className="App">
       <ExampleProjectHeroSection />
       <TechnicalFeaturesSection />
       <Carousel />
       <TeamSection />
-    </div>
     
-  </MainLayout>
+</MainLayout>
 }
 
 export default ProjectDetails;
