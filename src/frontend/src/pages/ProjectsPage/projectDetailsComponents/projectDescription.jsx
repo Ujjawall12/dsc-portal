@@ -78,7 +78,7 @@ const TechnicalFeaturesSection = () => {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-6 bg-white">
+    <div className="w-full max-w-7xl mx-auto bg-white">
       {/* Header Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-4">Project Description</h1>
