@@ -97,7 +97,7 @@ const Carousel = () => {
       {/* Visual Media Heading OUTSIDE the outermost box */}
       <h1 className="text-center text-4xl font-bold">Visual Media</h1>
 
-      <div className="max-w-6xl w-full mx-auto p-8 bg-gray-50 rounded-2xl">
+      <div className="max-w-6xl w-full mx-auto bg-gray-50 rounded-2xl">
         {/* Carousel */}
         <div
           className="relative overflow-hidden"
