@@ -97,11 +97,7 @@ const Carousel = () => {
       <div className="w-full max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-10 text-black dark:text-gray-100">Visual Media</h2>
 
-<<<<<<< HEAD
-        <div className="max-w-6xl w-full mx-auto p-8 bg-gray-50 rounded-2xl">
-=======
         <div className="max-w-6xl w-full mx-auto p-8 bg-gray-50 dark:bg-[#2D2D2D] rounded-2xl">
->>>>>>> main
           {/* Carousel */}
           <div
             className="relative overflow-hidden"
