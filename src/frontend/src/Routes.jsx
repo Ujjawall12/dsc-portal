@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Homepage from 'pages/Homepage/Homepage';
-import AboutUs from 'pages/AboutUs';
+import AboutUs from '@/pages/AboutUs/AboutUs';
 import EventsPage from 'pages/Events/EventsPage';
 import Team from '@/pages/Teams';
 import Projects from './pages/ProjectsPage/Projects';
@@ -18,7 +18,7 @@ function RouteList() {
         <Route path='/events' element={<EventsPage />} />
         <Route path='/team' element={<Team />} />
         <Route path='/projects' element={<Projects />} />
-        <Route path='/projects/:slug' element={<ProjectDetails />}/>
+        <Route path='/projects/:slug' element={<ProjectDetails />} />
         <Route path='/break' element={<SomethingWentWrong />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
