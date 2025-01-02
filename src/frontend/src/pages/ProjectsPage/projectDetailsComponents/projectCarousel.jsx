@@ -94,61 +94,62 @@ const Carousel = () => {
 
   return (
     <>
-      {/* Visual Media Heading OUTSIDE the outermost box */}
-      <h1 className="text-center text-4xl font-bold">Visual Media</h1>
+      <div className="w-full max-w-7xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-16 text-black">Our Team</h2>
 
-      <div className="max-w-6xl w-full mx-auto p-8 bg-gray-50 rounded-2xl">
-        {/* Carousel */}
-        <div
-          className="relative overflow-hidden"
-          ref={containerRef}
-          onMouseDown={handleDragStart}
-          onMouseMove={handleDragMove}
-          onMouseUp={handleDragEnd}
-          onMouseLeave={handleDragEnd}
-          onTouchStart={handleDragStart}
-          onTouchMove={handleDragMove}
-          onTouchEnd={handleDragEnd}
-        >
+        <div className="max-w-6xl w-full mx-auto p-8 bg-gray-50 rounded-2xl">
+          {/* Carousel */}
           <div
-            className="flex gap-x-4 transition-transform duration-300"
-            style={{
-              transform: `translateX(${offsetX}px)`,
-            }}
+            className="relative overflow-hidden"
+            ref={containerRef}
+            onMouseDown={handleDragStart}
+            onMouseMove={handleDragMove}
+            onMouseUp={handleDragEnd}
+            onMouseLeave={handleDragEnd}
+            onTouchStart={handleDragStart}
+            onTouchMove={handleDragMove}
+            onTouchEnd={handleDragEnd}
           >
-            {carouselSets[currentSet].map((item, index) => (
-              <CarouselCard key={`${currentSet}-${index}`} {...item} />
-            ))}
-          </div>
+            <div
+              className="flex gap-x-4 transition-transform duration-300"
+              style={{
+                transform: `translateX(${offsetX}px)`,
+              }}
+            >
+              {carouselSets[currentSet].map((item, index) => (
+                <CarouselCard key={`${currentSet}-${index}`} {...item} />
+              ))}
+            </div>
 
-          {/* Navigation Buttons */}
-          <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:shadow-lg flex items-center justify-center z-10"
-            onClick={() => navigate(-1)}
-            aria-label="Previous set"
-          >
-            <ChevronLeft className="w-6 h-6 text-blue-600" />
-          </button>
-          <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:shadow-lg flex items-center justify-center z-10"
-            onClick={() => navigate(1)}
-            aria-label="Next set"
-          >
-            <ChevronRight className="w-6 h-6 text-blue-600" />
-          </button>
+            {/* Navigation Buttons */}
+            <button
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:shadow-lg flex items-center justify-center z-10"
+              onClick={() => navigate(-1)}
+              aria-label="Previous set"
+            >
+              <ChevronLeft className="w-6 h-6 text-blue-600" />
+            </button>
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:shadow-lg flex items-center justify-center z-10"
+              onClick={() => navigate(1)}
+              aria-label="Next set"
+            >
+              <ChevronRight className="w-6 h-6 text-blue-600" />
+            </button>
 
-          {/* Responsive Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {carouselSets.slice(startDot, endDot).map((_, index) => (
-              <button
-                key={index + startDot}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index + startDot === currentSet ? 'bg-blue-600 scale-125' : 'bg-gray-300'
-                }`}
-                onClick={() => setCurrentSet(index + startDot)}
-                aria-label={`Go to set ${index + startDot + 1}`}
-              />
-            ))}
+            {/* Responsive Dots */}
+            <div className="flex justify-center gap-2 mt-6">
+              {carouselSets.slice(startDot, endDot).map((_, index) => (
+                <button
+                  key={index + startDot}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index + startDot === currentSet ? 'bg-blue-600 scale-125' : 'bg-gray-300'
+                  }`}
+                  onClick={() => setCurrentSet(index + startDot)}
+                  aria-label={`Go to set ${index + startDot + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
