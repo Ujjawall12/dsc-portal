@@ -5,7 +5,7 @@ import { Code, Smartphone, Brain, Cloud, Database, Palette } from 'lucide-react'
 import logo from "../assets/logo.png";
 import about from "../assets/about.png";
 
-// Domain data structure for better organization
+// Domain data structure
 const DOMAIN_DATA = [
   {
     title: "Web Development",
@@ -79,8 +79,7 @@ const DomainCard = ({ domain }) => {
   const Icon = domain.icon;
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-500 
-      hover:shadow-2xl hover:-translate-y-2 group relative overflow-hidden">
+    <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 group relative overflow-hidden">
       <div className="flex items-center gap-4 mb-4">
         <div className={`p-3 rounded-lg bg-gradient-to-br ${domain.gradient}`}>
           <Icon className="w-6 h-6 text-white" />
@@ -112,8 +111,7 @@ const DomainCard = ({ domain }) => {
         <span>projects delivered</span>
       </div>
 
-      <div className={`absolute inset-0 bg-gradient-to-br ${domain.gradient} 
-        opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+      <div className={`absolute inset-0 bg-gradient-to-br ${domain.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
     </div>
   );
 };
@@ -122,6 +120,7 @@ const DomainCard = ({ domain }) => {
 function AboutUs() {
   const [faqStates, setFaqStates] = useState([false, false, false]);
   const [activeSection, setActiveSection] = useState('');
+  const [showAbout, setShowAbout] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -187,29 +186,73 @@ function AboutUs() {
         </header>
 
         {/* Hero Section */}
-        <section id="about" className="pt-32 pb-16 px-8">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div className="flex-1 space-y-6">
-              <h1 className="text-5xl font-bold leading-tight">
-                <span className="block text-blue-600">Empowering</span>
-                <span className="block text-green-500">the Innovators</span>
-                <span className="block bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
-                  of Tomorrow
+        <section id="about" className="min-h-screen bg-gradient-to-b from-white to-blue-50 pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div className="flex-1 space-y-8">
+              <div className="space-y-4">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                  <span className="block text-blue-600 mb-2">Innovate.</span>
+                  <span className="block text-green-500 mb-2">Create.</span>
+                  <span className="block bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 bg-clip-text text-transparent">
+                    Transform.
+                  </span>
+                </h1>
+                
+                <div className="h-1 w-24 bg-gradient-to-r from-blue-600 to-green-500 rounded-full"></div>
+              </div>
+              
+              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-2xl">
+                Welcome to{' '}
+                <span className="font-bold text-blue-600 hover:text-blue-700 transition-colors">
+                  GDSC NIT Hamirpur
                 </span>
-              </h1>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                At <span className="font-bold text-red-500">GDSC NIT Hamirpur</span>, 
-                we are proud to be part of a global community supported by 
-                <span className="font-semibold text-green-500"> Google Developers</span>. 
-                Our mission is to bridge the gap between theory and practice, enabling 
-                students to create impactful solutions for real-world challenges.
+                , where innovation meets impact. As part of the{' '}
+                <span className="font-semibold bg-gradient-to-r from-blue-600 via-red-500 to-yellow-500 bg-clip-text text-transparent">
+                  Google Developer Student Clubs
+                </span>{' '}
+                network, we empower students to become tech leaders and problem solvers of tomorrow.
               </p>
-            </div>
+              
+              <div className="space-y-6">
+                <button 
+                  onClick={() => setShowAbout(!showAbout)}
+                  className="px-8 py-3 border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-white font-semibold rounded-lg transition-all transform hover:scale-105"
+                >
+                  About GDSC
+                </button>
 
-            <CustomizableImage 
-              src={about} 
-              alt="About GDSC"
-            />
+                <div className={`transition-all duration-500 ease-in-out overflow-hidden ${showAbout ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-100 space-y-4">
+                    <h3 className="text-xl font-bold text-gray-800">About Google Developer Student Clubs</h3>
+                    <p className="text-gray-700">
+                      Google Developer Student Clubs (GDSC) are community groups for college and university students 
+                      interested in Google developer technologies. Students from all undergraduate or graduate programs 
+                      with an interest in growing as a developer are welcome.
+                    </p>
+                    <p className="text-gray-700">
+                      By joining GDSC, students can:
+                    </p>
+                    <ul className="list-disc pl-6 text-gray-700 space-y-2">
+                      <li>Learn about Google technologies in peer-to-peer learning environments</li>
+                      <li>Gain practical development experience by building solutions for local businesses and their community</li>
+                      <li>Get access to Google Developer resources and opportunities</li>
+                      <li>Showcase their projects and connect with like-minded students from around the globe</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex-1 relative">
+              <div className="absolute -top-4 -left-4 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+              <div className="absolute -bottom-4 -right-4 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+              <div className="relative">
+                <CustomizableImage
+                  src={about}
+                  alt="GDSC NIT Hamirpur Community"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
@@ -240,8 +283,7 @@ function AboutUs() {
         <section id="domains" className="py-16 px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-600 
-                to-green-500 bg-clip-text text-transparent">
+              <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
                 Our Domains
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
