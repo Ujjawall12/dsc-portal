@@ -4,7 +4,7 @@ const links = [
   { text: "Events", to: "/events" },
   { text: "Team", to: "/team" },
   { text: "Projects", to: "/projects" },
-  { text: "Membership", to: "/login", type: "black" },
+  { text: "Membership", to: "/sign-up", type: "black" },
 ];
 
 export const LINKS_GROUP_ONE_COUNT = 5;
