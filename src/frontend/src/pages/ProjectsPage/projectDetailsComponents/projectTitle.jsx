@@ -22,7 +22,7 @@ const ProjectHeroSection = ({ projectData }) => {
       {/* Background with Image and Gradient */}
       <div className="absolute inset-0">
         <img
-          src="//1920/1080"
+          src="/sample-image.jpg"
           alt="Background"
           className="w-full h-full object-cover"
         />
@@ -40,7 +40,7 @@ const ProjectHeroSection = ({ projectData }) => {
             variants={fadeIn}
           >
             <div className="flex items-center gap-3">
-              <Badge variant="secondary" className="bg-blue-500/20 text-blue-300 hover:bg-blue-500/30">
+              <Badge variant="secondary" className="bg-blue-500/20 text-white hover:bg-blue-500/30">
                 {projectData.category}
               </Badge>
               <Badge variant="secondary" className={`${statusColors[projectData.status]} text-white`}>
@@ -92,7 +92,7 @@ const ProjectHeroSection = ({ projectData }) => {
                     {projectData.contributors.map((contributor, index) => (
                       <div key={index} className="flex items-center gap-2">
                         <img
-                          src={`https://api.dicebear.com/7.x/avatars/svg?seed=${contributor.name}`}
+                          src={`https://api.dicebear.com/7.x/identicon/svg?seed=${contributor.name}`}
                           alt={contributor.name}
                           className="w-6 h-6 rounded-full bg-gray-700"
                         />
@@ -157,19 +157,19 @@ const ProjectHeroSection = ({ projectData }) => {
 // Example usage with sample data
 const ExampleProjectHeroSection = () => {
   const sampleProjectData = {
-    title: "Modern Web Development Project",
+    title: "Smart Irrigation System",
     description:
-      "An innovative project leveraging cutting-edge web technologies to create seamless, responsive, and user-centric digital experiences.",
+      "An IoT-based solution that automates irrigation using soil moisture sensors and weather data. It optimizes water usage, improves crop yields, and provides real-time monitoring through a mobile app, promoting sustainable farming.",
     startDate: "2024-01-01",
     endDate: "2024-06-30",
     status: "In Progress",
     category: "Web Development",
     contributors: [
-      { name: "John Doe", profileUrl: "/profile/john" },
-      { name: "Jane Smith", profileUrl: "/profile/jane" },
-      { name: "Mike Johnson", profileUrl: "/profile/mike" },
+      { name: "John Doe", profileUrl: "/sample-image.jpg" },
+      { name: "Jane Smith", profileUrl: "/sample-image.jpg" },
+      { name: "Mike Johnson", profileUrl: "/sample-image.jpg" },
     ],
-    heroImage: "/api/placeholder/1920/1080",
+    heroImage: "/",
     statistics: {
       dailyActivity: 20,
       dailyUsers: 10,

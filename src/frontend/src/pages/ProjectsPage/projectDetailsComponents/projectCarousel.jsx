@@ -25,14 +25,14 @@ const Carousel = () => {
 
   const carouselSets = [
     [
-      { image: "/api/placeholder/400/200", date: "Dec 25, 2024", title: "Latest Robotics Technology" },
-      { image: "/api/placeholder/400/200", date: "Dec 17, 2024", title: "AI Integration Systems" },
-      { image: "/api/placeholder/400/200", date: "Dec 10, 2024", title: "Future of Machine Learning" },
+      { image: "/sample-image.jpg", date: "Dec 25, 2024", title: "Latest Robotics Technology" },
+      { image: "/sample-image.jpg", date: "Dec 17, 2024", title: "AI Integration Systems" },
+      { image: "/sample-image.jpg", date: "Dec 10, 2024", title: "Future of Machine Learning" },
     ],
     [
-      { image: "/api/placeholder/400/200", date: "Dec 5, 2024", title: "Neural Network Advances" },
-      { image: "/api/placeholder/400/200", date: "Dec 1, 2024", title: "Robotic Interface Design" },
-      { image: "/api/placeholder/400/200", date: "Nov 28, 2024", title: "Smart Automation Tools" },
+      { image: "/sample-image.jpg", date: "Dec 5, 2024", title: "Neural Network Advances" },
+      { image: "/sample-image.jpg", date: "Dec 1, 2024", title: "Robotic Interface Design" },
+      { image: "/sample-image.jpg", date: "Nov 28, 2024", title: "Smart Automation Tools" },
     ],
   ];
 
@@ -95,7 +95,7 @@ const Carousel = () => {
   return (
     <>
       <div className="w-full max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-8 text-black">Visual Media</h2>
+        <h2 className="text-4xl font-bold text-center mb-10 text-black">Visual Media</h2>
 
         <div className="max-w-6xl w-full mx-auto p-8 bg-gray-50 rounded-2xl">
           {/* Carousel */}

@@ -7,7 +7,7 @@ const TeamSection = () => {
     {
       name: "Sarah Johnson",
       role: "FOUNDER",
-      image: "/api/placeholder/150/150",
+      image: "/sample-image.jpg",
       social: {
         twitter: "https://twitter.com/sarahjohnson",
         linkedin: "https://linkedin.com/in/sarahjohnson",
@@ -18,7 +18,7 @@ const TeamSection = () => {
     {
       name: "Michael Chen",
       role: "DEVELOPER",
-      image: "/api/placeholder/150/150",
+      image: "/sample-image.jpg",
       social: {
         twitter: "https://twitter.com/michaelchen",
         linkedin: "https://linkedin.com/in/michaelchen",
@@ -29,7 +29,7 @@ const TeamSection = () => {
     {
       name: "Emily Parker",
       role: "DESIGNER",
-      image: "/api/placeholder/150/150",
+      image: "/sample-image.jpg",
       social: {
         twitter: "https://twitter.com/emilyparker",
         linkedin: "https://linkedin.com/in/emilyparker",
@@ -41,7 +41,7 @@ const TeamSection = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-8 text-black">Our Team</h2>
+      <h2 className="text-4xl font-bold text-center mb-10 text-black">Our Team</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {teamMembers.map((member, index) => (
