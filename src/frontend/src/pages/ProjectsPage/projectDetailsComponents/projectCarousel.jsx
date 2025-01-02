@@ -2,16 +2,16 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const CarouselCard = ({ image, date, title }) => (
-  <div className="flex-none w-[calc(33.33%-16px)] bg-white rounded-xl p-4 shadow-lg">
+  <div className="flex-none w-[calc(33.33%-16px)] bg-white dark:bg-[#3C3D37] rounded-xl p-4 shadow-lg">
     <img
       src={image}
       alt={title}
       className="w-full h-48 object-cover rounded-lg"
     />
-    <span className="inline-block px-4 py-1 mt-3 mb-2 text-sm text-gray-600 bg-custom-gray rounded-full">
+    <span className="inline-block px-4 py-1 mt-3 mb-2 text-sm text-gray-600 dark:text-gray-400 bg-custom-gray dark:bg-[#536066] rounded-full">
       {date}
     </span>
-    <h2 className="text-lg text-gray-800 font-medium">{title}</h2>
+    <h2 className="text-lg text-gray-800 dark:text-gray-100 font-medium">{title}</h2>
   </div>
 );
 
@@ -95,9 +95,9 @@ const Carousel = () => {
   return (
     <>
       <div className="w-full max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-10 text-black">Visual Media</h2>
+        <h2 className="text-4xl font-bold text-center mb-10 text-black dark:text-gray-100">Visual Media</h2>
 
-        <div className="max-w-6xl w-full mx-auto p-8 bg-gray-50 rounded-2xl">
+        <div className="max-w-6xl w-full mx-auto p-8 bg-gray-50 dark:bg-[#2D2D2D] rounded-2xl">
           {/* Carousel */}
           <div
             className="relative overflow-hidden"
@@ -123,18 +123,18 @@ const Carousel = () => {
 
             {/* Navigation Buttons */}
             <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:shadow-lg flex items-center justify-center z-10"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white dark:bg-[#3C3D37] p-2 rounded-full shadow-md hover:shadow-lg flex items-center justify-center z-10"
               onClick={() => navigate(-1)}
               aria-label="Previous set"
             >
-              <ChevronLeft className="w-6 h-6 text-blue-600" />
+              <ChevronLeft className="w-6 h-6 text-blue-600 dark:text-blue-300" />
             </button>
             <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:shadow-lg flex items-center justify-center z-10"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-[#3C3D37] p-2 rounded-full shadow-md hover:shadow-lg flex items-center justify-center z-10"
               onClick={() => navigate(1)}
               aria-label="Next set"
             >
-              <ChevronRight className="w-6 h-6 text-blue-600" />
+              <ChevronRight className="w-6 h-6 text-blue-600 dark:text-blue-300" />
             </button>
 
             {/* Responsive Dots */}
@@ -143,7 +143,9 @@ const Carousel = () => {
                 <button
                   key={index + startDot}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index + startDot === currentSet ? 'bg-blue-600 scale-125' : 'bg-gray-300'
+                    index + startDot === currentSet
+                      ? 'bg-blue-600 dark:bg-blue-300 scale-125'
+                      : 'bg-gray-300 dark:bg-gray-500'
                   }`}
                   onClick={() => setCurrentSet(index + startDot)}
                   aria-label={`Go to set ${index + startDot + 1}`}
