@@ -95,7 +95,7 @@ const Carousel = () => {
   return (
     <>
       <div className="w-full max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-16 text-black">Our Team</h2>
+        <h2 className="text-4xl font-bold text-center mb-8 text-black">Visual Media</h2>
 
         <div className="max-w-6xl w-full mx-auto p-8 bg-gray-50 rounded-2xl">
           {/* Carousel */}
