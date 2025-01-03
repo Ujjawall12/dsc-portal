@@ -42,7 +42,7 @@ function EventsPage() {
             />
           </div>
 
-          <div className='flex sm:hidden gap-04 mt-2 px-4'>
+          <div className='flex sm:hidden gap-2 mt-2 px-4'>
             {years.map((year) => (
               <button
                 key={year}
