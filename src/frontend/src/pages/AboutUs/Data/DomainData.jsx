@@ -6,6 +6,7 @@ import {
   Database,
   Palette,
 } from 'lucide-react';
+
 // Domain data structure
 const DOMAIN_DATA = [
   {
