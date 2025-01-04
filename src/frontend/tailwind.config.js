@@ -12,6 +12,9 @@ export default {
       gridTemplateColumns: {
         17: 'repeat(17, minmax(0, 1fr))',
       },
+      colors: {
+        'custom-gray': '#F8FAFC',
+      },
     },
   },
   plugins: [],

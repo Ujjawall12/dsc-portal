@@ -1,5 +1,11 @@
 # DSC Portal
 
+## General Components
+
+- Card
+- ProjectCard
+- SeectionHeading
+
 ## How to Start the Project
 
 To start the project, follow these steps:
@@ -218,7 +224,7 @@ Use React Helmet in Components:
 Import and add metadata specific to each page/component.
 
 ```jsx
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 function HomePage() {
   return (
@@ -226,11 +232,11 @@ function HomePage() {
       <Helmet>
         <title>Your Club Name - Homepage</title>
         <meta
-          name="description"
-          content="Welcome to Your Club Name! Explore events, members, and more."
+          name='description'
+          content='Welcome to Your Club Name! Explore events, members, and more.'
         />
-        <meta name="keywords" content="Club, Events, College, Membership" />
-        <link rel="canonical" href="https://yourclubname.com/" />
+        <meta name='keywords' content='Club, Events, College, Membership' />
+        <link rel='canonical' href='https://yourclubname.com/' />
       </Helmet>
       <h1>Welcome to Your Club</h1>
     </>
@@ -249,14 +255,14 @@ Example Tags:
 
 ```jsx
 <Helmet>
-  <meta property="og:title" content="Your Club Name - Join Now!" />
+  <meta property='og:title' content='Your Club Name - Join Now!' />
   <meta
-    property="og:description"
-    content="Join the most active club on campus!"
+    property='og:description'
+    content='Join the most active club on campus!'
   />
-  <meta property="og:image" content="https://yourclubname.com/og-image.jpg" />
-  <meta property="og:url" content="https://yourclubname.com/" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property='og:image' content='https://yourclubname.com/og-image.jpg' />
+  <meta property='og:url' content='https://yourclubname.com/' />
+  <meta name='twitter:card' content='summary_large_image' />
 </Helmet>
 ```
 
@@ -293,9 +299,9 @@ Use a script to generate a sitemap.xml file that includes all your routes.
 
 ```js
 const router = [
-  { path: "/", name: "Home" },
-  { path: "/events", name: "Events" },
-  { path: "/contact", name: "Contact Us" },
+  { path: '/', name: 'Home' },
+  { path: '/events', name: 'Events' },
+  { path: '/contact', name: 'Contact Us' },
 ];
 ```
 
@@ -342,3 +348,6 @@ Ensure sensitive pages (e.g., admin panel) are restricted.
    2. [List](https://dribbble.com/tags/community-platform)
    3. [Homepage](https://dribbble.com/shots/22611851-Dimension-dev-Re-Design)
    4. [Homepage 2](https://dribbble.com/shots/21221092-3D-printing-website-hero-landing-page-design)
+
+signup, signin
+project - get, project - post
