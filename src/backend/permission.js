@@ -8,6 +8,41 @@ const permissions = {
   },
 };
 
+const role = {
+  student: {
+    room: {
+      read: (user, room) => {
+        return user.id === room.userId;
+      },
+      write: false,
+      update: false,
+      delete: false,
+    },
+  },
+  cheifWarden: {
+    hostel: {
+      read: true,
+      write: true,
+      update: false,
+      delete: false,
+    },
+  },
+  warden: {
+    hostel: {
+      read: true,
+      write: (user, hostel) => {
+        if (user.hostelId === hostel.id) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      update: false,
+      delete: false,
+    },
+  },
+};
+
 const roles = {
   admin: {
     Projects: {
