@@ -18,7 +18,10 @@ const ProjectHeroSection = ({ projectData }) => {
   };
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-gray-900 dark:bg-gray-800">
+    <div
+      className="relative w-full min-h-screen overflow-hidden bg-gray-900 dark:bg-gray-800"
+      style={{ zIndex: 0 }} // Removed top padding, retained z-index
+    >
       {/* Background with Image and Gradient */}
       <div className="absolute inset-0">
         <img
@@ -30,7 +33,10 @@ const ProjectHeroSection = ({ projectData }) => {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 text-white">
+      <div
+        className="relative z-10 max-w-7xl mx-auto px-6 py-12 text-white"
+        style={{ zIndex: 10 }} // Retained z-index for content layering
+      >
         <div className="w-full lg:w-2/3 space-y-12">
           {/* Header Section */}
           <motion.div
@@ -39,7 +45,11 @@ const ProjectHeroSection = ({ projectData }) => {
             animate="animate"
             variants={fadeIn}
           >
+<<<<<<< HEAD
+            <div className="flex flex-wrap items-center gap-3">
+=======
             <div className="flex items-center gap-3">
+>>>>>>> main
               <Badge
                 variant="secondary"
                 className="bg-blue-500/20 text-white hover:bg-blue-500/30"
@@ -67,7 +77,7 @@ const ProjectHeroSection = ({ projectData }) => {
           <motion.div initial="initial" animate="animate" variants={fadeIn}>
             <Card className="bg-white/10 backdrop-blur-md border-0 dark:bg-[#697565]/10">
               <CardContent className="p-8 space-y-6">
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <Calendar className="w-5 h-5 text-blue-300" />
                   <span className="text-gray-200">
                     {new Date(projectData.startDate).toLocaleDateString(
@@ -75,6 +85,18 @@ const ProjectHeroSection = ({ projectData }) => {
                       {
                         month: "long",
                         year: "numeric",
+<<<<<<< HEAD
+                      }
+                    )}{" "}
+                    -{" "}
+                    {new Date(projectData.endDate).toLocaleDateString(
+                      "en-US",
+                      {
+                        month: "long",
+                        year: "numeric",
+                      }
+                    )}
+=======
                       },
                     )}{" "}
                     -{" "}
@@ -82,16 +104,17 @@ const ProjectHeroSection = ({ projectData }) => {
                       month: "long",
                       year: "numeric",
                     })}
+>>>>>>> main
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <Tag className="w-5 h-5 text-blue-300" />
                   <span className="text-gray-200">{projectData.category}</span>
                 </div>
 
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-3">
                     <Users className="w-5 h-5 text-blue-300" />
                     <span className="text-gray-200 font-medium">
                       Contributors
