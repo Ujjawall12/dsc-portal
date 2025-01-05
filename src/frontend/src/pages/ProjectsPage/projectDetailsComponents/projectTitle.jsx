@@ -45,11 +45,7 @@ const ProjectHeroSection = ({ projectData }) => {
             animate="animate"
             variants={fadeIn}
           >
-<<<<<<< HEAD
             <div className="flex flex-wrap items-center gap-3">
-=======
-            <div className="flex items-center gap-3">
->>>>>>> main
               <Badge
                 variant="secondary"
                 className="bg-blue-500/20 text-white hover:bg-blue-500/30"
@@ -85,7 +81,6 @@ const ProjectHeroSection = ({ projectData }) => {
                       {
                         month: "long",
                         year: "numeric",
-<<<<<<< HEAD
                       }
                     )}{" "}
                     -{" "}
@@ -96,15 +91,6 @@ const ProjectHeroSection = ({ projectData }) => {
                         year: "numeric",
                       }
                     )}
-=======
-                      },
-                    )}{" "}
-                    -{" "}
-                    {new Date(projectData.endDate).toLocaleDateString("en-US", {
-                      month: "long",
-                      year: "numeric",
-                    })}
->>>>>>> main
                   </span>
                 </div>
 
