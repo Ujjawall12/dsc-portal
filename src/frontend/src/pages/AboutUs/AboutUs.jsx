@@ -64,7 +64,7 @@ function AboutUs() {
     <MainLayout>
       <Section>
         {/* Header */}
-        <header className="fixed top-0 w-full z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg p-4 px-8">
+        {/* <header className="fixed top-0 w-full z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg p-4 px-8">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div className="flex items-center gap-3">
               <img
@@ -77,7 +77,7 @@ function AboutUs() {
               </span>
             </div>
           </div>
-        </header>
+        </header> */}
 
         {/* About Section */}
         <section

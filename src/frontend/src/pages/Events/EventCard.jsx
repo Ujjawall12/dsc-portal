@@ -24,7 +24,7 @@ function EventCard({ title, date, description, image, details }) {
       </div>
 
       <div className="p-6">
-        <h3 className="text-2xl font-bold text-gray-900 mb-3 font-serif hover:text-black transition-colors duration-300">
+        <h3 className="text-2xl font-semibold text-gray-900 mb-3 font-Urbanist hover:text-black transition-colors duration-300">
           {title}
         </h3>
 

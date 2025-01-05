@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar } from "lucide-react";
 import { events } from "./EventsData";
@@ -7,11 +7,16 @@ import YearSelector from "./YearSelector";
 import MainLayout from "@/Layout/MainLayout";
 import Section from "@/Layout/Section";
 
+const years = ["2024", "2023"];  // todo - get years from the backend
+
 function EventsPage() {
   const [selectedYear, setSelectedYear] = useState("2024");
-  const years = ["2024", "2023"];
+  const [filteredEvents, setFilteredEvents] = useState(events.filter((event) => event.year === selectedYear));
 
-  const filteredEvents = events.filter((event) => event.year === selectedYear);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setFilteredEvents(events.filter((event) => event.year === selectedYear));
+  }, [selectedYear]);
 
   return (
     <MainLayout>
@@ -23,17 +28,17 @@ function EventsPage() {
           transition={{ duration: 0.5 }}
         >
           <div className="flex flex-row items-center gap-3">
-            <Calendar className="w-8 h-8 text-black " />
+            <Calendar className="w-8 h-8 text-black hidden sm:block" />
             <motion.h1 className="text-4xl sm:text-5xl  lg:text-4xl font-semibold text-gray-900 mb-2 font-Exo h-[1.8rem]">
               Events
             </motion.h1>
           </div>
-          <p className="text-gray-600 sm:ml-12 ml-4">
+          <p className="text-gray-600 sm:ml-12">
             Discover and join amazing tech events
           </p>
         </motion.div>
 
-        <div className=" flex flex-col sm:flex-row sm:items-start sm:gap-8">
+        <div className=" flex flex-col mt-8 sm:flex-row sm:items-start sm:gap-8">
           <div className="sm:w-24 sm:py-7 sm:px-3 hidden sm:block ">
             <YearSelector
               years={years}
@@ -51,7 +56,9 @@ function EventsPage() {
                     ? "bg-black text-white"
                     : "bg-white text-black"
                 }`}
-                onClick={() => setSelectedYear(year)}
+                onClick={() => {
+                  setSelectedYear(year)
+                }}
               >
                 {year}
               </button>
