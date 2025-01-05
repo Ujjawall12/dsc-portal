@@ -44,7 +44,7 @@ export default function AboutUsHeadingSection() {
     return (
         <section
         id="about"
-        className="min-h-screen bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100 via-white to-blue-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        className="min-h-screen bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100 via-white to-blue-50 dark:from-gray-800 dark:via-neutral-900 dark:to-neutral-900 pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
       >
         <div className="max-w-7xl mx-auto relative">
           {/* Animated Background Elements */}
