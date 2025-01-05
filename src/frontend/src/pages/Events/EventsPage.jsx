@@ -28,12 +28,12 @@ function EventsPage() {
           transition={{ duration: 0.5 }}
         >
           <div className="flex flex-row items-center gap-3">
-            <Calendar className="w-8 h-8 text-black hidden sm:block" />
-            <motion.h1 className="text-4xl sm:text-5xl  lg:text-4xl font-semibold text-gray-900 mb-2 font-Exo h-[1.8rem]">
+            <Calendar className="w-8 h-8 text-black dark:text-white hidden sm:block" />
+            <motion.h1 className="text-4xl sm:text-5xl  lg:text-4xl font-semibold text-gray-900 dark:text-gray-100 mb-2 font-Exo h-[1.8rem]">
               Events
             </motion.h1>
           </div>
-          <p className="text-gray-600 sm:ml-12">
+          <p className="text-gray-600 dark:text-gray-400 sm:ml-12">
             Discover and join amazing tech events
           </p>
         </motion.div>
@@ -53,8 +53,8 @@ function EventsPage() {
                 key={year}
                 className={`w-12 h-12 flex items-center justify-center border rounded-full ${
                   selectedYear === year
-                    ? "bg-black text-white"
-                    : "bg-white text-black"
+                    ? "bg-black text-white dark:bg-white dark:text-black"
+                    : "bg-white text-black dark:bg-black dark:text-white"
                 }`}
                 onClick={() => {
                   setSelectedYear(year)
@@ -75,7 +75,7 @@ function EventsPage() {
             {filteredEvents.length === 0 && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                 <div>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 dark:text-gray-400">
                     No events scheduled for {selectedYear}
                   </p>
                 </div>
