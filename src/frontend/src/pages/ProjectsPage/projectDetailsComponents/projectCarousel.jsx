@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect, useRef, useCallback } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const CarouselCard = ({ image, date, title }) => (
   <div className="flex-none w-[calc(33.33%-16px)] bg-white dark:bg-[#3C3D37] rounded-xl p-4 shadow-lg">
@@ -11,7 +11,9 @@ const CarouselCard = ({ image, date, title }) => (
     <span className="inline-block px-4 py-1 mt-3 mb-2 text-sm text-gray-600 dark:text-gray-400 bg-custom-gray dark:bg-[#536066] rounded-full">
       {date}
     </span>
-    <h2 className="text-lg text-gray-800 dark:text-gray-100 font-medium">{title}</h2>
+    <h2 className="text-lg text-gray-800 dark:text-gray-100 font-medium">
+      {title}
+    </h2>
   </div>
 );
 
@@ -25,14 +27,38 @@ const Carousel = () => {
 
   const carouselSets = [
     [
-      { image: "/sample-image.jpg", date: "Dec 25, 2024", title: "Latest Robotics Technology" },
-      { image: "/sample-image.jpg", date: "Dec 17, 2024", title: "AI Integration Systems" },
-      { image: "/sample-image.jpg", date: "Dec 10, 2024", title: "Future of Machine Learning" },
+      {
+        image: "/sample-image.jpg",
+        date: "Dec 25, 2024",
+        title: "Latest Robotics Technology",
+      },
+      {
+        image: "/sample-image.jpg",
+        date: "Dec 17, 2024",
+        title: "AI Integration Systems",
+      },
+      {
+        image: "/sample-image.jpg",
+        date: "Dec 10, 2024",
+        title: "Future of Machine Learning",
+      },
     ],
     [
-      { image: "/sample-image.jpg", date: "Dec 5, 2024", title: "Neural Network Advances" },
-      { image: "/sample-image.jpg", date: "Dec 1, 2024", title: "Robotic Interface Design" },
-      { image: "/sample-image.jpg", date: "Nov 28, 2024", title: "Smart Automation Tools" },
+      {
+        image: "/sample-image.jpg",
+        date: "Dec 5, 2024",
+        title: "Neural Network Advances",
+      },
+      {
+        image: "/sample-image.jpg",
+        date: "Dec 1, 2024",
+        title: "Robotic Interface Design",
+      },
+      {
+        image: "/sample-image.jpg",
+        date: "Nov 28, 2024",
+        title: "Smart Automation Tools",
+      },
     ],
   ];
 
@@ -45,7 +71,7 @@ const Carousel = () => {
         return newSet;
       });
     },
-    [carouselSets.length]
+    [carouselSets.length],
   );
 
   const startAutoplay = () => {
@@ -94,7 +120,9 @@ const Carousel = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-10 text-black dark:text-gray-100">Visual Media</h2>
+      <h2 className="text-4xl font-bold text-center mb-10 text-black dark:text-gray-100">
+        Visual Media
+      </h2>
       <div className="max-w-6xl w-full mx-auto p-8 bg-gray-50 dark:bg-[#2D2D2D] rounded-2xl">
         <div
           className="relative overflow-hidden"
@@ -135,8 +163,8 @@ const Carousel = () => {
                 key={index + startDot}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index + startDot === currentSet
-                    ? 'bg-blue-600 dark:bg-blue-300 scale-125'
-                    : 'bg-gray-300 dark:bg-gray-500'
+                    ? "bg-blue-600 dark:bg-blue-300 scale-125"
+                    : "bg-gray-300 dark:bg-gray-500"
                 }`}
                 onClick={() => setCurrentSet(index + startDot)}
                 aria-label={`Go to set ${index + startDot + 1}`}

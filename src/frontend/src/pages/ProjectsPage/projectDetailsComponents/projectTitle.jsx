@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import { Card, CardContent } from "@/components/Projectutils/card";
 import { Badge } from "@/components/Projectutils/badge";
 import { Users, Calendar, Tag, ExternalLink, Star } from "lucide-react";
@@ -12,9 +12,9 @@ const ProjectHeroSection = ({ projectData }) => {
   };
 
   const statusColors = {
-    "Completed": "bg-emerald-500",
+    Completed: "bg-emerald-500",
     "In Progress": "bg-blue-500",
-    "Planned": "bg-amber-500",
+    Planned: "bg-amber-500",
   };
 
   return (
@@ -40,15 +40,23 @@ const ProjectHeroSection = ({ projectData }) => {
             variants={fadeIn}
           >
             <div className="flex items-center gap-3">
-              <Badge variant="secondary" className="bg-blue-500/20 text-white hover:bg-blue-500/30">
+              <Badge
+                variant="secondary"
+                className="bg-blue-500/20 text-white hover:bg-blue-500/30"
+              >
                 {projectData.category}
               </Badge>
-              <Badge variant="secondary" className={`${statusColors[projectData.status]} text-white`}>
+              <Badge
+                variant="secondary"
+                className={`${statusColors[projectData.status]} text-white`}
+              >
                 {projectData.status}
               </Badge>
             </div>
 
-            <h1 className="text-6xl font-bold text-white leading-tight">{projectData.title}</h1>
+            <h1 className="text-6xl font-bold text-white leading-tight">
+              {projectData.title}
+            </h1>
 
             <p className="text-xl text-gray-300 max-w-xl leading-relaxed">
               {projectData.description}
@@ -62,12 +70,17 @@ const ProjectHeroSection = ({ projectData }) => {
                 <div className="flex items-center gap-3">
                   <Calendar className="w-5 h-5 text-blue-300" />
                   <span className="text-gray-200">
-                    {new Date(projectData.startDate).toLocaleDateString('en-US', {
-                      month: 'long',
-                      year: 'numeric',
-                    })} - {new Date(projectData.endDate).toLocaleDateString('en-US', {
-                      month: 'long',
-                      year: 'numeric',
+                    {new Date(projectData.startDate).toLocaleDateString(
+                      "en-US",
+                      {
+                        month: "long",
+                        year: "numeric",
+                      },
+                    )}{" "}
+                    -{" "}
+                    {new Date(projectData.endDate).toLocaleDateString("en-US", {
+                      month: "long",
+                      year: "numeric",
                     })}
                   </span>
                 </div>
@@ -80,7 +93,9 @@ const ProjectHeroSection = ({ projectData }) => {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <Users className="w-5 h-5 text-blue-300" />
-                    <span className="text-gray-200 font-medium">Contributors</span>
+                    <span className="text-gray-200 font-medium">
+                      Contributors
+                    </span>
                   </div>
                   <div className="ml-8 space-y-2">
                     {projectData.contributors.map((contributor, index) => (
@@ -138,7 +153,9 @@ const ProjectHeroSection = ({ projectData }) => {
                   {stat.icon}
                   <p className="text-gray-300">{stat.label}</p>
                 </div>
-                <div className="text-3xl font-bold text-white">{stat.value}</div>
+                <div className="text-3xl font-bold text-white">
+                  {stat.value}
+                </div>
               </div>
             ))}
           </div>
@@ -175,4 +192,3 @@ const ExampleProjectHeroSection = () => {
 };
 
 export default ExampleProjectHeroSection;
-

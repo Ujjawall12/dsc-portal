@@ -3,24 +3,31 @@ const ProjectSchema = require("../schema/project.schema");
 // checking if project already exists based on title
 const createProject = async (project) => {
   const newProject = await ProjectSchema.create(project);
-  return newProject
+  return newProject;
 };
 
-
 // todo: change this to id if needed
-const findProject = async (name) => {
-  const project = await ProjectSchema.findOne({name})
-  if (!project) return false
-  return project
-}
+const findProjectByName = async (name) => {
+  const project = await ProjectSchema.findOne({ name });
+  if (!project) return false;
+  return project;
+};
+
+// todo: finding projec with name
+const findProjectById = async (id) => {
+  const project = await ProjectSchema.findById(id);
+  if (!project) return false;
+  return project;
+};
 
 // data : object with changed values with keys
-const updateProject = async(id, data) => {  
-  const updatedProject = await ProjectSchema.findOneAndUpdate({
-    _id: id
+const updateProject = async (id, data) => {
+  const updatedProject = await ProjectSchema.findOneAndUpdate(
+    {
+      _id: id,
     },
     data,
-    {runValidators: true}
+    { runValidators: true },
   );
   return updatedProject;
 };
@@ -33,12 +40,13 @@ const deleteProject = async (id) => {
 const findAllProjects = async () => {
   const projects = await ProjectSchema.find();
   return projects;
-}
+};
 
 module.exports = {
-  findProject,
+  findProjectByName,
+  findProjectById,
   deleteProject,
-  createProject,  
+  createProject,
   updateProject,
-  findAllProjects
-}
+  findAllProjects,
+};
