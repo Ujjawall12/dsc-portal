@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 DomainCard.propTypes = {
   domain: PropTypes.shape({
@@ -16,33 +16,33 @@ function DomainCard({ domain }) {
   const Icon = domain.icon;
 
   return (
-    <div className='bg-white p-6 rounded-xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 group relative overflow-hidden'>
-      <div className='flex items-center gap-4 mb-4'>
+    <div className="bg-white p-6 rounded-xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 group relative overflow-hidden">
+      <div className="flex items-center gap-4 mb-4">
         <div className={`p-3 rounded-lg bg-gradient-to-br ${domain.gradient}`}>
-          <Icon className='w-6 h-6 text-white' />
+          <Icon className="w-6 h-6 text-white" />
         </div>
-        <h3 className='text-xl font-bold'>{domain.title}</h3>
+        <h3 className="text-xl font-bold">{domain.title}</h3>
       </div>
 
-      <p className='text-gray-600 mb-4'>{domain.description}</p>
+      <p className="text-gray-600 mb-4">{domain.description}</p>
 
-      <div className='flex flex-wrap gap-2 mb-4'>
+      <div className="flex flex-wrap gap-2 mb-4">
         {domain.skills.map((skill, index) => (
           <span
             key={index}
             className={`text-sm px-3 py-1 rounded-full bg-opacity-10
               ${
-                domain.gradient.includes('blue')
-                  ? 'bg-blue-500 text-blue-700'
-                  : domain.gradient.includes('red')
-                  ? 'bg-red-500 text-red-700'
-                  : domain.gradient.includes('green')
-                  ? 'bg-green-500 text-green-700'
-                  : domain.gradient.includes('yellow')
-                  ? 'bg-yellow-500 text-yellow-700'
-                  : domain.gradient.includes('purple')
-                  ? 'bg-purple-500 text-purple-700'
-                  : 'bg-indigo-500 text-indigo-700'
+                domain.gradient.includes("blue")
+                  ? "bg-blue-500 text-blue-700"
+                  : domain.gradient.includes("red")
+                    ? "bg-red-500 text-red-700"
+                    : domain.gradient.includes("green")
+                      ? "bg-green-500 text-green-700"
+                      : domain.gradient.includes("yellow")
+                        ? "bg-yellow-500 text-yellow-700"
+                        : domain.gradient.includes("purple")
+                          ? "bg-purple-500 text-purple-700"
+                          : "bg-indigo-500 text-indigo-700"
               }`}
           >
             {skill}
@@ -50,8 +50,8 @@ function DomainCard({ domain }) {
         ))}
       </div>
 
-      <div className='flex items-center gap-2 text-sm text-gray-500'>
-        <span className='font-medium'>{domain.projects}</span>
+      <div className="flex items-center gap-2 text-sm text-gray-500">
+        <span className="font-medium">{domain.projects}</span>
         <span>projects delivered</span>
       </div>
 

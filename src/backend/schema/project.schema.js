@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const ProjectSchema = new mongoose.Schema({
   part: {
@@ -37,16 +37,45 @@ const ProjectSchema = new mongoose.Schema({
     trim: true,
     maxlength: 200,
   },
-  description: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  image: {
-    type: String,
-    required: true,
-    trim: true,
-  },
+  description: [
+    {
+      heading: {
+        type: String,
+        required: true,
+        trim: true,
+        maxlength: 100,
+      },
+      description: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+      icon: {
+        type: String,
+        required: true,
+      },
+      type: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
+  images: [
+    {
+      link: {
+        type: String,
+        required: true,
+      },
+      heading: {
+        type: String,
+        required: true,
+      },
+      date: {
+        type: Date,
+        required: true,
+      },
+    },
+  ],
   link: {
     type: String,
     required: true,
@@ -72,6 +101,14 @@ const ProjectSchema = new mongoose.Schema({
     type: [String],
     required: false,
   },
+  respostries: {
+    type: [String],
+    required: true,
+  },
+  technologies: {
+    type: [String],
+    required: true,
+  },
 });
 
-module.exports = mongoose.model('Project', ProjectSchema);
+module.exports = mongoose.model("Project", ProjectSchema);

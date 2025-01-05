@@ -1,6 +1,5 @@
-import React from 'react';
-import { Card, CardContent } from '@/components/Projectutils/card';
-import { Twitter, Linkedin, Github, Mail } from 'lucide-react';
+import { Card, CardContent } from "@/components/Projectutils/card";
+import { Twitter, Linkedin, Github, Mail } from "lucide-react";
 
 const TeamSection = () => {
   const teamMembers = [
@@ -41,7 +40,9 @@ const TeamSection = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-10 text-gray-900 dark:text-gray-100">Our Team</h2>
+      <h2 className="text-4xl font-bold text-center mb-10 text-gray-900 dark:text-gray-100">
+        Our Team
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {teamMembers.map((member, index) => (
@@ -61,8 +62,12 @@ const TeamSection = () => {
               </div>
 
               {/* Member Info */}
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">{member.name}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 tracking-wider mb-6">{member.role}</p>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                {member.name}
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 tracking-wider mb-6">
+                {member.role}
+              </p>
 
               {/* Social Links */}
               <div className="flex gap-6">
@@ -104,4 +109,3 @@ const TeamSection = () => {
 };
 
 export default TeamSection;
-

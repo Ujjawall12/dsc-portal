@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 Card.propTypes = {
   parentClassName: PropTypes.string.isRequired,
@@ -37,7 +37,7 @@ export default function Card({
 }) {
   return (
     <div className={parentClassName}>
-      {contentType === 'text' ? (
+      {contentType === "text" ? (
         <>
           <span className={headingClassName}>{heading}</span>
           <div className={innerDivClassName}>
@@ -45,20 +45,20 @@ export default function Card({
             <span className={textClassName}>{text}</span>
           </div>
         </>
-      ) : contentType === 'image' ? (
-        <div className='flex items-center justify-center'>
+      ) : contentType === "image" ? (
+        <div className="flex items-center justify-center">
           <img src={imageSrc} alt={imageAlt} className={imageClassName} />
         </div>
       ) : (
         <a
           href={link}
-          target='_blank'
-          className='flex items-center justify-center'
+          target="_blank"
+          className="flex items-center justify-center"
         >
           <svg
             className={svgClassName}
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 256 256'
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 256"
           >
             {svgContent}
           </svg>

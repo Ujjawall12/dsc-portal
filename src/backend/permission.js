@@ -4,7 +4,7 @@
 // database - User, Projects
 const permissions = {
   Projects: {
-    action: 'read' | 'create' | 'update' | 'delete',
+    action: "read" | "create" | "update" | "delete",
   },
 };
 

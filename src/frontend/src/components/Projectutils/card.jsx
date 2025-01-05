@@ -1,5 +1,3 @@
-import React from "react";
-
 // Card Component
 export const Card = ({ children, className = "" }) => {
   return (
@@ -11,7 +9,9 @@ export const Card = ({ children, className = "" }) => {
 
 // CardHeader Component
 export const CardHeader = ({ children, className = "" }) => {
-  return <div className={`bg-gray-100 p-4 border-b ${className}`}>{children}</div>;
+  return (
+    <div className={`bg-gray-100 p-4 border-b ${className}`}>{children}</div>
+  );
 };
 
 // CardContent Component
