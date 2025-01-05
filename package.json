@@ -14,10 +14,12 @@
     "dev:backend": "npm --prefix src/backend run dev",
     "dev:frontend": "npm --prefix src/frontend run dev",
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "npx prettier --write ."
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
+    "prettier": "^3.4.2",
     "vite": "^6.0.6"
   },
   "keywords": [],
@@ -29,6 +31,8 @@
     "framer-motion": "^5.6.0",
     "lucide-react": "^0.469.0",
     "motion": "^11.14.1",
-    "react-icons": "^5.4.0"
+    "react-icons": "^5.4.0",
+    "react-simple-typewriter": "^5.0.1",
+    "vaul": "^1.1.2"
   }
 }

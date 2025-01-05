@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 function YearSelector({ years, selectedYear, onYearSelect }) {
   return (
@@ -13,9 +13,10 @@ function YearSelector({ years, selectedYear, onYearSelect }) {
           <button
             onClick={() => onYearSelect(year)}
             className={`w-16 h-16 rounded-full flex items-center justify-center text-lg font-bold
-              ${selectedYear === year 
-                ? 'bg-black text-white shadow-lg hover:bg-gray-800' 
-                : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+              ${
+                selectedYear === year
+                  ? "bg-black text-white shadow-lg hover:bg-gray-800"
+                  : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
               } transition-all duration-300`}
           >
             {year}

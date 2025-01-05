@@ -63,8 +63,8 @@ export default function NavbarButton({
         type === "default"
           ? defaultClasses
           : type === "black"
-          ? blackClasses
-          : redClasses
+            ? blackClasses
+            : redClasses
       }`}
     >
       {content}
@@ -76,8 +76,8 @@ export default function NavbarButton({
         type === "default"
           ? defaultClasses
           : type === "black"
-          ? blackClasses
-          : redClasses
+            ? blackClasses
+            : redClasses
       }`}
     >
       {content}

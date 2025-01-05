@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const UserHistorySchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: "User",
     required: true,
   },
   updatedField: {
@@ -24,4 +24,4 @@ const UserHistorySchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('UserHistory', UserHistorySchema);
+module.exports = mongoose.model("UserHistory", UserHistorySchema);

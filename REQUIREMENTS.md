@@ -4,16 +4,16 @@
 
 ```js
 const sampleData = {
-  part: 'Complete Application',
-  name: 'Farmer App',
-  subtitle: 'Web',
-  version: 'v3.2.3',
+  part: "Complete Application",
+  name: "Farmer App",
+  subtitle: "Web",
+  version: "v3.2.3",
   progress: 70,
-  headline: 'Making lives easier',
+  headline: "Making lives easier",
   description:
-    'lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  image: '/sample-image.jpg',
-  link: '/projects/farmer-app',
+    "lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  image: "/sample-image.jpg",
+  link: "/projects/farmer-app",
 };
 ```
 
