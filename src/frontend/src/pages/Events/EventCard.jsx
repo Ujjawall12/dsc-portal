@@ -6,13 +6,9 @@ function EventCard({ title, date, description, image, details }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <motion.div
+    <div
       layout
-      className={`bg-white dark:bg-neutral-800 max-w-sm rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-neutral-600 hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 cursor-pointer ${
-        isExpanded ? "h-auto" : "h-fit-content"
-      }`}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      className={`bg-white dark:bg-neutral-800 max-w-sm rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-neutral-600 hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 cursor-pointer`}
     >
       <div className="relative h-48 sm:h-64 overflow-hidden">
         <img
@@ -72,7 +68,7 @@ function EventCard({ title, date, description, image, details }) {
           )}
         </button>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
