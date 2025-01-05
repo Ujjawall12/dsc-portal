@@ -1,23 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import CarouselCard from "./CarouselCard";
 
-const CarouselCard = ({ image, date, title }) => (
-  <div className="flex-none w-[calc(33.33%-16px)] bg-white dark:bg-[#3C3D37] rounded-xl p-4 shadow-lg">
-    <img
-      src={image}
-      alt={title}
-      className="w-full h-48 object-cover rounded-lg"
-    />
-    <span className="inline-block px-4 py-1 mt-3 mb-2 text-sm text-gray-600 dark:text-gray-400 bg-custom-gray dark:bg-[#536066] rounded-full">
-      {date}
-    </span>
-    <h2 className="text-lg text-gray-800 dark:text-gray-100 font-medium">
-      {title}
-    </h2>
-  </div>
-);
 
-const Carousel = () => {
+function ProjectCarousel () {
   const [currentSet, setCurrentSet] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -63,7 +49,7 @@ const Carousel = () => {
   ];
 
   const navigate = useCallback(
-    (direction) => {
+    function navigate(direction) {
       setCurrentSet((prev) => {
         const newSet = prev + direction;
         if (newSet < 0) return carouselSets.length - 1;
@@ -177,4 +163,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default ProjectCarousel;

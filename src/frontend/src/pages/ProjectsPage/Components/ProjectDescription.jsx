@@ -5,16 +5,12 @@ import {
   Code,
   GitBranch,
   Layers,
-  ChevronDown,
-  ChevronUp,
   Zap,
   Shield,
   Clock,
 } from "lucide-react";
 
-const TechnicalFeaturesSection = () => {
-  const [expandedDescription, setExpandedDescription] = useState(false);
-
+function TechnicalFeaturesSection () {
   const projectInfo = {
     description: {
       short:
@@ -141,7 +137,6 @@ const TechnicalFeaturesSection = () => {
 
       {/* Technologies and Repository */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Technologies Card */}
         <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-[#3C3D37]">
           <CardHeader className="pb-2 dark:bg-[rgb(53,52,52)]">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
@@ -164,8 +159,6 @@ const TechnicalFeaturesSection = () => {
             </ul>
           </CardContent>
         </Card>
-
-        {/* Repository Card */}
         <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-[#3C3D37]">
           <CardHeader className="pb-2 dark:bg-[rgb(53,52,52)]">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
