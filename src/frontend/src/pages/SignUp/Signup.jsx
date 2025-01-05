@@ -4,7 +4,7 @@ import HeroContent from "./HeroContent.jsx";
 import Button from "../../components/SignUp/Button.jsx";
 import Input from "../../components/SignUp/Input.jsx";
 
-function App() {
+function Signup() {
   const [isLogin, setIsLogin] = useState(false);
 
   const toggleForm = () => {
@@ -130,4 +130,4 @@ function App() {
   );
 }
 
-export default App;
+export default Signup;

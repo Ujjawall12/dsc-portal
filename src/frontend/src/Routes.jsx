@@ -7,7 +7,7 @@ import Projects from "./pages/ProjectsPage/Projects";
 import ProjectDetails from "./pages/ProjectsPage/ProjectDetails";
 import NotFound from "./pages/NotFound";
 import SomethingWentWrong from "./pages/SomethingWentWrong";
-import SignUp from "./pages/SignUp/App";
+import SignUp from "./pages/SignUp/Signup";
 import Homepage from "./pages/Homepage/Homepage";
 
 function RouteList() {
