@@ -12,13 +12,16 @@ const ProjectHeroSection = ({ projectData }) => {
   };
 
   const statusColors = {
-    "Completed": "bg-emerald-500",
+    Completed: "bg-emerald-500",
     "In Progress": "bg-blue-500",
-    "Planned": "bg-amber-500",
+    Planned: "bg-amber-500",
   };
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-gray-900 dark:bg-gray-800">
+    <div
+      className="relative w-full min-h-screen overflow-hidden bg-gray-900 dark:bg-gray-800"
+      style={{ zIndex: 0 }} // Removed top padding, retained z-index
+    >
       {/* Background with Image and Gradient */}
       <div className="absolute inset-0">
         <img
@@ -30,7 +33,10 @@ const ProjectHeroSection = ({ projectData }) => {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-12 text-white">
+      <div
+        className="relative z-10 max-w-7xl mx-auto px-6 py-12 text-white"
+        style={{ zIndex: 10 }} // Retained z-index for content layering
+      >
         <div className="w-full lg:w-2/3 space-y-12">
           {/* Header Section */}
           <motion.div
@@ -39,16 +45,24 @@ const ProjectHeroSection = ({ projectData }) => {
             animate="animate"
             variants={fadeIn}
           >
-            <div className="flex items-center gap-3">
-              <Badge variant="secondary" className="bg-blue-500/20 text-white hover:bg-blue-500/30">
+            <div className="flex flex-wrap items-center gap-3">
+              <Badge
+                variant="secondary"
+                className="bg-blue-500/20 text-white hover:bg-blue-500/30"
+              >
                 {projectData.category}
               </Badge>
-              <Badge variant="secondary" className={`${statusColors[projectData.status]} text-white`}>
+              <Badge
+                variant="secondary"
+                className={`${statusColors[projectData.status]} text-white`}
+              >
                 {projectData.status}
               </Badge>
             </div>
 
-            <h1 className="text-6xl font-bold text-white leading-tight">{projectData.title}</h1>
+            <h1 className="text-6xl font-bold text-white leading-tight">
+              {projectData.title}
+            </h1>
 
             <p className="text-xl text-gray-300 max-w-xl leading-relaxed">
               {projectData.description}
@@ -59,28 +73,38 @@ const ProjectHeroSection = ({ projectData }) => {
           <motion.div initial="initial" animate="animate" variants={fadeIn}>
             <Card className="bg-white/10 backdrop-blur-md border-0 dark:bg-[#697565]/10">
               <CardContent className="p-8 space-y-6">
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <Calendar className="w-5 h-5 text-blue-300" />
                   <span className="text-gray-200">
-                    {new Date(projectData.startDate).toLocaleDateString('en-US', {
-                      month: 'long',
-                      year: 'numeric',
-                    })} - {new Date(projectData.endDate).toLocaleDateString('en-US', {
-                      month: 'long',
-                      year: 'numeric',
-                    })}
+                    {new Date(projectData.startDate).toLocaleDateString(
+                      "en-US",
+                      {
+                        month: "long",
+                        year: "numeric",
+                      }
+                    )}{" "}
+                    -{" "}
+                    {new Date(projectData.endDate).toLocaleDateString(
+                      "en-US",
+                      {
+                        month: "long",
+                        year: "numeric",
+                      }
+                    )}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <Tag className="w-5 h-5 text-blue-300" />
                   <span className="text-gray-200">{projectData.category}</span>
                 </div>
 
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-center gap-3">
                     <Users className="w-5 h-5 text-blue-300" />
-                    <span className="text-gray-200 font-medium">Contributors</span>
+                    <span className="text-gray-200 font-medium">
+                      Contributors
+                    </span>
                   </div>
                   <div className="ml-8 space-y-2">
                     {projectData.contributors.map((contributor, index) => (
@@ -138,7 +162,9 @@ const ProjectHeroSection = ({ projectData }) => {
                   {stat.icon}
                   <p className="text-gray-300">{stat.label}</p>
                 </div>
-                <div className="text-3xl font-bold text-white">{stat.value}</div>
+                <div className="text-3xl font-bold text-white">
+                  {stat.value}
+                </div>
               </div>
             ))}
           </div>
