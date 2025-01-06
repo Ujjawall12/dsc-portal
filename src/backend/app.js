@@ -5,7 +5,7 @@ const path = require('path');
 const connectDB = require("./db/connection");
 const cors = require("cors");
 const projectRoutes = require("./routes/v1/project.routes");
-
+const memberRoutes = require("./routes/v1/member.routes");
 
 dotenv.config({
   path: './config.env',
@@ -24,7 +24,7 @@ app.use(cors({
 app.use(express.json());
 // routes 
 app.use("/api/v1/projects", projectRoutes); 
-
+app.use("/api/v1/members", memberRoutes);
 app.get('/', (req, res) => {
   const filePath = path.join(__dirname, 'sample.html');
   fs.readFile(filePath, 'utf8', (err, data) => {
