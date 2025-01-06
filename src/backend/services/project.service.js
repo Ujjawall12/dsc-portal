@@ -37,9 +37,13 @@ const deleteProject = async (id) => {
   return deletedProject;
 };
 
-const findAllProjects = async () => {
-  const projects = await ProjectSchema.find();
-  return projects;
+const findAllProjects = async (skip, limit) => {
+  const projects = await ProjectSchema.find().skip(skip).limit(limit);
+  const totalProjects = await ProjectSchema.countDocuments();
+  return {
+    projects,
+    totalProjects
+  }
 };
 
 module.exports = {
