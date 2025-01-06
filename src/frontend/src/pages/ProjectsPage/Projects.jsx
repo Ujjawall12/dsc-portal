@@ -1,19 +1,33 @@
 import MainLayout from "Layout/MainLayout";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Section from "@/Layout/Section";
 import ProjectSidebar from "@/components/Projects/ProjectSidebar";
-import { SlidersHorizontalIcon } from "lucide-react";
+import { ArrowLeft, ArrowRight, SlidersHorizontalIcon } from "lucide-react";
 import ProjectInfoCard from "@/components/Projects/ProjectInfoCard";
 import ProjectVaulDrawer from "@/components/Projects/ProjectVaulDrawer";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import ProjectInfoCardSkeleton from "@/components/Projects/ProjectInfoCardSkeleton";
+import { useDebouncedCallback } from "use-debounce";
+
 
 function Projects() {
+  const [searchParams] = useSearchParams();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [projects, setProjects] = useState([]);
+  const [metaData, setMetaData] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [searchValue, setSearchValue] = useState(
-    searchParams.get("search") || "",
-  );
+  // eslint-disable-next-line no-unused-vars
+  const [searchProject, setSearchProject] = useState(searchParams.get("search") || "");
+  const navigate = useNavigate();
+  const currentPage = Number(searchParams.get("page")) || 1;
+  const search = searchParams.get("search");
+  const page = searchParams.get("page");
+
+  useEffect(() => {
+    setSearchProject(searchParams.get("search") || "")
+  }, [searchParams])
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,23 +38,52 @@ function Projects() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const fetchData = useCallback(async() => {
+    // limit = 7 -> thala for a reason change it after thala retirement <means never haha> 
+    try {
+      setIsLoading(true);
+      const response = await fetch(`http://localhost:5000/api/v1/projects?page=${page}&limit=7`);
+      const resData = await response.json();
+      setProjects(resData.data);
+      setMetaData(resData.meta);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [page]);
+  
+  useEffect(() => {
+    fetchData();
+  }, [fetchData])
+
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
 
-  const handleInputChange = (e) => {
-    setSearchValue(e.target.value);
-    setSearchParams({ search: e.target.value });
-  };
+  const handleSearch = useDebouncedCallback((search) => {
+    const params = new URLSearchParams(searchParams.toString())
+    if(search) {
+      params.set("search", search);
+    } else {
+      params.delete("search");
+    }
+    navigate({
+      pathname: "/projects",
+      search: `?${params.toString()}`
+    })
+  }, 300)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSearchParams({ search: searchValue });
-
-    // while making the request to the backend create a useDebounce hook
-  };
+  const createPageURL = (pageNumber) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", pageNumber.toString());
+    return navigate({
+      pathname: "/projects",
+      search: `?${params.toString()}`
+    })
+  }
 
   const projectData = [
     {
-      id: 1,
+      id: "1",
       title: "Smart Campus Initiative",
       description:
         "Building IoT solutions for campus facilities management and automation.",
@@ -52,7 +95,7 @@ function Projects() {
       image: "/projects/smart-campus.jpg",
     },
     {
-      id: 2,
+      id: "2",
       title: "Digital Library System",
       description:
         "Creating a modern digital catalog and booking system for the campus library.",
@@ -64,7 +107,7 @@ function Projects() {
       image: "/projects/digital-library.jpg",
     },
     {
-      id: 3,
+      id: "3",
       title: "Green Energy Monitor",
       description:
         "Developing solar panel monitoring and optimization system for campus buildings.",
@@ -76,7 +119,7 @@ function Projects() {
       image: "/projects/green-energy.jpg",
     },
     {
-      id: 4,
+      id: "4",
       title: "Campus Navigation App",
       description:
         "Mobile application for indoor and outdoor campus navigation with AR features.",
@@ -88,7 +131,7 @@ function Projects() {
       image: "/projects/navigation-app.jpg",
     },
     {
-      id: 5,
+      id: "5",
       title: "Smart Parking System",
       description:
         "Automated parking space detection and management system for campus lots.",
@@ -100,7 +143,7 @@ function Projects() {
       image: "/projects/smart-parking.jpg",
     },
     {
-      id: 6,
+      id: "6",
       title: "Student Collaboration Platform",
       description:
         "Web platform for student project collaboration and resource sharing.",
@@ -112,7 +155,7 @@ function Projects() {
       image: "/projects/collab-platform.jpg",
     },
     {
-      id: 7,
+      id: "7",
       title: "Campus Events App",
       description:
         "Real-time event management and notification system for campus activities.",
@@ -124,7 +167,7 @@ function Projects() {
       image: "/projects/events-app.jpg",
     },
     {
-      id: 8,
+      id: "8",
       title: "Lab Equipment Monitor",
       description:
         "IoT-based monitoring system for laboratory equipment and resources.",
@@ -157,12 +200,11 @@ function Projects() {
             <div className="flex justify-center items-center w-full">
               <form
                 className="flex items-center justify-center gap-3 w-full"
-                onSubmit={handleSubmit}
               >
                 <input
                   className="flex dark:border-neutral-700 foucus:outline-0 focus:outline-neutral-600 focus:ring-0 border h-9 w-full max-w-xl rounded-md bg-transparent px-3 py-1 text-base  transition-colorsmd:text-sm "
-                  value={searchValue}
-                  onChange={handleInputChange}
+                  onChange={(e) => handleSearch(e.target.value)}
+                  defaultValue={search}
                 />
                 {isMobile ? (
                   <ProjectVaulDrawer />
@@ -179,18 +221,50 @@ function Projects() {
             </div>
             <div className="border dark:border-neutral-500 border-dashed" />
             {/* here mapping function will come to map project on the basis of details */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7">
-              {projectData.map((project) => {
-                return (
-                  <div className="flex justify-center" key={project.id}>
-                    <ProjectInfoCard {...project} />
-                  </div>
-                );
-              })}
-            </div>
+
+                <div>
+                  {
+                    isLoading ? (
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7">
+                        <ProjectInfoCardSkeleton />
+                        <ProjectInfoCardSkeleton />
+                        <ProjectInfoCardSkeleton />
+                        <ProjectInfoCardSkeleton />
+                        <ProjectInfoCardSkeleton />
+                        <ProjectInfoCardSkeleton />
+                        <ProjectInfoCardSkeleton />
+                        <ProjectInfoCardSkeleton />
+                      </div>
+                    ) : 
+                    <div  className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7">
+                        {projectData.map((project) => {
+                          return (
+                            <div className="flex justify-center" key={project.id}>
+                              <ProjectInfoCard {...project} />
+                            </div>
+                          );
+                        })}
+                    </div>
+                  }
+                </div>
             {/* projects cards below */}
             {/* todo: add search bar with filter button on right : align these at center */}
-
+            <div className="flex justify-end">
+              <div className="flex gap-3">
+                <button disabled={currentPage <= 1 || isLoading} onClick={() => createPageURL(currentPage - 1)} className="flex items-center justify-center text-sm font-medium disabled:text-neutral-500 dark:disabled:text-neutral-500 dark:disabled:border-neutral-500 text-neutral-700 dark:text-white px-3 py-2 border rounded-md">
+                  <ArrowLeft className="w-4 h-4 sm:mr-1"/>
+                  <span className="hidden sm:flex">
+                    Previous
+                  </span>
+                </button>
+                <button disabled={metaData?.isLastPage || isLoading} onClick={() => createPageURL(currentPage + 1)} className="flex items-center disabled:text-neutral-500 text-sm font-medium text-neutral-700 dark:text-white dark:disabled:text-neutral-500 dark:disabled:border-neutral-500 px-3 py-2 border rounded-md">
+                  <span className="hidden sm:flex">
+                    Next
+                  </span>
+                  <ArrowRight className="w-4 h-5 sm:ml-1"/>
+                </button>
+              </div>
+            </div>
             {/* todo: render the project use project card component  */}
             {/* use vaul by eril god of ui design in my opinion */}
           </div>

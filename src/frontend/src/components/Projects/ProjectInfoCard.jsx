@@ -19,7 +19,7 @@ function ProjectInfoCard({ ...props }) {
   return (
     <Link
       to={`/projects/${props.id}`}
-      className="dark:text-white rounded-lg w-full"
+      className="dark:text-white rounded-lg w-full flex flex-col h-full"
     >
       <div className="h-48">
         <img
@@ -29,11 +29,13 @@ function ProjectInfoCard({ ...props }) {
           className="object-cover h-full w-full rounded-t-lg"
         />
       </div>
-      <div className="p-2 pb-3 bg-neutral-50 dark:bg-neutral-800 border dark:border-neutral-600 rounded-b-lg space-y-2">
-        <h2 className="font-medium">{props.title}</h2>
-        <p className="text-sm text-neutral-600 dark:text-neutral-300">
-          {props.description}
-        </p>
+      <div className="p-2 pb-3 flex flex-col h-full bg-neutral-50 dark:bg-neutral-800 border dark:border-neutral-600 rounded-b-lg space-y-2">
+        <div className="flex flex-col h-full flex-1 space-y-2">
+          <h2 className="font-medium">{props.title}</h2>
+          <p className="flex-1 text-sm text-neutral-600 dark:text-neutral-300">
+            {props.description}
+          </p>
+        </div>
         {/* array of tech stack used todo: add this thing in backend project-schema */}
         <div className="flex items-center gap-3 flex-grow">
           {props.tags.map((tag) => {
