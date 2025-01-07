@@ -9,6 +9,8 @@ import NotFound from "./pages/NotFound";
 import SomethingWentWrong from "./pages/SomethingWentWrong";
 import SignUp from "./pages/SignUp/Signup";
 import Homepage from "./pages/Homepage/Homepage";
+import TeamMembersPage from "./pages/Team/TeamSelector/TeamSelector";
+import TeamSelector from "./pages/Team/TeamSelector/TeamSelector";
 
 function RouteList() {
   return (
@@ -18,7 +20,7 @@ function RouteList() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/events" element={<EventsPage />} />
-        <Route path="/team" element={<Team />} />
+        <Route path="/team" element={<TeamSelector/>} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:slug" element={<ProjectDetails />} />
         <Route path="/break" element={<SomethingWentWrong />} />
