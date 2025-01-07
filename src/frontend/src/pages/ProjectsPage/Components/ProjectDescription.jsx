@@ -10,7 +10,7 @@ import {
   Clock,
 } from "lucide-react";
 
-function TechnicalFeaturesSection () {
+function ProjectDescription () {
   const projectInfo = {
     description: {
       short:
@@ -196,4 +196,4 @@ function TechnicalFeaturesSection () {
   );
 };
 
-export default TechnicalFeaturesSection;
+export default ProjectDescription;

@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowRight, SlidersHorizontalIcon } from "lucide-react";
 import ProjectInfoCard from "@/components/Projects/ProjectInfoCard";
 import ProjectVaulDrawer from "@/components/Projects/ProjectVaulDrawer";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import ProjectInfoCardSkeleton from "@/components/Projects/ProjectInfoCardSkeleton";
+import ProjectInfoCardSkeleton from "@/components/Projects/skeletons/ProjectInfoCardSkeleton";
 import { useDebouncedCallback } from "use-debounce";
 
 
@@ -56,6 +56,8 @@ function Projects() {
   useEffect(() => {
     fetchData();
   }, [fetchData])
+  
+ 
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
 
@@ -81,9 +83,10 @@ function Projects() {
     })
   }
 
+  console.log(projects);
   const projectData = [
     {
-      id: "1",
+      id: "677a018d4aff029b5d10ecb7",
       title: "Smart Campus Initiative",
       description:
         "Building IoT solutions for campus facilities management and automation.",
