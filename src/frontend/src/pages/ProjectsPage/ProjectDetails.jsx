@@ -1,12 +1,15 @@
 /* eslint-disable no-unused-vars */
 import MainLayout from "@/Layout/MainLayout";
-
-import { useParams } from "react-router-dom";
-import React from "react";
-import TechnicalFeaturesSection from "./Components/ProjectDescription";
-import TeamSection from "./Components/ProjectTeamMember";
+import { useAsyncError, useNavigate, useParams } from "react-router-dom";
+import React, { useCallback, useEffect, useState } from "react";
 import Carousel from "./Components/ProjectCarousel";
 import ProjectHeroSection from "./Components/ProjectTitle";
+import ProjectDescription from "./Components/ProjectDescription";
+import ProjectTeamSection from "./Components/ProjectTeamMember";
+import ProjectHeroSkeleton from "@/components/Projects/skeletons/ProjectHeroSkeletion";
+import ProjectCarouselSkeleton from "@/components/Projects/skeletons/ProjectCarouselSkeletion";
+import ProjectTeamSectionSkeleton from "@/components/Projects/skeletons/ProjectTeamSectionSkeleton";
+import ProjectDescriptionSkeleton from "@/components/Projects/skeletons/ProjectDescriptionSkeleton";
 
 const sampleProjectData = {
   title: "Smart Irrigation System",
@@ -30,12 +33,47 @@ const sampleProjectData = {
 };
 
 function ProjectDetails() {
+  const [project, setProject] = useState(null);
+  const [isLoading , setIsLoading] = useState(null);
+  const navigate = useNavigate();
+  const { slug } = useParams();
+
+  const fetchProjectData = useCallback(async() => {
+    try {
+      setIsLoading(true);
+      const response = await fetch(`http://localhost:5000/api/v1/projects/${slug}`);
+      const data = await response.json();
+      setProject(data);
+      if (!response.ok) navigate("/not-found");
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [slug, navigate])
+
+  console.log(project);
+
+  useEffect(() => {
+    fetchProjectData();
+  }, [fetchProjectData])
+
   return (
     <MainLayout>
-      <ProjectHeroSection projectData={sampleProjectData} />
-      <TechnicalFeaturesSection />
-      <Carousel />
-      <TeamSection />
+      {
+        isLoading ? <>
+        <ProjectHeroSkeleton />
+        <ProjectDescriptionSkeleton />
+        <ProjectCarouselSkeleton />
+        <ProjectTeamSectionSkeleton />
+        </> : <>
+        <ProjectHeroSection projectData={sampleProjectData} />
+        <ProjectDescription />
+        <Carousel />
+        <ProjectTeamSection />
+    
+        </>
+      }
     </MainLayout>
   );
 }

@@ -1,8 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
+import dotenv from 'dotenv';
 
-// https://vite.dev/config/
+dotenv.config({
+  path: 'config.env',
+});
+
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -14,5 +18,7 @@ export default defineConfig({
       Layout: resolve(__dirname, "src/Layout"),
       assets: resolve(__dirname, "src/assets"),
     },
+  }, define: {
+    'process.env': process.env,
   },
 });
