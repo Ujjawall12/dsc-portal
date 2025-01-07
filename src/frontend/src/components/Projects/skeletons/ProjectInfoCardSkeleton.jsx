@@ -1,5 +1,3 @@
-import React from 'react';
-
 function ProjectInfoCardSkeleton () {
   return (
     <div className="w-full flex flex-col h-full rounded-lg">
