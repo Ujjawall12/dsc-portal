@@ -28,7 +28,7 @@ const getMembersController = async (req, res) => {
     return res.status(200).json({
       success: true,
       data: members,
-      pagination: {
+      meta: {
         current: parseInt(page),
         pages: Math.ceil(total / max),
         total
