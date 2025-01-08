@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
-import ProjectCard from '@/components/Projects/ProjectCard/ProjectCard';
-import SectionHeading from '@/components/SectionHeading';
-import CurrentProjectCard from '@/components/CurrentProjectCard';
-import ViewAllProjectCard from '@/components/ViewAllProjectCard';
+import ProjectCard from "@/components/Projects/ProjectCard/ProjectCard";
+import SectionHeading from "@/components/SectionHeading";
+import CurrentProjectCard from "@/components/CurrentProjectCard";
+import ViewAllProjectCard from "@/components/ViewAllProjectCard";
 
 export default function SectionTwo() {
   const containerVariants = {
@@ -22,22 +22,22 @@ export default function SectionTwo() {
   };
 
   return (
-    <div className='flex flex-col gap-4 px-8'>
+    <div className="flex flex-col gap-4 px-8">
       <SectionHeading
-        title={'FEATURED PROJECTS'}
+        title={"FEATURED PROJECTS"}
         description={
-          'Explore some of the projects that we have been working on.'
+          "Explore some of the projects that we have been working on."
         }
       />
       <motion.div
-        className='flex flex-row gap-4 sm:p-6'
+        className="flex flex-row gap-4 sm:p-6"
         variants={containerVariants}
-        initial='hidden'
-        animate='visible'
+        initial="hidden"
+        animate="visible"
       >
         <motion.div
-          className='flex flex-col items-center gap-4 flex-1'
-          id='project-card-container'
+          className="flex flex-col items-center gap-4 flex-1"
+          id="project-card-container"
           variants={containerVariants}
         >
           <motion.div variants={cardVariants}>
@@ -49,13 +49,13 @@ export default function SectionTwo() {
           <motion.div variants={cardVariants}>
             <ProjectCard />
           </motion.div>
-          <button className='self-stretch bg-blue-400 hover:bg-blue-500 dark:bg-blue-800 dark:hover:bg-blue-900 transition-colors rounded-md h-10 sm:h-12 text-md font-semibold text-white lg:hidden'>
+          <button className="self-stretch bg-blue-400 hover:bg-blue-500 dark:bg-blue-800 dark:hover:bg-blue-900 transition-colors rounded-md h-10 sm:h-12 text-md font-semibold text-white lg:hidden">
             View All Projects
           </button>
         </motion.div>
         <div
-          className='flex flex-col items-center gap-4 w-fit'
-          id='project-view-card-container'
+          className="flex flex-col items-center gap-4 w-fit"
+          id="project-view-card-container"
         >
           <CurrentProjectCard />
           <ViewAllProjectCard />
