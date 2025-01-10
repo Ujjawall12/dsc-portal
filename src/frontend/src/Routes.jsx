@@ -2,14 +2,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import AboutUs from "pages/AboutUs/AboutUs";
 import EventsPage from "pages/Events/EventsPage";
-import Team from "@/pages/Teams";
 import Projects from "./pages/ProjectsPage/Projects";
 import ProjectDetails from "./pages/ProjectsPage/ProjectDetails";
 import NotFound from "./pages/NotFound";
 import SomethingWentWrong from "./pages/SomethingWentWrong";
 import SignUp from "./pages/SignUp/Signup";
 import Homepage from "./pages/Homepage/Homepage";
-import TeamMembersPage from "./pages/Team/TeamSelector/TeamSelector";
 import TeamSelector from "./pages/Team/TeamSelector/TeamSelector";
 
 function RouteList() {
