@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
+<<<<<<< HEAD
+=======
   name: {
     type: String,
     required: true,
   },
+>>>>>>> 0f9b50b0fc6bae0cd54ce320c3d71d09ffb65af7
   username: {
     type: String,
     required: true,
@@ -13,12 +16,18 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+<<<<<<< HEAD
+=======
     match: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+>>>>>>> 0f9b50b0fc6bae0cd54ce320c3d71d09ffb65af7
   },
   email: {
     type: String,
     required: true,
     unique: true,
+<<<<<<< HEAD
+  },
+=======
     match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   },
 
@@ -34,6 +43,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
 
+>>>>>>> 0f9b50b0fc6bae0cd54ce320c3d71d09ffb65af7
   role: {
     type: String,
     enum: [

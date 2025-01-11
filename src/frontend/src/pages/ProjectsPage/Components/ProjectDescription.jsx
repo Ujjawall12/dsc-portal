@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/Projectutils/card";
 import { Code, GitBranch, Layers, Zap, Shield, Clock } from "lucide-react";
 
-function ProjectDescription() {
+function ProjectDescription({ description, repositories, technologies }) {
   const projectInfo = {
     description: {
       short:
@@ -70,7 +70,6 @@ function ProjectDescription() {
       },
     ],
   };
-
   return (
     <div className="w-full max-w-7xl mx-auto bg-white dark:bg-[rgb(23,23,23)]">
       {/* Header Section */}
@@ -86,7 +85,7 @@ function ProjectDescription() {
 
       {/* Highlights Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        {projectInfo.description.highlights.map((highlight, index) => (
+        {description?.map((highlight, index) => (
           <Card
             key={index}
             className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-[#3C3D37]"
@@ -96,10 +95,10 @@ function ProjectDescription() {
                 {highlight.icon}
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-                {highlight.title}
+                {highlight.heading}
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                {highlight.detail}
+                {highlight.description}
               </p>
             </CardContent>
           </Card>
@@ -107,7 +106,7 @@ function ProjectDescription() {
       </div>
 
       {/* Features Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {projectInfo.features.map((feature, index) => (
           <Card
             key={index}
@@ -126,7 +125,7 @@ function ProjectDescription() {
             </CardContent>
           </Card>
         ))}
-      </div>
+      </div> */}
 
       {/* Technologies and Repository */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -138,7 +137,7 @@ function ProjectDescription() {
           </CardHeader>
           <CardContent>
             <ul className="space-y-2">
-              {projectInfo.technologies.map((tech, index) => (
+              {technologies.map((tech, index) => (
                 <li
                   key={index}
                   className="flex items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-[#536066] transition-all duration-300"
@@ -160,27 +159,26 @@ function ProjectDescription() {
           </CardHeader>
           <CardContent>
             <ul className="space-y-2">
-              <li className="text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-[#536066] transition-all duration-300">
-                <GitBranch className="w-5 h-5" />
-                <a
-                  href={projectInfo.repository}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Main Repository
-                </a>
-              </li>
-              {projectInfo.additionalRepositories.map((repo, index) => (
-                <li
-                  key={index}
-                  className="text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-[#536066] transition-all duration-300"
-                >
+              {repositories && (
+                <li className="text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-[#536066] transition-all duration-300">
                   <GitBranch className="w-5 h-5" />
-                  <a href={repo.link} target="_blank" rel="noopener noreferrer">
-                    {repo.name}
-                  </a>
+                  {repositories?.map((repo, index) => (
+                    <li
+                      key={index}
+                      className="text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-[#536066] transition-all duration-300"
+                    >
+                      <GitBranch className="w-5 h-5" />
+                      <a
+                        href={repo.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {repo.name}
+                      </a>
+                    </li>
+                  ))}
                 </li>
-              ))}
+              )}
             </ul>
           </CardContent>
         </Card>

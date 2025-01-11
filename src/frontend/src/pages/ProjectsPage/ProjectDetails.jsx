@@ -37,15 +37,16 @@ function ProjectDetails() {
   const [isLoading, setIsLoading] = useState(null);
   const navigate = useNavigate();
   const { slug } = useParams();
+  console.log(slug);
 
   const fetchProjectData = useCallback(async () => {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `http://localhost:5000/api/v1/projects/${slug}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/projects/${slug}`,
       );
       const data = await response.json();
-      setProject(data);
+      setProject(data.data);
       if (!response.ok) navigate("/not-found");
     } catch (err) {
       console.log(err);
@@ -60,6 +61,8 @@ function ProjectDetails() {
     fetchProjectData();
   }, [fetchProjectData]);
 
+  const technologies = project?.technologies ? project.technologies : [];
+
   return (
     <MainLayout>
       {isLoading ? (
@@ -71,8 +74,12 @@ function ProjectDetails() {
         </>
       ) : (
         <>
-          <ProjectHeroSection projectData={sampleProjectData} />
-          <ProjectDescription />
+          <ProjectHeroSection projectData={project} />
+          <ProjectDescription
+            description={project?.description}
+            repositories={project?.repositories}
+            technologies={technologies}
+          />
           <Carousel />
           <ProjectTeamSection />
         </>

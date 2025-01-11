@@ -9,105 +9,6 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import ProjectInfoCardSkeleton from "@/components/Projects/skeletons/ProjectInfoCardSkeleton";
 import { useDebouncedCallback } from "use-debounce";
 
-const projectData = [
-  {
-    id: "1",
-    title: "Smart Campus Initiative",
-    description:
-      "Building IoT solutions for campus facilities management and automation.",
-    status: "Active",
-    category: "Technical Club",
-    tags: ["IoT", "Web Dev", "Hardware"],
-    teamSize: 5,
-    duration: "6 months",
-    image: "/projects/smart-campus.jpg",
-  },
-  {
-    id: "2",
-    title: "Digital Library System",
-    description:
-      "Creating a modern digital catalog and booking system for the campus library.",
-    status: "Active",
-    category: "Academic Project",
-    tags: ["Web Dev", "Database", "UI/UX"],
-    teamSize: 4,
-    duration: "4 months",
-    image: "/projects/digital-library.jpg",
-  },
-  {
-    id: "3",
-    title: "Green Energy Monitor",
-    description:
-      "Developing solar panel monitoring and optimization system for campus buildings.",
-    status: "Planning",
-    category: "Technical Club",
-    tags: ["IoT", "Data Analysis", "Hardware"],
-    teamSize: 6,
-    duration: "8 months",
-    image: "/projects/green-energy.jpg",
-  },
-  {
-    id: "4",
-    title: "Campus Navigation App",
-    description:
-      "Mobile application for indoor and outdoor campus navigation with AR features.",
-    status: "In Progress",
-    category: "Student Initiative",
-    tags: ["Mobile Dev", "AR", "UI/UX"],
-    teamSize: 3,
-    duration: "5 months",
-    image: "/projects/navigation-app.jpg",
-  },
-  {
-    id: "5",
-    title: "Smart Parking System",
-    description:
-      "Automated parking space detection and management system for campus lots.",
-    status: "Active",
-    category: "Technical Club",
-    tags: ["IoT", "Mobile Dev", "Hardware"],
-    teamSize: 4,
-    duration: "3 months",
-    image: "/projects/smart-parking.jpg",
-  },
-  {
-    id: "6",
-    title: "Student Collaboration Platform",
-    description:
-      "Web platform for student project collaboration and resource sharing.",
-    status: "Completed",
-    category: "Academic Project",
-    tags: ["Web Dev", "Database", "Cloud"],
-    teamSize: 5,
-    duration: "7 months",
-    image: "/projects/collab-platform.jpg",
-  },
-  {
-    id: "7",
-    title: "Campus Events App",
-    description:
-      "Real-time event management and notification system for campus activities.",
-    status: "Active",
-    category: "Student Initiative",
-    tags: ["Mobile Dev", "Web Dev", "UI/UX"],
-    teamSize: 4,
-    duration: "4 months",
-    image: "/projects/events-app.jpg",
-  },
-  {
-    id: "8",
-    title: "Lab Equipment Monitor",
-    description:
-      "IoT-based monitoring system for laboratory equipment and resources.",
-    status: "Planning",
-    category: "Technical Club",
-    tags: ["IoT", "Hardware", "Data Analysis"],
-    teamSize: 3,
-    duration: "6 months",
-    image: "/projects/lab-monitor.jpg",
-  },
-];
-
 function Projects() {
   const [searchParams] = useSearchParams();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -129,9 +30,10 @@ function Projects() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `${process.env.BACKEND_URL}/projects?page=${currentPage}&limit=7`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/projects?page=${currentPage}&limit=7`,
       );
       const resData = await response.json();
+      console.log(resData);
       setProjects(resData.data);
       setMetaData(resData.meta);
     } catch (error) {
@@ -162,7 +64,6 @@ function Projects() {
     params.set("page", pageNumber.toString());
     navigate({ pathname: "/projects", search: `?${params.toString()}` });
   };
-
   return (
     <MainLayout>
       <Section>
