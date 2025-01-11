@@ -34,14 +34,16 @@ const sampleProjectData = {
 
 function ProjectDetails() {
   const [project, setProject] = useState(null);
-  const [isLoading , setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
   const navigate = useNavigate();
   const { slug } = useParams();
 
-  const fetchProjectData = useCallback(async() => {
+  const fetchProjectData = useCallback(async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`http://localhost:5000/api/v1/projects/${slug}`);
+      const response = await fetch(
+        `http://localhost:5000/api/v1/projects/${slug}`,
+      );
       const data = await response.json();
       setProject(data);
       if (!response.ok) navigate("/not-found");
@@ -50,30 +52,31 @@ function ProjectDetails() {
     } finally {
       setIsLoading(false);
     }
-  }, [slug, navigate])
+  }, [slug, navigate]);
 
   console.log(project);
 
   useEffect(() => {
     fetchProjectData();
-  }, [fetchProjectData])
+  }, [fetchProjectData]);
 
   return (
     <MainLayout>
-      {
-        isLoading ? <>
-        <ProjectHeroSkeleton />
-        <ProjectDescriptionSkeleton />
-        <ProjectCarouselSkeleton />
-        <ProjectTeamSectionSkeleton />
-        </> : <>
-        <ProjectHeroSection projectData={sampleProjectData} />
-        <ProjectDescription />
-        <Carousel />
-        <ProjectTeamSection />
-    
+      {isLoading ? (
+        <>
+          <ProjectHeroSkeleton />
+          <ProjectDescriptionSkeleton />
+          <ProjectCarouselSkeleton />
+          <ProjectTeamSectionSkeleton />
         </>
-      }
+      ) : (
+        <>
+          <ProjectHeroSection projectData={sampleProjectData} />
+          <ProjectDescription />
+          <Carousel />
+          <ProjectTeamSection />
+        </>
+      )}
     </MainLayout>
   );
 }

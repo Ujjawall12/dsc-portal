@@ -42,8 +42,8 @@ const findAllProjects = async (skip, limit) => {
   const totalProjects = await ProjectSchema.countDocuments();
   return {
     projects,
-    totalProjects
-  }
+    totalProjects,
+  };
 };
 
 module.exports = {

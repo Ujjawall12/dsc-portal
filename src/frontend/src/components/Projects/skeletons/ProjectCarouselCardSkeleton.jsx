@@ -1,4 +1,4 @@
-export default function ProjectCarouselCardSkeleton ()  {
+export default function ProjectCarouselCardSkeleton() {
   return (
     <div className="flex-none w-[calc(33.33%-16px)] bg-white dark:bg-[#3C3D37] rounded-xl p-4 shadow-lg animate-pulse">
       <div className="w-full h-48 bg-neutral-200 dark:bg-neutral-700 rounded-lg" />
@@ -6,4 +6,4 @@ export default function ProjectCarouselCardSkeleton ()  {
       <div className="h-6 w-48 bg-neutral-200 dark:bg-neutral-700 rounded-md" />
     </div>
   );
-};
+}

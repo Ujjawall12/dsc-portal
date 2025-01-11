@@ -2,8 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import CarouselCard from "./CarouselCard";
 
-
-function ProjectCarousel () {
+function ProjectCarousel() {
   const [currentSet, setCurrentSet] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -161,6 +160,6 @@ function ProjectCarousel () {
       </div>
     </div>
   );
-};
+}
 
 export default ProjectCarousel;

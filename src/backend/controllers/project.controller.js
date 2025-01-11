@@ -41,13 +41,13 @@ const createProjectController = async (req, res) => {
 const getAllProjectsController = async (req, res) => {
   try {
     const maxLimit = 10; // setting max limit to 10
-    let { page , count } = req.query;
+    let { page, count } = req.query;
     page = parseInt(page, 10);
-    // return only 10 projects if count is greater than 10 
-    if ( count > maxLimit || count === undefined ) {
+    // return only 10 projects if count is greater than 10
+    if (count > maxLimit || count === undefined) {
       count = parseInt(count, 10) || 10;
-    };
-    const skip = (page - 1 ) * count;
+    }
+    const skip = (page - 1) * count;
     const { projects, totalProjects } = await findAllProjects(skip, count);
     const totalPages = Math.ceil(totalProjects / count);
     const isLastPage = page >= totalPages;
@@ -64,8 +64,8 @@ const getAllProjectsController = async (req, res) => {
       meta: {
         totalProjects,
         totalPages,
-        isLastPage
-      }
+        isLastPage,
+      },
     });
   } catch (err) {
     console.log(err);

@@ -1,4 +1,4 @@
-function ProjectDescriptionSkeleton () {
+function ProjectDescriptionSkeleton() {
   return (
     <div className="w-full max-w-7xl mx-auto bg-white dark:bg-[rgb(23,23,23)]">
       {/* Header Skeleton */}
@@ -69,6 +69,6 @@ function ProjectDescriptionSkeleton () {
       </div>
     </div>
   );
-};
+}
 
 export default ProjectDescriptionSkeleton;
