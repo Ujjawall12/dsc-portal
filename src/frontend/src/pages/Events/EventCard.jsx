@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import GDSCEventDetails from "../EventDetails/Components/Lokesh";
+
 import { ChevronDown, ChevronUp, Calendar, MapPin, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 
