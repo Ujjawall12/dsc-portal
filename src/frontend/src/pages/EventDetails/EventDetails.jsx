@@ -4,16 +4,10 @@ import EventsSlider from "./Components/Nandini";
 export default function EventsDetail() {
   return (
     <MainLayout>
-      {
-        <>
+      <div className="space-y-0">
         <EventDetailsDescription />
         <EventsSlider />
-        </>
-        
-        // Your Code here.
-        // ? FOR(Lokesh, Nandini, Soham) - Complete each of your components
-        // ? seperatly present in ./Components/{name}.jsx and then import them here.
-      }
+      </div>
     </MainLayout>
   );
 }
