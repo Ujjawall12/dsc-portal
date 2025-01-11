@@ -45,6 +45,9 @@ function ProjectDetails() {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/projects/${slug}`,
       );
+      if (!response.ok) {
+        navigate("/not-found");
+      }
       const data = await response.json();
       setProject(data.data);
       if (!response.ok) navigate("/not-found");
