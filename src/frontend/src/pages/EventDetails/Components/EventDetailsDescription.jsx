@@ -13,21 +13,6 @@ import {
   Minus,
 } from "lucide-react";
 
-// CSS for the slow spin animation
-const styles = `
-  @keyframes slow-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  .animate-slow-spin {
-    animation: slow-spin 60s linear infinite;
-  }
-`;
 
 const EventDetailsDescription = () => {
   const [expandedPrereq, setExpandedPrereq] = useState(null);
@@ -95,7 +80,6 @@ const EventDetailsDescription = () => {
 
   return (
     <>
-      <style>{styles}</style>
       <div className="relative min-h-screen overflow-hidden">
         {/* Background Elements */}
         <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-950 dark:via-gray-900 dark:to-slate-950" />
@@ -116,7 +100,7 @@ const EventDetailsDescription = () => {
             <div className="relative text-center space-y-8 mb-20">
               <div className="relative inline-block group">
                 <div className="relative">
-                  <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent pb-2 transition-all duration-500 group-hover:scale-[1.02]">
+                  <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent pb-2 transition-all duration-500 group-hover:scale-[1.02] font-Exo">
                     {eventInfo.details.title}
                   </h1>
                   <div className="h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 rounded-full transform origin-left transition-all duration-500 group-hover:scale-x-105" />

@@ -4,8 +4,10 @@ import EventsSlider from "./Components/Nandini";
 export default function EventsDetail() {
   return (
     <MainLayout>
-      <EventDetailsDescription />
-      <EventsSlider />
+      <div className="space-y-0">
+        <EventDetailsDescription />
+        <EventsSlider />
+      </div>
     </MainLayout>
   );
 }

@@ -61,7 +61,9 @@ const EventsSlider = () => {
   return (
     <div className="relative w-[95vw] max-w-[1600px] mx-auto px-8 py-16">
       {/* Heading */}
-      <h1 className="text-3xl md:text-6xl font-exo text-center mb-12">Events</h1>
+      <h1 className="text-6xl text-center font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent pb-2 transition-all duration-500 group-hover:scale-[1.02] font-Exo">
+        Events
+      </h1>
 
       {/* Slider Section */}
       <div className="relative flex items-center">
@@ -85,9 +87,7 @@ const EventsSlider = () => {
                 <div
                   key={eventsData[index].id}
                   className={`relative w-[35%] transition-transform duration-500 ${
-                    isActive
-                      ? "scale-105 z-10"
-                      : "scale-95 opacity-70"
+                    isActive ? "scale-105 z-10" : "scale-95 opacity-70"
                   }`}
                 >
                   <div className="rounded-lg overflow-hidden shadow-lg relative">
