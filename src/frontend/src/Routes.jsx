@@ -20,7 +20,7 @@ function RouteList() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/events/:slug" element={<EventDetails />} />
-        <Route path="/team" element={<TeamSelector/>} />
+        <Route path="/team" element={<TeamSelector />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:slug" element={<ProjectDetails />} />
         <Route path="/break" element={<SomethingWentWrong />} />

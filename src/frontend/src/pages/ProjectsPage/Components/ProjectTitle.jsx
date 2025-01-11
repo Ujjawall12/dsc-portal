@@ -81,16 +81,13 @@ const ProjectHeroSection = ({ projectData }) => {
                       {
                         month: "long",
                         year: "numeric",
-                      }
+                      },
                     )}{" "}
                     -{" "}
-                    {new Date(projectData.endDate).toLocaleDateString(
-                      "en-US",
-                      {
-                        month: "long",
-                        year: "numeric",
-                      }
-                    )}
+                    {new Date(projectData.endDate).toLocaleDateString("en-US", {
+                      month: "long",
+                      year: "numeric",
+                    })}
                   </span>
                 </div>
 

@@ -128,7 +128,9 @@ function Projects() {
   const fetchData = useCallback(async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`${process.env.BACKEND_URL}/projects?page=${currentPage}&limit=7`);
+      const response = await fetch(
+        `${process.env.BACKEND_URL}/projects?page=${currentPage}&limit=7`,
+      );
       const resData = await response.json();
       setProjects(resData.data);
       setMetaData(resData.meta);
@@ -210,23 +212,21 @@ function Projects() {
                     <ProjectInfoCardSkeleton key={index} />
                   ))}
                 </div>
-              ) : (
-                projects.length ? 
+              ) : projects.length ? (
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7">
                   {projects.map((project) => (
                     <div className="flex justify-center" key={project.id}>
                       <ProjectInfoCard {...project} />
                     </div>
-                  ))} 
-                    </div>
-                : <div className="flex justify-center w-full">
-                <p className="text-lg text-neutral-500 dark:text-neutral-300">
-                  No projects found
-                </p>
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="flex justify-center w-full">
+                  <p className="text-lg text-neutral-500 dark:text-neutral-300">
+                    No projects found
+                  </p>
+                </div>
               )}
-                 
-                 
             </div>
             <div className="flex justify-end">
               <div className="flex gap-3">

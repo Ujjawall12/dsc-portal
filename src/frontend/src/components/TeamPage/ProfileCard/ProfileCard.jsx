@@ -15,7 +15,9 @@ const ProfileCard = ({ image, name, position, category, year }) => {
 
     // Determine if the cursor is near the center
     const isFromCenter = Math.abs(cursorX - cardWidth / 2) < cardWidth * 0.2; // Adjust 0.2 for sensitivity
-    setHoverOrigin(isFromCenter ? "center" : cursorX < cardWidth / 2 ? "left" : "right");
+    setHoverOrigin(
+      isFromCenter ? "center" : cursorX < cardWidth / 2 ? "left" : "right",
+    );
   };
 
   const handleMouseLeave = () => {
@@ -52,28 +54,25 @@ const ProfileCard = ({ image, name, position, category, year }) => {
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 mb-6">
           {position}
         </p>
-    
-        
 
         {/* Social Links */}
         <div className="w-full flex justify-center items-center pt-2">
-        <div className="flex gap-4">
-          <a
-            href="#"
-            className="text-blue-500 hover:text-blue-700 transition duration-200"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={24} />
-          </a>
-          <a
-            href="#"
-            className="text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition duration-200"
-            aria-label="GitHub"
-          >
-            <Github size={24} />
-          </a>
-        </div>
-
+          <div className="flex gap-4">
+            <a
+              href="#"
+              className="text-blue-500 hover:text-blue-700 transition duration-200"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={24} />
+            </a>
+            <a
+              href="#"
+              className="text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition duration-200"
+              aria-label="GitHub"
+            >
+              <Github size={24} />
+            </a>
+          </div>
         </div>
 
         {/* Animated Bottom Line */}
@@ -86,8 +85,8 @@ const ProfileCard = ({ image, name, position, category, year }) => {
               hoverOrigin === "center"
                 ? "center"
                 : hoverOrigin === "left"
-                ? "left"
-                : "right", // Dynamically set transform-origin
+                  ? "left"
+                  : "right", // Dynamically set transform-origin
           }}
         />
       </div>

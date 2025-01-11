@@ -1,5 +1,3 @@
 export default function Nandini() {
-    return (
-        <></>
-    );
+  return <></>;
 }

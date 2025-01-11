@@ -1,5 +1,3 @@
 export default function Soham() {
-    return (
-        <></>
-    );
+  return <></>;
 }

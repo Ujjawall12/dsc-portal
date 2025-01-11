@@ -1,16 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/Projectutils/card";
-import {
-  Code,
-  GitBranch,
-  Layers,
-  Zap,
-  Shield,
-  Clock,
-} from "lucide-react";
+import { Code, GitBranch, Layers, Zap, Shield, Clock } from "lucide-react";
 
-function ProjectDescription () {
+function ProjectDescription() {
   const projectInfo = {
     description: {
       short:
@@ -194,6 +187,6 @@ function ProjectDescription () {
       </div>
     </div>
   );
-};
+}
 
 export default ProjectDescription;
