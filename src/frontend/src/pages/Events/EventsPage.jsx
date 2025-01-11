@@ -7,11 +7,13 @@ import YearSelector from "./YearSelector";
 import MainLayout from "@/Layout/MainLayout";
 import Section from "@/Layout/Section";
 
-const years = ["2024", "2023"];  // todo - get years from the backend
+const years = ["2024", "2023"]; // todo - get years from the backend
 
 function EventsPage() {
   const [selectedYear, setSelectedYear] = useState("2024");
-  const [filteredEvents, setFilteredEvents] = useState(events.filter((event) => event.year === selectedYear));
+  const [filteredEvents, setFilteredEvents] = useState(
+    events.filter((event) => event.year === selectedYear),
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -57,7 +59,7 @@ function EventsPage() {
                     : "bg-white text-black dark:bg-black dark:text-white"
                 }`}
                 onClick={() => {
-                  setSelectedYear(year)
+                  setSelectedYear(year);
                 }}
               >
                 {year}

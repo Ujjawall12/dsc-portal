@@ -1,4 +1,4 @@
-function ProjectTeamSectionSkeleton () {
+function ProjectTeamSectionSkeleton() {
   return (
     <div className="w-full max-w-7xl mx-auto">
       <div className="h-10 w-48 bg-neutral-200 dark:bg-neutral-700 rounded-lg mx-auto mb-10 animate-pulse" />
@@ -32,6 +32,6 @@ function ProjectTeamSectionSkeleton () {
       </div>
     </div>
   );
-};
+}
 
 export default ProjectTeamSectionSkeleton;

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { Card, CardContent } from "@/components/Projectutils/card";
 import { Badge } from "@/components/Projectutils/badge";
 import { Users, Calendar, Tag, ExternalLink, Star } from "lucide-react";
@@ -17,6 +16,7 @@ const ProjectHeroSection = ({ projectData }) => {
     Planned: "bg-amber-500",
   };
 
+  console.log(projectData, "projectData");
   return (
     <div
       className="relative w-full min-h-screen overflow-hidden bg-gray-900 dark:bg-gray-800"
@@ -50,22 +50,19 @@ const ProjectHeroSection = ({ projectData }) => {
                 variant="secondary"
                 className="bg-blue-500/20 text-white hover:bg-blue-500/30"
               >
-                {projectData.category}
+                {projectData?.progress} % completed
               </Badge>
-              <Badge
-                variant="secondary"
-                className={`${statusColors[projectData.status]} text-white`}
-              >
-                {projectData.status}
+              <Badge variant="secondary" className={` text-white`}>
+                {/* {projectData?.progress} */}
               </Badge>
             </div>
 
             <h1 className="text-6xl font-bold text-white leading-tight">
-              {projectData.title}
+              {projectData?.headline}
             </h1>
 
             <p className="text-xl text-gray-300 max-w-xl leading-relaxed">
-              {projectData.description}
+              {projectData?.subtitle}
             </p>
           </motion.div>
 
@@ -76,27 +73,27 @@ const ProjectHeroSection = ({ projectData }) => {
                 <div className="flex flex-wrap items-center gap-3">
                   <Calendar className="w-5 h-5 text-blue-300" />
                   <span className="text-gray-200">
-                    {new Date(projectData.startDate).toLocaleDateString(
+                    {new Date(projectData?.startDate).toLocaleDateString(
                       "en-US",
                       {
                         month: "long",
                         year: "numeric",
-                      }
+                      },
                     )}{" "}
                     -{" "}
-                    {new Date(projectData.endDate).toLocaleDateString(
+                    {new Date(projectData?.endDate).toLocaleDateString(
                       "en-US",
                       {
                         month: "long",
                         year: "numeric",
-                      }
+                      },
                     )}
                   </span>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3">
                   <Tag className="w-5 h-5 text-blue-300" />
-                  <span className="text-gray-200">{projectData.category}</span>
+                  <span className="text-gray-200">{projectData?.part}</span>
                 </div>
 
                 <div className="space-y-3">
@@ -107,9 +104,9 @@ const ProjectHeroSection = ({ projectData }) => {
                     </span>
                   </div>
                   <div className="ml-8 space-y-2">
-                    {projectData.contributors.map((contributor, index) => (
+                    {projectData?.teamMembers?.map((contributor, index) => (
                       <div key={index} className="flex items-center gap-2">
-                        <img
+                        {/* <img
                           src={`https://api.dicebear.com/7.x/identicon/svg?seed=${contributor.name}`}
                           alt={contributor.name}
                           className="w-6 h-6 rounded-full bg-gray-700"
@@ -118,8 +115,14 @@ const ProjectHeroSection = ({ projectData }) => {
                           href={contributor.profileUrl}
                           className="text-gray-300 hover:text-white transition-colors"
                         >
-                          {contributor.name}
-                        </a>
+                          {contributor}
+                        </a> */}
+                        <img
+                          src={`https://api.dicebear.com/7.x/identicon/svg?seed=${contributor.name}`}
+                          alt={contributor}
+                          className="w-6 h-6 rounded-full bg-gray-700"
+                        />
+                        <p>{contributor}</p>
                       </div>
                     ))}
                   </div>
@@ -136,7 +139,7 @@ const ProjectHeroSection = ({ projectData }) => {
           animate="animate"
           variants={fadeIn}
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
                 label: "Total Downloads",
@@ -167,7 +170,7 @@ const ProjectHeroSection = ({ projectData }) => {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </div>

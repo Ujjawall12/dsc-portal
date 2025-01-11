@@ -101,7 +101,7 @@ const ProjectSchema = new mongoose.Schema({
     type: [String],
     required: false,
   },
-  respostries: {
+  repositories: {
     type: [String],
     required: true,
   },

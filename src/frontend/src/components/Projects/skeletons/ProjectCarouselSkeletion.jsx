@@ -1,6 +1,6 @@
 import ProjectCarouselCardSkeleton from "./ProjectCarouselCardSkeleton";
 
-function ProjectCarouselSkeleton () {
+function ProjectCarouselSkeleton() {
   return (
     <div className="w-full max-w-7xl mx-auto">
       {/* Title Skeleton */}
@@ -32,6 +32,6 @@ function ProjectCarouselSkeleton () {
       </div>
     </div>
   );
-};
+}
 
 export default ProjectCarouselSkeleton;

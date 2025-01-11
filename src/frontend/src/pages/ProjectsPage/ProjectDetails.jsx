@@ -34,46 +34,54 @@ const sampleProjectData = {
 
 function ProjectDetails() {
   const [project, setProject] = useState(null);
-  const [isLoading , setIsLoading] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
   const navigate = useNavigate();
   const { slug } = useParams();
+  console.log(slug);
 
-  const fetchProjectData = useCallback(async() => {
+  const fetchProjectData = useCallback(async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(`http://localhost:5000/api/v1/projects/${slug}`);
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/projects/${slug}`,
+      );
       const data = await response.json();
-      setProject(data);
+      setProject(data.data);
       if (!response.ok) navigate("/not-found");
     } catch (err) {
       console.log(err);
     } finally {
       setIsLoading(false);
     }
-  }, [slug, navigate])
-
-  console.log(project);
+  }, [slug, navigate]);
 
   useEffect(() => {
     fetchProjectData();
-  }, [fetchProjectData])
+  }, [fetchProjectData]);
+
+  const technologies = project?.technologies ? project.technologies : [];
 
   return (
     <MainLayout>
-      {
-        isLoading ? <>
-        <ProjectHeroSkeleton />
-        <ProjectDescriptionSkeleton />
-        <ProjectCarouselSkeleton />
-        <ProjectTeamSectionSkeleton />
-        </> : <>
-        <ProjectHeroSection projectData={sampleProjectData} />
-        <ProjectDescription />
-        <Carousel />
-        <ProjectTeamSection />
-    
+      {isLoading ? (
+        <>
+          <ProjectHeroSkeleton />
+          <ProjectDescriptionSkeleton />
+          <ProjectCarouselSkeleton />
+          <ProjectTeamSectionSkeleton />
         </>
-      }
+      ) : (
+        <>
+          <ProjectHeroSection projectData={project} />
+          <ProjectDescription
+            description={project?.description}
+            repositories={project?.repositories}
+            technologies={technologies}
+          />
+          <Carousel />
+          <ProjectTeamSection />
+        </>
+      )}
     </MainLayout>
   );
 }

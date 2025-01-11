@@ -1,7 +1,4 @@
-import { Star,
-  Terminal,
-  Globe,
-  Zap } from "lucide-react"
+import { Star, Terminal, Globe, Zap } from "lucide-react";
 
 const achievements = [
   {
@@ -19,17 +16,15 @@ const achievements = [
   {
     title: "Experience",
     count: "3+ Years",
-    description:
-      "Experience and growth within the prestigious NIT Hamirpur.",
+    description: "Experience and growth within the prestigious NIT Hamirpur.",
     gradient: "from-yellow-500 to-red-500",
   },
-]
+];
 const headerCards = [
   {
     icon: <Terminal className="w-8 h-8" />,
     title: "Code & Create",
-    description:
-      "Build innovative solutions with cutting-edge tech",
+    description: "Build innovative solutions with cutting-edge tech",
     gradient: "from-blue-500 to-blue-600",
   },
   {
@@ -50,7 +45,7 @@ const headerCards = [
     description: "Achieve technical mastery",
     gradient: "from-red-500 to-red-600",
   },
-]
+];
 
 const socialLinks = [
   {
@@ -74,7 +69,7 @@ const socialLinks = [
     logo: "https://tse1.mm.bing.net/th?id=OIP.IpB5yPUkCFHOzlmM-O7ncAHaFW&pid=Api&P=0&h=180",
     gradient: "from-red-500 to-red-600",
   },
-]
+];
 
 const faq = [
   {
@@ -92,6 +87,6 @@ const faq = [
     answer:
       "No, GDSC is open to all students irrespective of their skill level. We believe in learning and growing together!",
   },
-]
+];
 
-export { achievements, headerCards, socialLinks, faq }
+export { achievements, headerCards, socialLinks, faq };

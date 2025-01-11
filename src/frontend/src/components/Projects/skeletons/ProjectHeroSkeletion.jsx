@@ -1,4 +1,4 @@
-function ProjectHeroSkeleton () {
+function ProjectHeroSkeleton() {
   const StatCardSkeleton = () => (
     <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg animate-pulse">
       <div className="flex items-center gap-3 mb-2">
@@ -81,6 +81,6 @@ function ProjectHeroSkeleton () {
       </div>
     </section>
   );
-};
+}
 
 export default ProjectHeroSkeleton;

@@ -7,7 +7,6 @@ import AboutUsDomains from "./Components/AboutUsDomains";
 import AboutUsHeadingSection from "./Components/AboutUsHeadingSection";
 import AboutUsSocialMedia from "./Components/AboutUsSocialMedia";
 
-
 function AboutUs() {
   return (
     <MainLayout>
@@ -16,7 +15,7 @@ function AboutUs() {
         <AboutUsAchievements />
         <AboutUsDomains />
         <AboutUsSocialMedia />
-       <AboutUsFAQSection />
+        <AboutUsFAQSection />
       </Section>
     </MainLayout>
   );
