@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const EventsSlider = () => {
@@ -48,25 +48,20 @@ const EventsSlider = () => {
   };
 
   const prevSlide = () => {
-    setActiveIndex((prev) =>
-      prev === 0 ? eventsData.length - 1 : prev - 1
-    );
+    setActiveIndex((prev) => (prev === 0 ? eventsData.length - 1 : prev - 1));
   };
 
-  const getSlideIndex = (index) => {
-    const totalSlides = eventsData.length;
-    return (index + totalSlides) % totalSlides;
-  };
+  const getSlideIndex = (index) => (index + eventsData.length) % eventsData.length;
 
   return (
-    <div className="relative w-[95vw] max-w-[1600px] mx-auto px-8 py-16">
+    <div className="relative w-full max-w-7xl mx-auto px-8 py-16">
       {/* Heading */}
-      <h1 className="text-6xl text-center font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent pb-2 transition-all duration-500 group-hover:scale-[1.02] font-Exo">
+      <h1 className="text-5xl text-center font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent pb-2 transition-all duration-500 group-hover:scale-[1.02] font-Exo">
         Events
       </h1>
 
       {/* Slider Section */}
-      <div className="relative flex items-center">
+      <div className="relative flex items-center mt-4">
         {/* Left Arrow */}
         <button
           onClick={prevSlide}

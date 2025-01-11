@@ -35,7 +35,7 @@ const lists = {
 export default function Footer() {
   return (
     <div className="flex flex-col w-full">
-      <div className="w-4/5 h-64 flex flex-col sm:flex-row sm:items-center rounded-xl overflow-hidden px-6 py-4 relative bg-violet-300 mx-auto translate-y-16 footer-head z-10">
+      <div className="w-4/5 z-20 h-64 flex flex-col sm:flex-row sm:items-center rounded-xl overflow-hidden px-6 py-4 relative bg-violet-300 mx-auto translate-y-16 footer-head">
         <img
           src={stars}
           alt="stars"
