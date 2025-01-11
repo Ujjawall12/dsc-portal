@@ -55,6 +55,8 @@ function ProjectDetails() {
     }
   }, [slug, navigate]);
 
+  console.log(project);
+
   useEffect(() => {
     fetchProjectData();
   }, [fetchProjectData]);
