@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/Projectutils/card";
 import { Code, GitBranch, Layers, Zap, Shield, Clock } from "lucide-react";
 
-function  ProjectDescription({ description, repositories, technologies }) {
+function ProjectDescription({ description, repositories, technologies }) {
   const projectInfo = {
     description: {
       short:
