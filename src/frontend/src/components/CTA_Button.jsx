@@ -6,7 +6,7 @@ CTA_Button.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default function CTA_Button({ className, text, onClick = () => {} }) {
+export default function CTA_Button({ className, text, onClick = () => { window.location.href = '/events'; } }) {
   return (
     <button
       onClick={onClick}
