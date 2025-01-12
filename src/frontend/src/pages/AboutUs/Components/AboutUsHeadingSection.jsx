@@ -44,16 +44,9 @@ export default function AboutUsHeadingSection() {
   return (
     <section
       id="about"
-      className="min-h-screen bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100 via-white to-blue-50 dark:from-gray-800 dark:via-neutral-900 dark:to-neutral-900 pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="min-h-screen bg-white dark:bg-neutral-900 pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto relative">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-xl animate-blob" />
-          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-green-400/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000" />
-          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-400/20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000" />
-        </div>
-
         {/* Main Content */}
         <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column - Main Heading */}
@@ -93,16 +86,16 @@ export default function AboutUsHeadingSection() {
                       index === 0
                         ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
                         : index === 1
-                          ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                          : index === 2
-                            ? "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
-                            : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+                        ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                        : index === 2
+                        ? "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
+                        : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
                     }
                     transform hover:scale-110 transition-transform duration-300`}
                   >
                     #{tag}
                   </span>
-                ),
+                )
               )}
             </div>
           </div>
@@ -141,7 +134,9 @@ export default function AboutUsHeadingSection() {
           >
             About GDSC
             <ChevronRight
-              className={`w-5 h-5 transition-transform duration-300 ${showAbout ? "rotate-90" : ""} group-hover:translate-x-1`}
+              className={`w-5 h-5 transition-transform duration-300 ${
+                showAbout ? "rotate-90" : ""
+              } group-hover:translate-x-1`}
             />
           </button>
 
@@ -150,7 +145,13 @@ export default function AboutUsHeadingSection() {
               showAbout ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
             }`}
           >
-            <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
+            <div className="relative bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-800 dark:via-neutral-900 dark:to-neutral-800 p-8 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+              {/* Background Decorative Blobs */}
+              <div className="absolute inset-0 overflow-hidden -z-10">
+                <div className="absolute -top-10 -left-10 w-60 h-60 bg-blue-300/30 rounded-full blur-2xl mix-blend-multiply animate-pulse" />
+                <div className="absolute top-20 right-10 w-48 h-48 bg-green-300/30 rounded-full blur-2xl mix-blend-multiply animate-pulse animation-delay-2000" />
+              </div>
+
               <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
                 About Google Developer Student Clubs
               </h3>
@@ -169,7 +170,7 @@ export default function AboutUsHeadingSection() {
                     ].map((item, index) => (
                       <li
                         key={index}
-                        className="flex items-center gap-2 text-gray-700 dark:text-gray-300"
+                        className="flex items-center gap-3 text-gray-700 dark:text-gray-300"
                       >
                         <span className="h-2 w-2 rounded-full bg-gradient-to-r from-blue-600 to-green-500" />
                         {item}
