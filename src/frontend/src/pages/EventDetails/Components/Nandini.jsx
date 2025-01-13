@@ -9,37 +9,43 @@ const EventsSlider = () => {
       id: 1,
       title: "Summer Music Festival",
       location: "Central Park • New York",
-      image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      image:
+        "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 2,
       title: "Tech Conference 2025",
       location: "San Francisco Convention Center",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      image:
+        "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 3,
       title: "Food & Wine Expo",
       location: "Chicago Exhibition Hall",
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      image:
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 4,
       title: "Art & Design Fair",
       location: "Miami Convention Center",
-      image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      image:
+        "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 5,
       title: "Gaming Expo",
       location: "Seattle Gaming Center",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      image:
+        "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
     {
       id: 6,
       title: "Fashion Week",
       location: "Paris Exhibition Hall",
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      image:
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     },
   ];
 
@@ -51,7 +57,8 @@ const EventsSlider = () => {
     setActiveIndex((prev) => (prev === 0 ? eventsData.length - 1 : prev - 1));
   };
 
-  const getSlideIndex = (index) => (index + eventsData.length) % eventsData.length;
+  const getSlideIndex = (index) =>
+    (index + eventsData.length) % eventsData.length;
 
   return (
     <div className="relative w-full max-w-7xl mx-auto px-8 py-16">

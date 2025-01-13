@@ -80,7 +80,7 @@ const cardData = [
     imageClassName: "w-1/3",
   },
   {
-    link: "https://www.google.com",
+    link: "https://www.linkedin.com/company/dsc-nit-hamirpur/",
     parentClassName:
       "sm:bg-neutral-200 bg-neutral-200 dark:bg-[#0a66c2] h-32 sm:h-auto sm:w-auto sm:col-span-3 sm:col-start-1 sm:row-start-3 lg:col-span-2 lg:row-span-1 lg:row-start-4 flex items-center justify-center hover:bg-[#0a66c2] dark:bg-slate-600 dark:hover:bg-[#0a66c2] cursor-pointer transition-colors hover:text-neutral-800 group",
     contentType: "svg",
@@ -91,7 +91,7 @@ const cardData = [
     ),
   },
   {
-    link: "https://www.google.com",
+    link: "https://www.instagram.com/dsc_nith?igsh=c2hwM3p3NDlxaDhl",
     parentClassName:
       "instagram bg-neutral-200 hidden sm:flex sm:col-span-3 sm:row-start-4 lg:col-span-2 lg:row-span-1 lg:col-start-auto lg:row-start-4 flex items-center justify-center cursor-pointer transition-colors bg-[linear-gradient(45deg,_#405de6,_#5851db,_#833ab4,_#c13584,_#e1306c,_#fd1d1d)] hover:bg-[linear-gradient(45deg,_#405de6,_#5851db,_#833ab4,_#c13584,_#e1306c,_#fd1d1d)] instagram",
     contentType: "svg",

@@ -7,15 +7,17 @@ import ProjectDetails from "./pages/ProjectsPage/ProjectDetails";
 import EventDetails from "./pages/EventDetails/EventDetails";
 import NotFound from "./pages/NotFound";
 import SomethingWentWrong from "./pages/SomethingWentWrong";
-import SignUp from "./pages/SignUp/Signup";
 import Homepage from "./pages/Homepage/Homepage";
 import TeamSelector from "./pages/Team/TeamSelector/TeamSelector";
+import SignIn from "./pages/Auth/SignIn";
+import SignUp from "./pages/Auth/SignUp";
 
 function RouteList() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/events" element={<EventsPage />} />

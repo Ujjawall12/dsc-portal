@@ -26,9 +26,9 @@ export default function CurrentProjectCard() {
         Currently we are working on a project that aims to solve the issue
         present in the current system.
       </p>
-      <button className="btn btn-primary bg-green-700 mt-auto">
+      {/* <button className="btn btn-primary bg-green-700 mt-auto">
         View Project
-      </button>
+      </button> */}
     </motion.div>
   );
 }

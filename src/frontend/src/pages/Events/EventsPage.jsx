@@ -31,7 +31,7 @@ function EventsPage() {
         >
           <div className="flex flex-row items-center gap-3">
             <Calendar className="w-8 h-8 text-black dark:text-white hidden sm:block" />
-            <motion.h1 className="text-4xl sm:text-5xl  lg:text-4xl font-semibold text-gray-900 dark:text-gray-100 mb-2 font-Exo h-[1.8rem]">
+            <motion.h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-900 dark:text-gray-100 mb-2 font-Exo">
               Events
             </motion.h1>
           </div>
@@ -40,8 +40,8 @@ function EventsPage() {
           </p>
         </motion.div>
 
-        <div className=" flex flex-col mt-8 sm:flex-row sm:items-start sm:gap-8">
-          <div className="sm:w-24 sm:py-7 sm:px-3 hidden sm:block ">
+        <div className="flex flex-col mt-8 sm:flex-row sm:items-start sm:gap-8">
+          <div className="sm:w-24 sm:py-7 sm:px-3 hidden sm:block">
             <YearSelector
               years={years}
               selectedYear={selectedYear}
@@ -53,7 +53,7 @@ function EventsPage() {
             {years.map((year) => (
               <button
                 key={year}
-                className={`w-12 h-12 flex items-center justify-center border rounded-full ${
+                className={`min-w-14 min-h-14 flex items-center justify-center border rounded-full ${
                   selectedYear === year
                     ? "bg-black text-white dark:bg-white dark:text-black"
                     : "bg-white text-black dark:bg-black dark:text-white"
@@ -67,7 +67,7 @@ function EventsPage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
             <AnimatePresence mode="wait">
               {filteredEvents.map((event) => (
                 <EventCard key={event.title} {...event} />
@@ -77,7 +77,7 @@ function EventsPage() {
             {filteredEvents.length === 0 && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                 <div>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-center text-gray-600 dark:text-gray-400 mt-4">
                     No events scheduled for {selectedYear}
                   </p>
                 </div>
