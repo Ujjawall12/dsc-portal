@@ -47,7 +47,9 @@ export default function Footer() {
         </div>
         <button
           className="w-28 h-11 bg-violet-300 mt-auto sm:mt-0 sm:ml-auto rounded-md text-neutral-900 font-medium text-md font-Urbanist tracking-wider hover:bg-violet-400 transition-colors active:bg-violet-200"
-          onClick={() => { window.location.href = '/sign-up'; }}
+          onClick={() => {
+            window.location.href = "/sign-up";
+          }}
         >
           Join
         </button>

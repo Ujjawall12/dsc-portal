@@ -18,7 +18,9 @@ export default function ViewAllProjectCard() {
 
       <button
         className="w-64 h-12 rounded-md mt-auto bg-blue-500 hover:bg-blue-600 text-white dark:bg-blue-500 dark:hover:bg-blue-600 dark:text-white font-semibold text-sm transition-colors duration-300 ease-in-out"
-        onClick={() => { window.location.href = '/projects'; }}
+        onClick={() => {
+          window.location.href = "/projects";
+        }}
       >
         View All Projects
       </button>

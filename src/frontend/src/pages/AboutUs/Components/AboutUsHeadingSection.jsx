@@ -86,16 +86,16 @@ export default function AboutUsHeadingSection() {
                       index === 0
                         ? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
                         : index === 1
-                        ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                        : index === 2
-                        ? "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
-                        : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+                          ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                          : index === 2
+                            ? "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
+                            : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
                     }
                     transform hover:scale-110 transition-transform duration-300`}
                   >
                     #{tag}
                   </span>
-                )
+                ),
               )}
             </div>
           </div>
