@@ -242,7 +242,7 @@ const Pagination = ({ currentPage, totalItems, itemsPerPage, onPageChange }) => 
 const TeamSelector = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8; // Set items per page
+  const itemsPerPage = 10; // Set items per page
 
   const filteredTeamMembers =
     selectedCategory === "All"
