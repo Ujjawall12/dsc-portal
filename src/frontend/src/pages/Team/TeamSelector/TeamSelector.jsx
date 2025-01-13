@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 import ProfileCard from "@/components/TeamPage/ProfileCard/ProfileCard";
 import MainLayout from "@/Layout/MainLayout";
@@ -195,17 +197,67 @@ const categories = [
   "Android Team",
 ];
 
+
+
+const Pagination = ({ currentPage, totalItems, itemsPerPage, onPageChange }) => {
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  return (
+    <div className="flex justify-center mt-6">
+      <button
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+        className={`px-4 py-2 mx-1 rounded-lg ${
+          currentPage === 1 ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-orange-500 text-white"
+        }`}
+      >
+        Previous
+      </button>
+      {Array.from({ length: totalPages }, (_, index) => (
+        <button
+          key={index}
+          onClick={() => onPageChange(index + 1)}
+          className={`px-4 py-2 mx-1 rounded-lg ${
+            currentPage === index + 1
+              ? "bg-orange-500 text-white"
+              : "bg-white text-black border border-gray-300 hover:bg-gray-200"
+          }`}
+        >
+          {index + 1}
+        </button>
+      ))}
+      <button
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+        className={`px-4 py-2 mx-1 rounded-lg ${
+          currentPage === totalPages ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-orange-500 text-white"
+        }`}
+      >
+        Next
+      </button>
+    </div>
+  );
+};
+
 const TeamSelector = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10; // Set items per page
 
   const filteredTeamMembers =
     selectedCategory === "All"
       ? teamMembers
       : teamMembers.filter(
           (member) =>
-            member.category === selectedCategory ||
-            member.year === selectedCategory,
+            member.category === selectedCategory || member.year === selectedCategory
         );
+
+  const paginatedTeamMembers = filteredTeamMembers.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const totalItems = filteredTeamMembers.length;
 
   return (
     <MainLayout>
@@ -221,7 +273,10 @@ const TeamSelector = () => {
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => {
+                setSelectedCategory(category);
+                setCurrentPage(1); // Reset to page 1 when category changes
+              }}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                 selectedCategory === category
                   ? "bg-orange-500 text-white"
@@ -235,7 +290,7 @@ const TeamSelector = () => {
 
         {/* Team Members Display */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-          {filteredTeamMembers.map((member, index) => (
+          {paginatedTeamMembers.map((member, index) => (
             <ProfileCard
               key={index}
               image={member.image}
@@ -252,6 +307,16 @@ const TeamSelector = () => {
           <p className="text-center text-gray-500 dark:text-gray-400 text-lg mt-6">
             No team members found in this category.
           </p>
+        )}
+
+        {/* Pagination Component */}
+        {filteredTeamMembers.length > itemsPerPage && (
+          <Pagination
+            currentPage={currentPage}
+            totalItems={totalItems}
+            itemsPerPage={itemsPerPage}
+            onPageChange={setCurrentPage}
+          />
         )}
       </div>
     </MainLayout>
