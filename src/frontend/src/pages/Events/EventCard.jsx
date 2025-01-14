@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Calendar, MapPin, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
-function EventCard({ title, date, description, image, details }) {
+function EventCard({ id, title, date, description, image, details, duration, mode, onlineLink }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <Link
-      to={`/events/${title}`}
-      layout
+      to={`/events/${id}`}
       className={`bg-white dark:bg-neutral-800 max-w-sm rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-neutral-600 hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 cursor-pointer`}
     >
       <div className="relative h-40 xs:h-48 sm:h-64 overflow-hidden">
@@ -33,11 +33,11 @@ function EventCard({ title, date, description, image, details }) {
           </div>
           <div className="flex items-center gap-1">
             <Clock size={16} className="text-black dark:text-white" />
-            <span>2 Hours</span>
+            <span>{duration.start} - {duration.end}</span>
           </div>
           <div className="flex items-center gap-1">
             <MapPin size={16} className="text-black dark:text-white" />
-            <span>Online</span>
+            <span className="capitalize">{mode}</span>
           </div>
         </div>
 
@@ -49,6 +49,16 @@ function EventCard({ title, date, description, image, details }) {
         >
           <div className="bg-gray-50 dark:bg-neutral-700 p-4 rounded-lg mb-4">
             <p className="text-gray-700 dark:text-gray-200">{details}</p>
+            {mode === "online" && onlineLink && (
+              <a 
+                href={onlineLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-600 mt-2 block"
+              >
+                Join Online
+              </a>
+            )}
           </div>
         </motion.div>
 
@@ -61,20 +71,29 @@ function EventCard({ title, date, description, image, details }) {
         >
           <span>{isExpanded ? "Show Less" : "Read More"}</span>
           {isExpanded ? (
-            <ChevronUp
-              size={16}
-              className="group-hover:-translate-y-1 transition-transform duration-300"
-            />
+            <ChevronUp size={16} className="group-hover:-translate-y-1 transition-transform duration-300" />
           ) : (
-            <ChevronDown
-              size={16}
-              className="group-hover:translate-y-1 transition-transform duration-300"
-            />
+            <ChevronDown size={16} className="group-hover:translate-y-1 transition-transform duration-300" />
           )}
         </button>
       </div>
     </Link>
   );
 }
+
+EventCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  details: PropTypes.string,
+  duration: PropTypes.shape({
+    start: PropTypes.string.isRequired,
+    end: PropTypes.string.isRequired
+  }).isRequired,
+  mode: PropTypes.oneOf(['online', 'offline', 'mixed']).isRequired,
+  onlineLink: PropTypes.string
+};
 
 export default EventCard;
