@@ -1,4 +1,4 @@
-const app = require("./app.js");
+const app = require("./app");
 
 const chalk = require("chalk");
 const port = process.env.PORT || 5000;
