@@ -1,4 +1,4 @@
-const Event = require("../schema/event.schema")
+const Event = require("../schema/event.schema");
 
 const getEvents = async ({ id, page, max, year }) => {
   const limit = Math.min(max || 10, 20); // Upper limit of 20

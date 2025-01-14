@@ -1,24 +1,74 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar } from "lucide-react";
-import { events } from "./EventsData";
+import axios from "axios";
 import EventCard from "./EventCard";
 import YearSelector from "./YearSelector";
 import MainLayout from "@/Layout/MainLayout";
 import Section from "@/Layout/Section";
 
-const years = ["2024", "2023"]; // todo - get years from the backend
-
 function EventsPage() {
-  const [selectedYear, setSelectedYear] = useState("2024");
-  const [filteredEvents, setFilteredEvents] = useState(
-    events.filter((event) => event.year === selectedYear),
-  );
+  const [years, setYears] = useState([]);
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear().toString());
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [page, setPage] = useState(1);
+  const [totalEvents, setTotalEvents] = useState(0);
 
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
+  // Function to format event data for EventCard
+  const formatEventForCard = (event) => ({
+    id: event._id,
+    title: event.name,
+    date: new Date(event.startDate).toLocaleDateString(),
+    description: event.simpleDescription,
+    image: event.images[0]?.link || '/placeholder-image.jpg',
+    details: event.description[0]?.content || '',
+    duration: {
+      start: new Date(event.duration.start).toLocaleTimeString(),
+      end: new Date(event.duration.end).toLocaleTimeString(),
+    },
+    mode: event.mode,
+    onlineLink: event.onlineLink
+  });
+
+  // Fetch events for the selected year
   useEffect(() => {
-    window.scrollTo(0, 0);
-    setFilteredEvents(events.filter((event) => event.year === selectedYear));
-  }, [selectedYear]);
+    const fetchEvents = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await axios.get(`${API_URL}/api/events`, {
+          params: {
+            year: selectedYear,
+            page,
+            max: 9 // Number of events per page
+          }
+        });
+
+        const { data, total } = response.data;
+        setEvents(data.map(formatEventForCard));
+        setTotalEvents(total);
+
+        // Generate years array based on available data
+        const currentYear = new Date().getFullYear();
+        const yearsList = Array.from(
+          { length: 5 },
+          (_, i) => (currentYear - 2 + i).toString()
+        );
+        setYears(yearsList);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+        setError(error.message || "Failed to fetch events");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, [selectedYear, page]);
 
   return (
     <MainLayout>
@@ -41,15 +91,20 @@ function EventsPage() {
         </motion.div>
 
         <div className="flex flex-col mt-8 sm:flex-row sm:items-start sm:gap-8">
+          {/* Year Selectors */}
           <div className="sm:w-24 sm:py-7 sm:px-3 hidden sm:block">
             <YearSelector
               years={years}
               selectedYear={selectedYear}
-              onYearSelect={setSelectedYear}
+              onYearSelect={(year) => {
+                setSelectedYear(year);
+                setPage(1); // Reset page when year changes
+              }}
             />
           </div>
 
-          <div className="flex sm:hidden gap-2 mt-2 px-4">
+          {/* Mobile Year Selector */}
+          <div className="flex sm:hidden gap-2 mt-2 px-4 overflow-x-auto">
             {years.map((year) => (
               <button
                 key={year}
@@ -60,6 +115,7 @@ function EventsPage() {
                 }`}
                 onClick={() => {
                   setSelectedYear(year);
+                  setPage(1);
                 }}
               >
                 {year}
@@ -67,21 +123,58 @@ function EventsPage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-            <AnimatePresence mode="wait">
-              {filteredEvents.map((event) => (
-                <EventCard key={event.title} {...event} />
-              ))}
-            </AnimatePresence>
+          {/* Events Grid */}
+          <div className="w-full">
+            {loading ? (
+              <div className="flex justify-center items-center h-64">
+                <p className="text-gray-600 dark:text-gray-400">Loading events...</p>
+              </div>
+            ) : error ? (
+              <div className="flex justify-center items-center h-64">
+                <p className="text-red-600 dark:text-red-400">Error: {error}</p>
+              </div>
+            ) : (
+              <>
+                <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+                  <AnimatePresence mode="wait">
+                    {events.map((event) => (
+                      <EventCard key={event.id} {...event} />
+                    ))}
+                  </AnimatePresence>
 
-            {filteredEvents.length === 0 && (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                <div>
-                  <p className="text-center text-gray-600 dark:text-gray-400 mt-4">
-                    No events scheduled for {selectedYear}
-                  </p>
+                  {events.length === 0 && (
+                    <motion.div 
+                      initial={{ opacity: 0 }} 
+                      animate={{ opacity: 1 }}
+                      className="col-span-full"
+                    >
+                      <p className="text-center text-gray-600 dark:text-gray-400 mt-4">
+                        No events scheduled for {selectedYear}
+                      </p>
+                    </motion.div>
+                  )}
                 </div>
-              </motion.div>
+
+                {/* Pagination */}
+                {totalEvents > 9 && (
+                  <div className="flex justify-center mt-8 gap-2">
+                    <button
+                      onClick={() => setPage(p => Math.max(1, p - 1))}
+                      disabled={page === 1}
+                      className="px-4 py-2 bg-black text-white rounded-lg disabled:opacity-50"
+                    >
+                      Previous
+                    </button>
+                    <button
+                      onClick={() => setPage(p => p + 1)}
+                      disabled={page * 9 >= totalEvents}
+                      className="px-4 py-2 bg-black text-white rounded-lg disabled:opacity-50"
+                    >
+                      Next
+                    </button>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>
