@@ -26,7 +26,7 @@ app.use(
 app.use(express.json());
 // routes
 app.use("/api/v1/projects", projectRoutes);
-app.use("/api", eventRoutes);
+app.use("/api/v1/events", eventRoutes);
 
 app.get("/", (req, res) => {
   const filePath = path.join(__dirname, "sample.html");
