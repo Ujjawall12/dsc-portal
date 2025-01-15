@@ -16,7 +16,7 @@ export default function CTA_Button({
   return (
     <button
       onClick={onClick}
-      className={`bg-black h-12 w-48 text-white font-Tektur tracking-wide rounded-full hover:bg-neutral-900 ${className}`}
+      className={`bg-black h-12 w-48 text-white font-Tektur tracking-wide rounded-full hover:opacity-90 dark:hover:opacity-80 duration-200 transition-all ${className}`}
     >
       {text || "View All Events"}
     </button>
