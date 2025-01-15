@@ -32,7 +32,7 @@ async function dbConnection (dbName) {
       mongoose.connect(MONGODB_URI, {
         dbName,
       }).then((mongoose) => {
-        console.log("Connected to MongoDB to database:", dbName);
+        console.log("Connected to MongoDB to database", dbName);
         return mongoose;
       });;
 
