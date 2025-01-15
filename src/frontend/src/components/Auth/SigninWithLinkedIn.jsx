@@ -1,4 +1,3 @@
-import React from "react";
 import { SiLinkedin } from "react-icons/si";
 
 function SignInWithLinkedIn() {
