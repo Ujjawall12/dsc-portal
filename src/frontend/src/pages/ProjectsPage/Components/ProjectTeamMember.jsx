@@ -40,7 +40,7 @@ const ProjectTeamSection = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-10 text-gray-900 dark:text-gray-100">
+      <h2 className="text-4xl font-bold font-Exo text-center mb-10 text-gray-900 dark:text-gray-100">
         Our Team
       </h2>
 
