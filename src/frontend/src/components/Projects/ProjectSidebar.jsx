@@ -1,25 +1,23 @@
 import { useEffect, useCallback, useRef } from "react";
 import PropTypes from "prop-types";
+import { X, Filter } from "lucide-react";
 
 ProjectSidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
 };
+
 function ProjectSidebar({ isOpen, onClose }) {
   const sidebarRef = useRef(null);
 
   const handleClickOutside = useCallback(
     (event) => {
       const target = event.target;
-      if (
-        isOpen &&
-        sidebarRef.current &&
-        !sidebarRef.current.contains(target)
-      ) {
+      if (isOpen && sidebarRef.current && !sidebarRef.current.contains(target)) {
         onClose();
       }
     },
-    [isOpen, onClose],
+    [isOpen, onClose]
   );
 
   useEffect(() => {
@@ -37,94 +35,112 @@ function ProjectSidebar({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const fieldClasses =
-    "border dark:border-neutral-600 p-1 rounded-md dark:bg-neutral-700 dark:text-neutral-50 focus:outline-none focus:outline-4";
+  const fieldClasses = `
+    w-full px-3 py-2 rounded-lg border transition-all duration-200bg-white dark:bg-neutral-800 border-indigo-100 dark:border-neutral-700 focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-2 focus:ring-indigo-200 dark:focus:ring-indigo-800 focus:outline-none  text-neutral-800 dark:text-neutral-100
+  `;
 
-  // todo: fetch these things from backend
   const categories = ["ALL", "WEB", "AI/ML", "HARDWARE"];
   const years = ["ALL", "2024", "2023", "2022"];
 
   return (
-    <div className="hidden sm:flex fixed inset-0 bg-black/40 z-[100]">
-      <div className="right-0 top-0 bottom-0 fixed z-10 flex ">
+    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[100] flex items-end sm:items-center justify-end">
+      <div className="w-full sm:w-[400px] h-[90vh] sm:h-[85vh] sm:mr-4 sm:rounded-2xl overflow-hidden shadow-2xl">
         <form
-          className="border-l border-l-bg-neutral-500 dark:border-neutral-700 bg-white dark:bg-neutral-900 w-[260px] grow p-4 flex flex-col dark:text-white"
+          className="h-full bg-gradient-to-b from-white to-indigo-50 dark:from-neutral-900 dark:to-neutral-900 flex flex-col"
           ref={sidebarRef}
           onSubmit={handleSubmit}
         >
-          <h3>Filter</h3>
-          <div className="border dark:border-neutral-600 rounded-full mt-1" />
-          <div className="space-y-3 mt-5">
-            <div className="grid">
+          {/* Header */}
+          <div className="px-6 py-4 flex items-center justify-between border-b border-indigo-100 dark:border-neutral-800">
+            <div className="flex items-center gap-2">
+              <Filter className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+              <h3 className="text-xl font-semibold text-neutral-800 dark:text-white">
+                Filters
+              </h3>
+            </div>
+            <button
+              type="button"
+              onClick={onClose}
+              className="p-2 rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+            >
+              <X className="w-5 h-5 text-neutral-500 dark:text-neutral-400" />
+            </button>
+          </div>
+
+          {/* Content */}
+          <div className="flex-1 overflow-y-auto px-6 py-6 space-y-6">
+            {/* Year Selection */}
+            <div className="space-y-2">
               <label
                 htmlFor="year"
-                className="text-neutral-700 dark:text-white"
+                className="block text-sm font-medium text-neutral-700 dark:text-neutral-200"
               >
                 Year
               </label>
               <select id="year" name="year" className={fieldClasses}>
-                {years.map((year) => {
-                  return (
-                    <option value={year} key={year}>
-                      {year}
-                    </option>
-                  );
-                })}
+                {years.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
               </select>
             </div>
-            <div className="grid">
+
+            {/* Category Selection */}
+            <div className="space-y-2">
               <label
                 htmlFor="category"
-                className="text-neutral-700 dark:text-white"
+                className="block text-sm font-medium text-neutral-700 dark:text-neutral-200"
               >
                 Category
               </label>
               <select id="category" name="category" className={fieldClasses}>
-                {categories.map((category) => {
-                  return (
-                    <option value={category} key={category}>
-                      {category}
-                    </option>
-                  );
-                })}
+                {categories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
               </select>
             </div>
-            <div className="grid">
-              <label className="text-neutral-700 dark:text-white">
+
+            {/* Project Status */}
+            <div className="space-y-3">
+              <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-200">
                 Project Status
               </label>
-              <div className="grid space-y-1 mt-2">
-                <div className="flex items-center gap-2">
-                  <input type="checkbox" id="active" name="projectStatus" />
-                  <label className="text-neutral-600  dark:text-white text-sm">
-                    Active
-                  </label>
-                </div>
-                <div className="flex items-center gap-2">
-                  <input type="checkbox" id="upcoming" name="projectStatus" />
+              <div className="space-y-3 pt-2">
+                {['Active', 'Upcoming', 'Completed'].map((status) => (
                   <label
-                    htmlFor="upcoming"
-                    className="text-neutral-600 dark:text-white text-sm"
+                    key={status}
+                    className="flex items-center gap-3 cursor-pointer group"
                   >
-                    Upcoming
+                    <div className="relative">
+                      <input
+                        type="checkbox"
+                        id={status.toLowerCase()}
+                        name="projectStatus"
+                        className="w-5 h-5 border-2 rounded-md border-indigo-200 dark:border-neutral-700 text-indigo-600 dark:text-indigo-400  focus:ring-2 focus:ring-indigo-200 dark:focus:ring-indigo-800   bg-white dark:bg-neutral-800  cursor-pointer"   
+                      />
+                    </div>
+                    <span className="text-neutral-600 dark:text-neutral-300 group-hover:text-neutral-800 dark:group-hover:text-white transition-colors">
+                      {status}
+                    </span>
                   </label>
-                </div>
-                <div className="flex items-center gap-2">
-                  <input type="checkbox" id="completed" name="projectStatus" />
-                  <label
-                    htmlFor="completed"
-                    className="text-neutral-600 dark:text-white text-sm"
-                  >
-                    Completed
-                  </label>
-                </div>
+                ))}
               </div>
             </div>
-            <div className="w-full">
-              <button className="w-full text-white rounded-md transition-all hover:opacity-90 duration-150 ease-out bg-neutral-950 dark:bg-neutral-50  px-4 p-2 dark:text-neutral-900">
-                Apply
-              </button>
-            </div>
+          </div>
+
+          {/* Footer with Apply Button */}
+          <div className="px-6 py-4 border-t border-indigo-100 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+            <button
+              type="submit"
+              className="w-full px-4 py-3 rounded-lg font-medium text-white dark:text-white  bg-gradient-to-r from-indigo-600 to-indigo-500  hover:from-indigo-500 hover:to-indigo-400  dark:from-indigo-500 dark:to-indigo-600 dark:hover:from-indigo-400 dark:hover:to-indigo-500
+                hover:shadow-lg hover:-translate-y-0.5
+                focus:outline-none focus:ring-2 focus:ring-indigo-200 dark:focus:ring-indigo-800"
+            >
+              Apply Filters
+            </button>
           </div>
         </form>
       </div>

@@ -9,11 +9,11 @@ export default function AboutUsHeadingSection() {
 
   const words = ["Innovate", "Create", "Transform", "Build", "Inspire"];
   const colors = [
-    "text-blue-600",
-    "text-green-500",
-    "text-purple-500",
-    "text-red-500",
-    "text-yellow-500",
+    "text-blue-300",
+    "text-green-300",
+    "text-purple-300",
+    "text-red-300",
+    "text-yellow-300",
   ];
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export default function AboutUsHeadingSection() {
               <p className="text-xl sm:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed relative">
                 Welcome to{" "}
                 <span className="relative inline-block group">
-                  <span className="font-bold bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
+                  <span className="font-bold bg-blue-600 bg-clip-text text-transparent">
                     GDSC NIT Hamirpur
                   </span>
                   <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-600 to-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
@@ -130,7 +130,7 @@ export default function AboutUsHeadingSection() {
         <div className="mt-16 space-y-6 relative">
           <button
             onClick={() => setShowAbout(!showAbout)}
-            className="group flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-600 to-green-500 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 transform hover:scale-105"
+            className="group flex items-center gap-2 px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 transform hover:scale-105"
           >
             About GDSC
             <ChevronRight
