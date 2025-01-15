@@ -20,9 +20,10 @@ export default function SectionTwo() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
+  // todo : padding correct for heading section 
 
   return (
-    <div className="flex flex-col gap-4 px-8">
+    <div className="flex flex-col px-8">
       <SectionHeading
         title={"FEATURED PROJECTS"}
         description={

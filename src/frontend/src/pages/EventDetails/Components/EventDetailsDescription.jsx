@@ -13,7 +13,6 @@ import {
   Minus,
 } from "lucide-react";
 
-
 const EventDetailsDescription = () => {
   const [expandedPrereq, setExpandedPrereq] = useState(null);
   const [themeColor, setThemeColor] = useState("light");
@@ -55,19 +54,31 @@ const EventDetailsDescription = () => {
         title: "Basic programming knowledge",
         description:
           "Familiarity with any programming language (Java preferred). Understanding of basic programming concepts like variables, loops, functions, and object-oriented programming principles.",
-        resources: ["CodeAcademy Java Course", "W3Schools Java Tutorial", "Programming Basics Video Series"],
+        resources: [
+          "CodeAcademy Java Course",
+          "W3Schools Java Tutorial",
+          "Programming Basics Video Series",
+        ],
       },
       {
         title: "Laptop with Android Studio installed",
         description:
           "A computer with minimum 8GB RAM, Intel i5/AMD equivalent processor. Install the latest version of Android Studio (Hedgehog or later) with Android SDK and Android Emulator configured.",
-        resources: ["Android Studio Setup Guide", "System Requirements Doc", "Troubleshooting Guide"],
+        resources: [
+          "Android Studio Setup Guide",
+          "System Requirements Doc",
+          "Troubleshooting Guide",
+        ],
       },
       {
         title: "Google Developer Account",
         description:
           "Active Google account registered as a developer. This is required for publishing apps and accessing certain Android development features and resources.",
-        resources: ["Google Developer Console", "Account Setup Tutorial", "Developer Guidelines"],
+        resources: [
+          "Google Developer Console",
+          "Account Setup Tutorial",
+          "Developer Guidelines",
+        ],
       },
     ],
   };
@@ -144,77 +155,76 @@ const EventDetailsDescription = () => {
 
             {/* Prerequisites Section */}
             <Card className="relative overflow-hidden border-0 bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm mb-12">
-  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 dark:from-blue-500/5 dark:to-purple-500/5" />
-  <CardContent className="relative p-8">
-    <h2 className="text-2xl font-semibold flex items-center gap-3 mb-8 text-gray-900 dark:text-gray-100">
-      <Tag className="w-7 h-7 text-blue-600 dark:text-blue-400" />
-      Prerequisites
-    </h2>
-    <div className="grid gap-4">
-      {eventInfo.prerequisites.map((prereq, index) => (
-        <div key={index} className="group relative cursor-pointer">
-          <div
-            onClick={() => handlePrereqClick(index)}
-            className={`flex items-center justify-between p-4 rounded-xl bg-gray-50/80 dark:bg-slate-800/50 hover:bg-gradient-to-r transition-all duration-300 shadow-sm hover:shadow-md ${
-              index === 0
-                ? "hover:from-blue-400/20 hover:to-blue-600/20 dark:hover:from-blue-400/20 dark:hover:to-blue-600/20"
-                : index === 1
-                ? "hover:from-green-500/20 hover:to-green-700/20 dark:hover:from-green-500/20 dark:hover:to-green-700/20"
-                : index === 2
-                ? "hover:from-purple-500/20 hover:to-purple-700/20 dark:hover:from-purple-500/20 dark:hover:to-purple-700/20"
-                : ""
-            }`}
-          >
-            <div className="flex items-center space-x-4">
-              <ArrowRight className="w-5 h-5 text-blue-600 dark:text-blue-400 transform transition-transform duration-300 group-hover:translate-x-1" />
-              <span className="text-lg text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                {prereq.title}
-              </span>
-            </div>
-            {expandedPrereq === index ? (
-              <Minus className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-            ) : (
-              <Plus className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-            )}
-          </div>
-          {expandedPrereq === index && (
-            <div
-              className={`mt-2 p-4 bg-${themeColor === "light" ? "white/80" : "slate-800/80"} dark:bg-slate-800/80 backdrop-blur-sm rounded-xl shadow-inner`}
-            >
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                {prereq.description}
-              </p>
-              <div className="space-y-2">
-                <h4 className="font-medium text-gray-900 dark:text-gray-100">
-                  Helpful Resources:
-                </h4>
-                <ul className="list-disc list-inside space-y-1">
-                  {prereq.resources.map((resource, idx) => (
-                    <li
-                      key={idx}
-                      className={`text-blue-600 dark:text-blue-400 hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer transition-colors duration-200 ${
-                        index === 0
-                          ? "hover:text-blue-600 dark:hover:text-blue-400"
-                          : index === 1
-                          ? "hover:text-teal-600 dark:hover:text-teal-400"
-                          : index === 2
-                          ? "hover:text-purple-600 dark:hover:text-purple-400"
-                          : ""
-                      }`}
-                    >
-                      {resource}
-                    </li>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 dark:from-blue-500/5 dark:to-purple-500/5" />
+              <CardContent className="relative p-8">
+                <h2 className="text-2xl font-semibold flex items-center gap-3 mb-8 text-gray-900 dark:text-gray-100">
+                  <Tag className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+                  Prerequisites
+                </h2>
+                <div className="grid gap-4">
+                  {eventInfo.prerequisites.map((prereq, index) => (
+                    <div key={index} className="group relative cursor-pointer">
+                      <div
+                        onClick={() => handlePrereqClick(index)}
+                        className={`flex items-center justify-between p-4 rounded-xl bg-gray-50/80 dark:bg-slate-800/50 hover:bg-gradient-to-r transition-all duration-300 shadow-sm hover:shadow-md ${
+                          index === 0
+                            ? "hover:from-blue-400/20 hover:to-blue-600/20 dark:hover:from-blue-400/20 dark:hover:to-blue-600/20"
+                            : index === 1
+                              ? "hover:from-green-500/20 hover:to-green-700/20 dark:hover:from-green-500/20 dark:hover:to-green-700/20"
+                              : index === 2
+                                ? "hover:from-purple-500/20 hover:to-purple-700/20 dark:hover:from-purple-500/20 dark:hover:to-purple-700/20"
+                                : ""
+                        }`}
+                      >
+                        <div className="flex items-center space-x-4">
+                          <ArrowRight className="w-5 h-5 text-blue-600 dark:text-blue-400 transform transition-transform duration-300 group-hover:translate-x-1" />
+                          <span className="text-lg text-gray-600 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                            {prereq.title}
+                          </span>
+                        </div>
+                        {expandedPrereq === index ? (
+                          <Minus className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                        ) : (
+                          <Plus className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                        )}
+                      </div>
+                      {expandedPrereq === index && (
+                        <div
+                          className={`mt-2 p-4 bg-${themeColor === "light" ? "white/80" : "slate-800/80"} dark:bg-slate-800/80 backdrop-blur-sm rounded-xl shadow-inner`}
+                        >
+                          <p className="text-gray-600 dark:text-gray-300 mb-4">
+                            {prereq.description}
+                          </p>
+                          <div className="space-y-2">
+                            <h4 className="font-medium text-gray-900 dark:text-gray-100">
+                              Helpful Resources:
+                            </h4>
+                            <ul className="list-disc list-inside space-y-1">
+                              {prereq.resources.map((resource, idx) => (
+                                <li
+                                  key={idx}
+                                  className={`text-blue-600 dark:text-blue-400 hover:text-indigo-600 dark:hover:text-indigo-400 cursor-pointer transition-colors duration-200 ${
+                                    index === 0
+                                      ? "hover:text-blue-600 dark:hover:text-blue-400"
+                                      : index === 1
+                                        ? "hover:text-teal-600 dark:hover:text-teal-400"
+                                        : index === 2
+                                          ? "hover:text-purple-600 dark:hover:text-purple-400"
+                                          : ""
+                                  }`}
+                                >
+                                  {resource}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   ))}
-                </ul>
-              </div>
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  </CardContent>
-</Card>
-
+                </div>
+              </CardContent>
+            </Card>
 
             {/* Footer */}
             <div className="text-center">

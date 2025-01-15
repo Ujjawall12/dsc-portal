@@ -5,11 +5,11 @@ const lists = {
   "ABOUT US": [
     {
       title: "About Us",
-      link: "/about-us",
+      link: "/about",
     },
     {
       title: "Our Team",
-      link: "/our-team",
+      link: "/Team",
     },
     {
       title: "Events",
@@ -19,15 +19,11 @@ const lists = {
   "GET INVOLVED": [
     {
       title: "Join Us",
-      link: "/join-us",
+      link: "/sign-up",
     },
     {
       title: "Our Projects",
       link: "/projects",
-    },
-    {
-      title: "Resources",
-      link: "/resources",
     },
   ],
 };
@@ -49,7 +45,12 @@ export default function Footer() {
             Join Our Community today!!
           </span>
         </div>
-        <button className="w-28 h-11 bg-violet-300 mt-auto sm:mt-0 sm:ml-auto rounded-md text-neutral-900 font-medium text-md font-Urbanist tracking-wider hover:bg-violet-400 transition-colors active:bg-violet-200">
+        <button
+          className="w-28 h-11 bg-violet-300 mt-auto sm:mt-0 sm:ml-auto rounded-md text-neutral-900 font-medium text-md font-Urbanist tracking-wider hover:bg-violet-400 transition-colors active:bg-violet-200"
+          onClick={() => {
+            window.location.href = "/sign-up";
+          }}
+        >
           Join
         </button>
       </div>

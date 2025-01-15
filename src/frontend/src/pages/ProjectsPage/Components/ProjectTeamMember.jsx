@@ -48,7 +48,7 @@ const ProjectTeamSection = () => {
         {teamMembers.map((member, index) => (
           <Card
             key={index}
-            className="border-0 shadow-sm hover:shadow-md hover:scale-105 transform transition-transform duration-300 bg-gray-100 dark:bg-[#3C3D37]"
+            className="border-0 shadow-sm hover:shadow-md hover:scale-105 transform transition-transform duration-300 bg-gray-100 dark:bg-neutral-800"
           >
             <CardContent className="flex flex-col items-center p-8">
               {/* Profile Image */}
