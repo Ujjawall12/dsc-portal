@@ -5,6 +5,7 @@ const path = require("path");
 const connectDB = require("./db/connection");
 const cors = require("cors");
 const projectRoutes = require("./routes/v1/project.routes");
+const eventRoutes = require("./routes/v1/event.routes");
 
 dotenv.config({
   path: "./config.env",
@@ -13,7 +14,8 @@ dotenv.config({
   path: "./secrets.env",
 });
 
-connectDB();
+// pass db name to connectDB
+connectDB("dsc");
 
 const app = express();
 app.use(
@@ -25,6 +27,7 @@ app.use(
 app.use(express.json());
 // routes
 app.use("/api/v1/projects", projectRoutes);
+app.use("/api/v1/events", eventRoutes);
 
 app.get("/", (req, res) => {
   const filePath = path.join(__dirname, "sample.html");

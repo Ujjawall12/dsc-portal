@@ -11,10 +11,12 @@ import Homepage from "./pages/Homepage/Homepage";
 import TeamSelector from "./pages/Team/TeamSelector/TeamSelector";
 import SignIn from "./pages/Auth/SignIn";
 import SignUp from "./pages/Auth/SignUp";
+import ScrollToTop from "./components/ScrollToTop";
 
 function RouteList() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/sign-in" element={<SignIn />} />

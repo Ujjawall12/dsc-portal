@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import ProfileCard from "@/components/TeamPage/ProfileCard/ProfileCard";
 import MainLayout from "@/Layout/MainLayout";
@@ -197,9 +195,12 @@ const categories = [
   "Android Team",
 ];
 
-
-
-const Pagination = ({ currentPage, totalItems, itemsPerPage, onPageChange }) => {
+const Pagination = ({
+  currentPage,
+  totalItems,
+  itemsPerPage,
+  onPageChange,
+}) => {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   return (
@@ -208,7 +209,9 @@ const Pagination = ({ currentPage, totalItems, itemsPerPage, onPageChange }) => 
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
         className={`px-4 py-2 mx-1 rounded-lg ${
-          currentPage === 1 ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-orange-500 text-white"
+          currentPage === 1
+            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+            : "bg-orange-500 text-white"
         }`}
       >
         Previous
@@ -230,7 +233,9 @@ const Pagination = ({ currentPage, totalItems, itemsPerPage, onPageChange }) => 
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         className={`px-4 py-2 mx-1 rounded-lg ${
-          currentPage === totalPages ? "bg-gray-300 text-gray-500 cursor-not-allowed" : "bg-orange-500 text-white"
+          currentPage === totalPages
+            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+            : "bg-orange-500 text-white"
         }`}
       >
         Next
@@ -249,12 +254,13 @@ const TeamSelector = () => {
       ? teamMembers
       : teamMembers.filter(
           (member) =>
-            member.category === selectedCategory || member.year === selectedCategory
+            member.category === selectedCategory ||
+            member.year === selectedCategory,
         );
 
   const paginatedTeamMembers = filteredTeamMembers.slice(
     (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
+    currentPage * itemsPerPage,
   );
 
   const totalItems = filteredTeamMembers.length;

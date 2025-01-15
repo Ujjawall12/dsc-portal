@@ -32,6 +32,8 @@ const sampleProjectData = {
   },
 };
 
+// todo: dark mode correction
+
 function ProjectDetails() {
   const [project, setProject] = useState(null);
   const [isLoading, setIsLoading] = useState(null);

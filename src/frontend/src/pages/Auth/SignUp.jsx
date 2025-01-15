@@ -4,28 +4,40 @@ import AuthLayout from "@/Layout/AuthLayout";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
+import VerifyEmailOtpModal from "@/components/Auth/OtpModal";
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
+  const [showVerifyOtpModal, setShowVerifyOtpModal] = useState(false);
 
   const inputClasses =
-    "px-2 py-1.5 rounded-md w-full bg-neutral-800 border border-neutral-500";
+    "px-2 py-1.5 rounded-md w-full text-neutral-900 dark:text-white dark:bg-neutral-800 border border-neutral-500";
+
+  const toggleShowVerifyOtpModal = () => {
+    setShowVerifyOtpModal((prev) => !prev);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     console.log(data);
+    const hasNotEmptyValues = Object.values(data).every(
+      (value) => value !== "",
+    );
+    if (hasNotEmptyValues) {
+      toggleShowVerifyOtpModal();
+    }
   };
   return (
     <AuthLayout>
       <div className="h-full w-full max-w-[26rem] text-white flex flex-col justify-center p-5">
         <div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black dark:text-white mb-2">
             Create an account
           </h2>
           <div className="flex items-center gap-1 text-sm">
-            <p className="text-neutral-300">Already have an account?</p>
+            <p className="text-neutral-300 ">Already have an account?</p>
             <Link
               className="text-[#8B5CF6] hover:underline duration-200 ease-out transition-all"
               to="/sign-in"
@@ -41,6 +53,7 @@ function SignUp() {
               type="text"
               name="fullName"
               placeholder="Full Name"
+              required
             />
           </div>
           <div>
@@ -49,6 +62,7 @@ function SignUp() {
               type="text"
               name="username"
               placeholder="Username"
+              required
             />
           </div>
           <div>
@@ -57,6 +71,7 @@ function SignUp() {
               type="email"
               name="email"
               placeholder="Email"
+              required
             />
           </div>
           <div className="relative">
@@ -67,7 +82,7 @@ function SignUp() {
               placeholder="Password"
             />
             <div
-              className="absolute bg-neutral-800 rounded-r-md inset-y-0 end-0 flex items-center border border-l-0 border-neutral-500 justify-center pe-3 text-muted-foreground/80 cursor-pointer"
+              className="absolute dark:bg-neutral-800 rounded-r-md inset-y-0 end-0 flex items-center border border-l-0 border-neutral-500 justify-center pe-3 text-neutral-600 dark:text-muted-foreground/80 cursor-pointer"
               onClick={() => setShowPassword((prev) => !prev)}
               role="button"
               aria-label={showPassword ? "Hide password" : "Show password"}
@@ -95,6 +110,10 @@ function SignUp() {
           <SignInWithLinkedIn />
         </div>
       </div>
+      <VerifyEmailOtpModal
+        isOpen={showVerifyOtpModal}
+        onClose={toggleShowVerifyOtpModal}
+      />
     </AuthLayout>
   );
 }

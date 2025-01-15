@@ -9,7 +9,7 @@ function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
 
   const inputClasses =
-    "px-2 py-1.5 rounded-md w-full bg-neutral-800 border border-neutral-500";
+    "px-2 py-1.5 rounded-md w-full text-neutral-900 dark:text-white dark:bg-neutral-800 border border-neutral-500";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ function SignIn() {
     <AuthLayout>
       <div className="h-full w-full max-w-[26rem] text-white flex flex-col justify-center p-5">
         <div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black dark:text-white mb-2">
             Welcome Back
           </h2>
           <div className="flex items-center gap-1 text-sm">
@@ -50,7 +50,7 @@ function SignIn() {
               placeholder="Password"
             />
             <div
-              className="absolute bg-neutral-800 rounded-r-md inset-y-0 end-0 flex items-center border border-l-0 border-neutral-500 justify-center pe-3 text-muted-foreground/80 cursor-pointer"
+              className="absolute dark:bg-neutral-800 rounded-r-md inset-y-0 end-0 flex items-center border border-l-0 border-neutral-500 justify-center pe-3 text-neutral-600 dark:text-muted-foreground/80 cursor-pointer"
               onClick={() => setShowPassword((prev) => !prev)}
               role="button"
               aria-label={showPassword ? "Hide password" : "Show password"}
