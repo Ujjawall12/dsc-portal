@@ -88,7 +88,7 @@ function ProjectDescription({ description, repositories, technologies }) {
         {description?.map((highlight, index) => (
           <Card
             key={index}
-            className="p-6 hover:shadow-lg transition-shadow duration-300 bg-neutral-100 dark:bg-neutral-800"
+            className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-neutral-800"
           >
             <CardContent className="flex flex-col items-center text-center">
               <div className="mb-4 p-4 rounded-full bg-neutral-200 dark:bg-neutral-700">
@@ -129,7 +129,7 @@ function ProjectDescription({ description, repositories, technologies }) {
 
       {/* Technologies and Repository */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-neutral-100 dark:bg-neutral-800">
+        <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-neutral-800">
           <CardHeader className="pb-2 dark:bg-[rgb(53,52,52)]">
             <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
               Technologies Used
@@ -151,7 +151,7 @@ function ProjectDescription({ description, repositories, technologies }) {
             </ul>
           </CardContent>
         </Card>
-        <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-neutral-100 dark:bg-neutral-800">
+        <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-neutral-800">
           <CardHeader className="pb-2 dark:bg-[rgb(53,52,52)]">
             <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
               Code Repositories

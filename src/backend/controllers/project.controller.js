@@ -42,7 +42,6 @@ const getAllProjectsController = async (req, res) => {
   try {
     const maxLimit = 10; // setting max limit to 10
     let { page, count } = req.query;
-    console.log(page, count)
     page = parseInt(page, 10);
     // return only 10 projects if count is greater than 10
     if (count > maxLimit || count === undefined) {
