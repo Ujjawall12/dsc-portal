@@ -18,7 +18,7 @@ const descriptionVariants = {
 
 function SectionHeading({ title, description }) {
   return (
-    <div className="flex flex-col gap-2 w-full">
+    <div className="flex flex-col gap-2 md:px-6 w-full">
       <motion.span
         className="font-Exo font-medium text-md dark:text-neutral-400 text-neutral-700"
         initial="hidden"

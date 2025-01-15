@@ -107,7 +107,7 @@ const list = [
     ),
     parentClassName:
       "bg-yellow-400 col-span-1 row-span-2 rounded-s-full rounded-br-full",
-    text: "Resources",
+    text: "Projects",
     textClassName: "-translate-x-[50%] group-hover:-translate-y-[500%]",
   },
   {
