@@ -14,7 +14,8 @@ dotenv.config({
   path: "./secrets.env",
 });
 
-connectDB();
+// pass db name to connectDB
+connectDB("dsc");
 
 const app = express();
 app.use(
