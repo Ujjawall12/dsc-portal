@@ -1,6 +1,6 @@
 function CarouselCard({ image, date, title }) {
   return (
-    <div className="flex-none w-[calc(33.33%-16px)] bg-white dark:bg-[#3C3D37] rounded-xl p-4 shadow-lg">
+    <div className="flex-none w-[calc(33.33%-16px)] bg-white dark:bg-neutral-800 rounded-xl p-4 shadow-lg">
       <img
         src={image}
         alt={title}
