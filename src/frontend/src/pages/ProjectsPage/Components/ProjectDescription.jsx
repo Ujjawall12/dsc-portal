@@ -74,10 +74,10 @@ function ProjectDescription({ description, repositories, technologies }) {
     <div className="w-full max-w-7xl mx-auto bg-white dark:bg-[rgb(23,23,23)]">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4 text-neutral-900 dark:text-neutral-100">
+        <h1 className="text-4xl font-bold font-Exo mb-4 text-gray-900 dark:text-gray-100">
           Project Description
         </h1>
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+        <p className="text-lg text-gray-600 dark:text-gray-400">
           A brief overview of the project and its key features to improve
           development efficiency.
         </p>
@@ -131,7 +131,7 @@ function ProjectDescription({ description, repositories, technologies }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-neutral-800">
           <CardHeader className="pb-2 dark:bg-[rgb(53,52,52)]">
-            <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
               Technologies Used
             </h3>
           </CardHeader>
@@ -153,7 +153,7 @@ function ProjectDescription({ description, repositories, technologies }) {
         </Card>
         <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-neutral-800">
           <CardHeader className="pb-2 dark:bg-[rgb(53,52,52)]">
-            <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
               Code Repositories
             </h3>
           </CardHeader>
