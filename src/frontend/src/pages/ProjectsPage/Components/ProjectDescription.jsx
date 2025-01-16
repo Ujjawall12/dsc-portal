@@ -74,7 +74,7 @@ function ProjectDescription({ description, repositories, technologies }) {
     <div className="w-full max-w-7xl mx-auto bg-white dark:bg-[rgb(23,23,23)]">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+        <h1 className="text-4xl font-bold font-Exo mb-4 text-gray-900 dark:text-gray-100">
           Project Description
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
@@ -91,13 +91,13 @@ function ProjectDescription({ description, repositories, technologies }) {
             className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-neutral-800"
           >
             <CardContent className="flex flex-col items-center text-center">
-              <div className="mb-4 p-4 rounded-full bg-gray-200 dark:bg-gray-700">
+              <div className="mb-4 p-4 rounded-full bg-neutral-200 dark:bg-neutral-700">
                 {highlight.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+              <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
                 {highlight.heading}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-neutral-600 dark:text-neutral-400">
                 {highlight.description}
               </p>
             </CardContent>
@@ -110,16 +110,16 @@ function ProjectDescription({ description, repositories, technologies }) {
         {projectInfo.features.map((feature, index) => (
           <Card
             key={index}
-            className="p-6 hover:shadow-lg transition-all duration-300 bg-gray-100 dark:bg-[#3C3D37]"
+            className="p-6 hover:shadow-lg transition-all duration-300 bg-neutral-100 dark:bg-neutral-800"
           >
             <CardContent>
               <div className="flex items-center gap-4 mb-4">
                 {feature.icon}
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
                   {feature.title}
                 </h3>
               </div>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-neutral-600 dark:text-neutral-400">
                 {feature.description}
               </p>
             </CardContent>
@@ -140,10 +140,10 @@ function ProjectDescription({ description, repositories, technologies }) {
               {technologies.map((tech, index) => (
                 <li
                   key={index}
-                  className="flex items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-[#536066] transition-all duration-300"
+                  className="flex items-center p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-[#536066] transition-all duration-300"
                 >
                   <span className="w-2 h-2 bg-blue-500 dark:bg-blue-300 rounded-full mr-2"></span>
-                  <span className="text-gray-900 dark:text-gray-100">
+                  <span className="text-neutral-900 dark:text-neutral-100">
                     {tech}
                   </span>
                 </li>
@@ -160,12 +160,12 @@ function ProjectDescription({ description, repositories, technologies }) {
           <CardContent>
             <ul className="space-y-2">
               {repositories && (
-                <li className="text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-[#536066] transition-all duration-300">
+                <li className="text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 p-3 rounded-lg hover:bg-neutral-50 dark:hover:bg-[#536066] transition-all duration-300">
                   <GitBranch className="w-5 h-5" />
                   {repositories?.map((repo, index) => (
                     <li
                       key={index}
-                      className="text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-[#536066] transition-all duration-300"
+                      className="text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 p-3 rounded-lg hover:bg-neutral-50 dark:hover:bg-[#536066] transition-all duration-300"
                     >
                       <GitBranch className="w-5 h-5" />
                       <a
