@@ -8,14 +8,16 @@ import Section from "@/Layout/Section";
 
 function EventsPage() {
   const [years, setYears] = useState([]);
-  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear().toString());
+  const [selectedYear, setSelectedYear] = useState(
+    new Date().getFullYear().toString(),
+  );
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [totalEvents, setTotalEvents] = useState(0);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
   // Function to format event data for EventCard
   function formatEventForCard(event) {
@@ -24,16 +26,16 @@ function EventsPage() {
       title: event.name,
       date: new Date(event.startDate).toLocaleDateString(),
       description: event.simpleDescription,
-      image: event.images[0]?.link || '/placeholder-image.jpg',
-      details: event.description[0]?.content || '',
+      image: event.images[0]?.link || "/placeholder-image.jpg",
+      details: event.description[0]?.content || "",
       duration: {
         start: new Date(event.duration.start).toLocaleTimeString(),
         end: new Date(event.duration.end).toLocaleTimeString(),
       },
       mode: event.mode,
-      onlineLink: event.onlineLink
-    }
-  };
+      onlineLink: event.onlineLink,
+    };
+  }
 
   // Fetch events for the selected year
   useEffect(() => {
@@ -44,11 +46,11 @@ function EventsPage() {
         const URL = `${API_URL}/api/v1/events?year=${selectedYear}&page=${page}&max=9`; // for fetch request
         // for fetch request
         const options = {
-          method: 'GET',
-          headers: {  
-            'Content-Type': 'application/json',
-          }, 
-        }
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
         const response = await fetch(URL, options);
         if (!response.ok) {
           throw new Error("Failed to fetch events");
@@ -61,9 +63,8 @@ function EventsPage() {
 
         // Generate years array based on available data
         const currentYear = new Date().getFullYear();
-        const yearsList = Array.from(
-          { length: 5 },
-          (_, i) => (currentYear - 2 + i).toString()
+        const yearsList = Array.from({ length: 5 }, (_, i) =>
+          (currentYear - 2 + i).toString(),
         );
         setYears(yearsList);
       } catch (error) {
@@ -134,7 +135,9 @@ function EventsPage() {
           <div className="w-full">
             {loading ? (
               <div className="flex justify-center items-center h-64">
-                <p className="text-gray-600 dark:text-gray-400">Loading events...</p>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Loading events...
+                </p>
               </div>
             ) : error ? (
               <div className="flex justify-center items-center h-64">
@@ -150,8 +153,8 @@ function EventsPage() {
                   </AnimatePresence>
 
                   {events.length === 0 && (
-                    <motion.div 
-                      initial={{ opacity: 0 }} 
+                    <motion.div
+                      initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       className="col-span-full"
                     >
@@ -166,14 +169,14 @@ function EventsPage() {
                 {totalEvents > 9 && (
                   <div className="flex justify-center mt-8 gap-2">
                     <button
-                      onClick={() => setPage(p => Math.max(1, p - 1))}
+                      onClick={() => setPage((p) => Math.max(1, p - 1))}
                       disabled={page === 1}
                       className="px-4 py-2 bg-black text-white rounded-lg disabled:opacity-50"
                     >
                       Previous
                     </button>
                     <button
-                      onClick={() => setPage(p => p + 1)}
+                      onClick={() => setPage((p) => p + 1)}
                       disabled={page * 9 >= totalEvents}
                       className="px-4 py-2 bg-black text-white rounded-lg disabled:opacity-50"
                     >

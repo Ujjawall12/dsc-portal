@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 export default function Navbar() {
   const navigate = useNavigate();
   // todo: change this to tailwind classes
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
   useEffect(() => {
     const handleResize = () => {
@@ -74,7 +74,7 @@ export default function Navbar() {
         <NavbarLogo />
       </motion.div>
       <div className="flex flex-row gap-4">
-        <div className="flex flex-row gap-4">
+        <div className="flex items-center flex-row gap-4">
           {links.slice(0, LINKS_GROUP_ONE_COUNT).map((link) => (
             <motion.div key={link.text} variants={linkVariants}>
               <NavbarButton text={link.text} to={link.to} />
