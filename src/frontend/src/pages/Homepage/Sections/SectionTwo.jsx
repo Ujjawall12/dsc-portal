@@ -1,11 +1,35 @@
 import { motion } from "framer-motion";
-
+import { useState, useEffect, useCallback } from "react";
 import ProjectCard from "@/components/Projects/ProjectCard/ProjectCard";
 import SectionHeading from "@/components/SectionHeading";
 import CurrentProjectCard from "@/components/CurrentProjectCard";
 import ViewAllProjectCard from "@/components/ViewAllProjectCard";
 
 export default function SectionTwo() {
+  const [projects, setProjects] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+
+  const fetchData = useCallback(async() => {
+    try {
+      setIsLoading(true);
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/projects?page=1&count=3`);
+      const { data } = await response.json();
+      if (response.ok) {
+        setProjects(data)
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [])
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
+
+
   const containerVariants = {
     hidden: { opacity: 1 },
     visible: {
@@ -41,14 +65,14 @@ export default function SectionTwo() {
           id="project-card-container"
           variants={containerVariants}
         >
-          <motion.div variants={cardVariants}>
-            <ProjectCard />
+          <motion.div variants={cardVariants} className="w-full">
+            <ProjectCard data={projects[0]}/>
           </motion.div>
-          <motion.div variants={cardVariants}>
-            <ProjectCard />
+          <motion.div variants={cardVariants} className="w-full">
+            <ProjectCard data={projects[1]}/>
           </motion.div>
-          <motion.div variants={cardVariants}>
-            <ProjectCard />
+          <motion.div variants={cardVariants} className="w-full">
+            <ProjectCard data={projects[2]}/>
           </motion.div>
           <button className="self-stretch bg-blue-400 hover:bg-blue-500 dark:bg-blue-800 dark:hover:bg-blue-900 transition-colors rounded-md h-10 sm:h-12 text-md font-semibold text-white lg:hidden">
             View All Projects

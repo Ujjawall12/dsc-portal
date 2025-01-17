@@ -92,6 +92,7 @@ export default function Footer() {
             </div>
           ))}
         </div>
+        {/*
         <div className="flex flex-col gap-4 flex-1">
           <span className="text-neutral-400 text-xs tracking-widest font-medium">
             NOT SURE WHERE TO START?
@@ -115,6 +116,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        */}
       </div>
     </div>
   );

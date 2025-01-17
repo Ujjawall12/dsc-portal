@@ -28,7 +28,7 @@ function ProjectDescriptionSkeleton() {
         {[1, 2, 3].map((index) => (
           <div
             key={index}
-            className="p-6 bg-gray-100 dark:bg-[#3C3D37] rounded-lg animate-pulse"
+            className="p-6 bg-gray-100 dark:bg-neutral-800 rounded-lg animate-pulse"
           >
             <div className="flex items-center gap-4 mb-4">
               <div className="w-8 h-8 bg-neutral-200 dark:bg-neutral-700 rounded-md" />
@@ -42,7 +42,7 @@ function ProjectDescriptionSkeleton() {
       {/* Technologies and Repository Skeleton */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Technologies Card */}
-        <div className="p-6 bg-gray-100 dark:bg-[#3C3D37] rounded-lg animate-pulse">
+        <div className="p-6 bg-gray-100 dark:bg-neutral-800 rounded-lg animate-pulse">
           <div className="h-8 w-48 bg-neutral-200 dark:bg-neutral-700 rounded-md mb-4" />
           <div className="space-y-2">
             {[1, 2, 3, 4, 5].map((index) => (
@@ -55,7 +55,7 @@ function ProjectDescriptionSkeleton() {
         </div>
 
         {/* Repositories Card */}
-        <div className="p-6 bg-gray-100 dark:bg-[#3C3D37] rounded-lg animate-pulse">
+        <div className="p-6 bg-gray-100 dark:bg-neutral-800 rounded-lg animate-pulse">
           <div className="h-8 w-48 bg-neutral-200 dark:bg-neutral-700 rounded-md mb-4" />
           <div className="space-y-2">
             {[1, 2, 3, 4].map((index) => (
