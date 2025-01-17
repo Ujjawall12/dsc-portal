@@ -40,6 +40,23 @@ const getEvents = async (req, res) => {
   }
 };
 
+const addEvent = async (req, res) => {
+  try {
+    const newEvent = new Event(req.body); // Accept JSON payload from the request body
+    const savedEvent = await newEvent.save();
+
+    return res.status(201).json({
+      message: "Event created successfully",
+      event: savedEvent,
+    });
+  } catch (error) {
+    console.error('Error in addEvent:', error);
+    return res.status(500).json({ message: "Internal server error", error: error.message });
+  }
+};
+
 module.exports = {
   getEvents,
+  addEvent
 };
+

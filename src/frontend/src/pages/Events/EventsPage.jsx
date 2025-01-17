@@ -17,7 +17,7 @@ function EventsPage() {
   const [page, setPage] = useState(1);
   const [totalEvents, setTotalEvents] = useState(0);
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   // Function to format event data for EventCard
   function formatEventForCard(event) {
@@ -43,19 +43,24 @@ function EventsPage() {
       setLoading(true);
       setError(null);
       try {
-        const URL = `${API_URL}/api/v1/events?year=${selectedYear}&page=${page}&max=9`; // for fetch request
-        // for fetch request
-        const options = {
+        const URL = `${API_URL}/api/v1/events?year=${selectedYear}&page=${page}&max=9`;
+        console.log("Fetching from:", URL);
+
+        const response = await fetch(URL, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
           },
-        };
-        const response = await fetch(URL, options);
+        });
+
+        console.log("Response status:", response.status);
+
         if (!response.ok) {
-          throw new Error("Failed to fetch events");
+          throw new Error(`Failed to fetch events. Status: ${response.status}`);
         }
+
         const responseAwait = await response.json();
+        console.log("Response data:", responseAwait);
 
         const { data, total } = responseAwait;
         setEvents(data.map(formatEventForCard));
@@ -63,13 +68,11 @@ function EventsPage() {
 
         // Generate years array based on available data
         const currentYear = new Date().getFullYear();
-        const yearsList = Array.from({ length: 5 }, (_, i) =>
-          (currentYear - 2 + i).toString(),
-        );
+        const yearsList = Array.from({ length: 5 }, (_, i) => (currentYear - 2 + i).toString());
         setYears(yearsList);
       } catch (error) {
         console.error("Error fetching events:", error);
-        setError(error.message || "Failed to fetch events");
+        setError(error.message || "Failed to fetch events.");
       } finally {
         setLoading(false);
       }
