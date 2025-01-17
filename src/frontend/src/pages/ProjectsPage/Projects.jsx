@@ -32,9 +32,6 @@ function Projects() {
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}/api/v1/projects?page=${currentPage}&limit=7`,
       );
-      if (!response.ok) {
-        navigate("/not-found");
-      }
       const resData = await response.json();
       console.log(resData);
       setProjects(resData.data);

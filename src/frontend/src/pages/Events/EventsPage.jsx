@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar } from "lucide-react";
-import axios from "axios";
 import EventCard from "./EventCard";
 import YearSelector from "./YearSelector";
 import MainLayout from "@/Layout/MainLayout";
@@ -19,20 +18,22 @@ function EventsPage() {
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
   // Function to format event data for EventCard
-  const formatEventForCard = (event) => ({
-    id: event._id,
-    title: event.name,
-    date: new Date(event.startDate).toLocaleDateString(),
-    description: event.simpleDescription,
-    image: event.images[0]?.link || '/placeholder-image.jpg',
-    details: event.description[0]?.content || '',
-    duration: {
-      start: new Date(event.duration.start).toLocaleTimeString(),
-      end: new Date(event.duration.end).toLocaleTimeString(),
-    },
-    mode: event.mode,
-    onlineLink: event.onlineLink
-  });
+  function formatEventForCard(event) {
+    return {
+      id: event._id,
+      title: event.name,
+      date: new Date(event.startDate).toLocaleDateString(),
+      description: event.simpleDescription,
+      image: event.images[0]?.link || '/placeholder-image.jpg',
+      details: event.description[0]?.content || '',
+      duration: {
+        start: new Date(event.duration.start).toLocaleTimeString(),
+        end: new Date(event.duration.end).toLocaleTimeString(),
+      },
+      mode: event.mode,
+      onlineLink: event.onlineLink
+    }
+  };
 
   // Fetch events for the selected year
   useEffect(() => {
@@ -40,15 +41,21 @@ function EventsPage() {
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get(`${API_URL}/api/events`, {
-          params: {
-            year: selectedYear,
-            page,
-            max: 9 // Number of events per page
-          }
-        });
+        const URL = `${API_URL}/api/v1/events?year=${selectedYear}&page=${page}&max=9`; // for fetch request
+        // for fetch request
+        const options = {
+          method: 'GET',
+          headers: {  
+            'Content-Type': 'application/json',
+          }, 
+        }
+        const response = await fetch(URL, options);
+        if (!response.ok) {
+          throw new Error("Failed to fetch events");
+        }
+        const responseAwait = await response.json();
 
-        const { data, total } = response.data;
+        const { data, total } = responseAwait;
         setEvents(data.map(formatEventForCard));
         setTotalEvents(total);
 
@@ -68,7 +75,7 @@ function EventsPage() {
     };
 
     fetchEvents();
-  }, [selectedYear, page]);
+  }, [selectedYear, page, API_URL]);
 
   return (
     <MainLayout>
