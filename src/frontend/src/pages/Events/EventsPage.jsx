@@ -15,7 +15,7 @@ function EventsPage() {
   const [page, setPage] = useState(1);
   const [totalEvents, setTotalEvents] = useState(0);
 
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   // Function to format event data for EventCard
   function formatEventForCard(event) {
@@ -24,16 +24,16 @@ function EventsPage() {
       title: event.name,
       date: new Date(event.startDate).toLocaleDateString(),
       description: event.simpleDescription,
-      image: event.images[0]?.link || '/placeholder-image.jpg',
-      details: event.description[0]?.content || '',
+      image: event.images[0]?.link || "/placeholder-image.jpg",
+      details: event.description[0]?.content || "",
       duration: {
         start: new Date(event.duration.start).toLocaleTimeString(),
         end: new Date(event.duration.end).toLocaleTimeString(),
       },
       mode: event.mode,
-      onlineLink: event.onlineLink
-    }
-  };
+      onlineLink: event.onlineLink,
+    };
+  }
 
   // Fetch events for the selected year
   useEffect(() => {
@@ -41,19 +41,24 @@ function EventsPage() {
       setLoading(true);
       setError(null);
       try {
-        const URL = `${API_URL}/api/v1/events?year=${selectedYear}&page=${page}&max=9`; // for fetch request
-        // for fetch request
-        const options = {
-          method: 'GET',
-          headers: {  
-            'Content-Type': 'application/json',
-          }, 
-        }
-        const response = await fetch(URL, options);
+        const URL = `${API_URL}/api/v1/events?year=${selectedYear}&page=${page}&max=9`;
+        console.log("Fetching from:", URL);
+
+        const response = await fetch(URL, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        console.log("Response status:", response.status);
+
         if (!response.ok) {
-          throw new Error("Failed to fetch events");
+          throw new Error(`Failed to fetch events. Status: ${response.status}`);
         }
+
         const responseAwait = await response.json();
+        console.log("Response data:", responseAwait);
 
         const { data, total } = responseAwait;
         setEvents(data.map(formatEventForCard));
@@ -61,14 +66,11 @@ function EventsPage() {
 
         // Generate years array based on available data
         const currentYear = new Date().getFullYear();
-        const yearsList = Array.from(
-          { length: 5 },
-          (_, i) => (currentYear - 2 + i).toString()
-        );
+        const yearsList = Array.from({ length: 5 }, (_, i) => (currentYear - 2 + i).toString());
         setYears(yearsList);
       } catch (error) {
         console.error("Error fetching events:", error);
-        setError(error.message || "Failed to fetch events");
+        setError(error.message || "Failed to fetch events.");
       } finally {
         setLoading(false);
       }
@@ -166,14 +168,14 @@ function EventsPage() {
                 {totalEvents > 9 && (
                   <div className="flex justify-center mt-8 gap-2">
                     <button
-                      onClick={() => setPage(p => Math.max(1, p - 1))}
+                      onClick={() => setPage((p) => Math.max(1, p - 1))}
                       disabled={page === 1}
                       className="px-4 py-2 bg-black text-white rounded-lg disabled:opacity-50"
                     >
                       Previous
                     </button>
                     <button
-                      onClick={() => setPage(p => p + 1)}
+                      onClick={() => setPage((p) => p + 1)}
                       disabled={page * 9 >= totalEvents}
                       className="px-4 py-2 bg-black text-white rounded-lg disabled:opacity-50"
                     >
