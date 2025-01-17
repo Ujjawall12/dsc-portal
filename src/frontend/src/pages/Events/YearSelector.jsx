@@ -5,7 +5,9 @@ function YearSelector({ years, selectedYear, onYearSelect }) {
         <button
           key={year}
           className={`text-left px-4 py-2 rounded-md hover:bg-gray-200 dark:hover:bg-neutral-700 transition-colors duration-200 ${
-            selectedYear === year ? "bg-gray-300 dark:bg-neutral-600 font-bold" : ""
+            selectedYear === year
+              ? "bg-gray-300 dark:bg-neutral-600 font-bold"
+              : ""
           }`}
           onClick={() => onYearSelect(year)}
         >

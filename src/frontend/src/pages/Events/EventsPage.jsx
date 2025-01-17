@@ -8,7 +8,9 @@ import Section from "@/Layout/Section";
 
 function EventsPage() {
   const [years, setYears] = useState([]);
-  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear().toString());
+  const [selectedYear, setSelectedYear] = useState(
+    new Date().getFullYear().toString(),
+  );
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -136,7 +138,9 @@ function EventsPage() {
           <div className="w-full">
             {loading ? (
               <div className="flex justify-center items-center h-64">
-                <p className="text-gray-600 dark:text-gray-400">Loading events...</p>
+                <p className="text-gray-600 dark:text-gray-400">
+                  Loading events...
+                </p>
               </div>
             ) : error ? (
               <div className="flex justify-center items-center h-64">
@@ -152,8 +156,8 @@ function EventsPage() {
                   </AnimatePresence>
 
                   {events.length === 0 && (
-                    <motion.div 
-                      initial={{ opacity: 0 }} 
+                    <motion.div
+                      initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       className="col-span-full"
                     >

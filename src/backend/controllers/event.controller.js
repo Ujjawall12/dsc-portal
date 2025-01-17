@@ -1,5 +1,5 @@
 // backend/controllers/event.controller.js
-const Event = require('../schema/event.schema');
+const Event = require("../schema/event.schema");
 
 const getEvents = async (req, res) => {
   try {
@@ -11,33 +11,31 @@ const getEvents = async (req, res) => {
     const startOfYear = new Date(`${year}-01-01`);
     const endOfYear = new Date(`${year}-12-31`);
 
-    const query = year ? {
-      startDate: { 
-        $gte: startOfYear,
-        $lte: endOfYear
-      }
-    } : {};
+    const query = year
+      ? {
+          startDate: {
+            $gte: startOfYear,
+            $lte: endOfYear,
+          },
+        }
+      : {};
 
     const [events, total] = await Promise.all([
-      Event.find(query)
-        .skip(skip)
-        .limit(limit)
-        .sort({ startDate: 1 }),
-      Event.countDocuments(query)
+      Event.find(query).skip(skip).limit(limit).sort({ startDate: 1 }),
+      Event.countDocuments(query),
     ]);
 
     return res.status(200).json({
       data: events,
       total,
       page: parseInt(page),
-      pages: Math.ceil(total / limit)
+      pages: Math.ceil(total / limit),
     });
-
   } catch (error) {
-    console.error('Error in getEvents:', error);
-    return res.status(500).json({ 
+    console.error("Error in getEvents:", error);
+    return res.status(500).json({
       message: "Internal server error",
-      error: error.message 
+      error: error.message,
     });
   }
 };

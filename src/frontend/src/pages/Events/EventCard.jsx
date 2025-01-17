@@ -2,9 +2,19 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Calendar, MapPin, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-function EventCard({ id, title, date, description, image, details, duration, mode, onlineLink }) {
+function EventCard({
+  id,
+  title,
+  date,
+  description,
+  image,
+  details,
+  duration,
+  mode,
+  onlineLink,
+}) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -33,7 +43,9 @@ function EventCard({ id, title, date, description, image, details, duration, mod
           </div>
           <div className="flex items-center gap-1">
             <Clock size={16} className="text-black dark:text-white" />
-            <span>{duration.start} - {duration.end}</span>
+            <span>
+              {duration.start} - {duration.end}
+            </span>
           </div>
           <div className="flex items-center gap-1">
             <MapPin size={16} className="text-black dark:text-white" />
@@ -50,7 +62,7 @@ function EventCard({ id, title, date, description, image, details, duration, mod
           <div className="bg-gray-50 dark:bg-neutral-700 p-4 rounded-lg mb-4">
             <p className="text-gray-700 dark:text-gray-200">{details}</p>
             {mode === "online" && onlineLink && (
-              <a 
+              <a
                 href={onlineLink}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -71,9 +83,15 @@ function EventCard({ id, title, date, description, image, details, duration, mod
         >
           <span>{isExpanded ? "Show Less" : "Read More"}</span>
           {isExpanded ? (
-            <ChevronUp size={16} className="group-hover:-translate-y-1 transition-transform duration-300" />
+            <ChevronUp
+              size={16}
+              className="group-hover:-translate-y-1 transition-transform duration-300"
+            />
           ) : (
-            <ChevronDown size={16} className="group-hover:translate-y-1 transition-transform duration-300" />
+            <ChevronDown
+              size={16}
+              className="group-hover:translate-y-1 transition-transform duration-300"
+            />
           )}
         </button>
       </div>
@@ -90,10 +108,10 @@ EventCard.propTypes = {
   details: PropTypes.string,
   duration: PropTypes.shape({
     start: PropTypes.string.isRequired,
-    end: PropTypes.string.isRequired
+    end: PropTypes.string.isRequired,
   }).isRequired,
-  mode: PropTypes.oneOf(['online', 'offline', 'mixed']).isRequired,
-  onlineLink: PropTypes.string
+  mode: PropTypes.oneOf(["online", "offline", "mixed"]).isRequired,
+  onlineLink: PropTypes.string,
 };
 
 export default EventCard;

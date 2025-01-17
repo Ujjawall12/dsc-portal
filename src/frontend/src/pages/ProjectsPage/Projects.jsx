@@ -5,7 +5,7 @@ import ProjectSidebar from "@/components/Projects/ProjectSidebar";
 import { ArrowLeft, ArrowRight, SlidersHorizontalIcon } from "lucide-react";
 import ProjectInfoCard from "@/components/Projects/ProjectInfoCard";
 import ProjectVaulDrawer from "@/components/Projects/ProjectVaulDrawer";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { data, useNavigate, useSearchParams } from "react-router-dom";
 import ProjectInfoCardSkeleton from "@/components/Projects/skeletons/ProjectInfoCardSkeleton";
 import { useDebouncedCallback } from "use-debounce";
 
@@ -13,12 +13,14 @@ function Projects() {
   const [searchParams] = useSearchParams();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [projectTechnologies, setProjectsTechnologies] = useState([]);
   const [projects, setProjects] = useState([]);
   const [metaData, setMetaData] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const navigate = useNavigate();
   const currentPage = Number(searchParams.get("page")) || 1;
   const search = searchParams.get("search");
+  const technology = searchParams.get("technology");
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 1024);
@@ -29,19 +31,35 @@ function Projects() {
   const fetchData = useCallback(async () => {
     try {
       setIsLoading(true);
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/v1/projects?page=${currentPage}&limit=7`,
-      );
+      const baseUrl = `${import.meta.env.VITE_BACKEND_URL}/api/v1/projects`;
+      const query = new URL(baseUrl);
+      query.searchParams.append("page", currentPage);
+      query.searchParams.append("limit", 7);
+      if (search && search.trim()) {
+        query.searchParams.append("search", search.trim());
+      }
+      if (technology) {
+        query.searchParams.append("technology", technology);
+      }
+
+      const response = await fetch(query.toString());
       const resData = await response.json();
-      console.log(resData);
+
       setProjects(resData.data);
+
+      // Remove duplication from technologies
+      const technologies = [
+        ...new Set(resData.data.flatMap((data) => data.technologies)),
+      ];
+      setProjectsTechnologies(technologies);
+
       setMetaData(resData.meta);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching projects:", error);
     } finally {
       setIsLoading(false);
     }
-  }, [currentPage]);
+  }, [currentPage, search, technology]);
 
   useEffect(() => {
     fetchData();
@@ -93,7 +111,7 @@ function Projects() {
                   defaultValue={search}
                 />
                 {isMobile ? (
-                  <ProjectVaulDrawer />
+                  <ProjectVaulDrawer technologies={projectTechnologies} />
                 ) : (
                   <div
                     className="h-9 px-4 py-2 flex items-center hover:cursor-pointer bg-neutral-800 rounded-md text-neutral-700"
@@ -122,37 +140,43 @@ function Projects() {
                   ))}
                 </div>
               ) : (
-                <div className="flex justify-center w-full">
+                <div className="flex justify-center items-center w-full min-h-[30vh]">
                   <p className="text-lg text-neutral-500 dark:text-neutral-300">
                     No projects found
                   </p>
                 </div>
               )}
             </div>
-            <div className="flex justify-end">
-              <div className="flex gap-3">
-                <button
-                  disabled={currentPage <= 1 || isLoading}
-                  onClick={() => createPageURL(currentPage - 1)}
-                  className="flex items-center justify-center text-sm font-medium disabled:text-neutral-500 dark:disabled:text-neutral-500 dark:disabled:border-neutral-500 text-neutral-700 dark:text-white px-3 py-2 border rounded-md"
-                >
-                  <ArrowLeft className="w-4 h-4 sm:mr-1" />
-                  <span className="hidden sm:flex">Previous</span>
-                </button>
-                <button
-                  disabled={metaData?.isLastPage || isLoading}
-                  onClick={() => createPageURL(currentPage + 1)}
-                  className="flex items-center disabled:text-neutral-500 text-sm font-medium text-neutral-700 dark:text-white dark:disabled:text-neutral-500 dark:disabled:border-neutral-500 px-3 py-2 border rounded-md"
-                >
-                  <span className="hidden sm:flex">Next</span>
-                  <ArrowRight className="w-4 h-5 sm:ml-1" />
-                </button>
+            {projects.length > 0 && (
+              <div className="flex justify-end">
+                <div className="flex gap-3">
+                  <button
+                    disabled={currentPage <= 1 || isLoading}
+                    onClick={() => createPageURL(currentPage - 1)}
+                    className="flex items-center justify-center text-sm font-medium disabled:text-neutral-500 dark:disabled:text-neutral-500 dark:disabled:border-neutral-500 text-neutral-700 dark:text-white px-3 py-2 border rounded-md"
+                  >
+                    <ArrowLeft className="w-4 h-4 sm:mr-1" />
+                    <span className="hidden sm:flex">Previous</span>
+                  </button>
+                  <button
+                    disabled={metaData?.isLastPage || isLoading}
+                    onClick={() => createPageURL(currentPage + 1)}
+                    className="flex items-center disabled:text-neutral-500 text-sm font-medium text-neutral-700 dark:text-white dark:disabled:text-neutral-500 dark:disabled:border-neutral-500 px-3 py-2 border rounded-md"
+                  >
+                    <span className="hidden sm:flex">Next</span>
+                    <ArrowRight className="w-4 h-5 sm:ml-1" />
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </Section>
-      <ProjectSidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
+      <ProjectSidebar
+        isOpen={isSidebarOpen}
+        onClose={toggleSidebar}
+        technologies={projectTechnologies}
+      />
     </MainLayout>
   );
 }
