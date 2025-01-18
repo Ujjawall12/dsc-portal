@@ -1,15 +1,18 @@
-const app = require("./app");
+const app = require('./app');
+const connectDB = require('./db/connection');
 
-const chalk = require("chalk");
+const chalk = require('chalk');
 const port = process.env.PORT || 5000;
+
+connectDB('dsc');
 
 app.listen(port, (err) => {
   if (err) {
-    console.error(chalk.red("Failed to start server:"), err);
+    console.error(chalk.red('Failed to start server:'), err);
   } else {
     console.log(chalk.white.bgBlack.bold(` Backend Server is running on:  `));
     console.log(
-      chalk.bold.greenBright(`   ➜ `, chalk.bold(`http://localhost:${port}`)),
+      chalk.bold.greenBright(`   ➜ `, chalk.bold(`http://localhost:${port}`))
     );
   }
 });

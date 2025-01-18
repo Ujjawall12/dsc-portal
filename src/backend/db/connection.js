@@ -1,16 +1,18 @@
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+
 dotenv.config({
-  path: "./config.env",
+  path: './config.env',
 });
 dotenv.config({
-  path: "./secrets.env",
+  path: './secrets.env',
 });
+
 const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
   throw new Error(
-    "Please define the MONGODB_URI environment variable inside environment variables",
+    'Please define the MONGODB_URI environment variable inside environment variables'
   );
 }
 
@@ -34,11 +36,11 @@ async function dbConnection(dbName) {
           dbName,
         })
         .then((mongoose) => {
-          console.log("Connected to MongoDB to database", dbName);
+          console.log('Connected to MongoDB to database', dbName);
           return mongoose;
         });
   } catch (err) {
-    console.error("Error connecting to MongoDB:", err);
+    console.error('Error connecting to MongoDB:', err);
     throw err;
   }
   return cached.conn ? cached.conn : await cached.promise;
