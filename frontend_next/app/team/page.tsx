@@ -1,7 +1,5 @@
-export default function Team() {
-  return (
-    <div>
-      Team Page
-    </div>
-  )
+import TeamSelector from "@/components/app/teams/TeamSelector";
+
+export default function TeamsPage() {
+  return <TeamSelector />;
 }
