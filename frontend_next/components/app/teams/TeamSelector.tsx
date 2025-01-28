@@ -227,7 +227,7 @@ const Pagination: React.FC<PaginationProps> = ({
         disabled={currentPage === 1}
         className={`px-4 py-2 mx-1 rounded-lg ${
           currentPage === 1
-            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+            ? "bg-neutral-300 text-neutral-500 cursor-not-allowed"
             : "bg-orange-500 text-white"
         }`}
       >
@@ -240,7 +240,7 @@ const Pagination: React.FC<PaginationProps> = ({
           className={`px-4 py-2 mx-1 rounded-lg ${
             currentPage === index + 1
               ? "bg-orange-500 text-white"
-              : "bg-white text-black border border-gray-300 hover:bg-gray-200"
+              : "bg-white text-black border border-neutral-300 hover:bg-neutral-200"
           }`}
         >
           {index + 1}
@@ -251,7 +251,7 @@ const Pagination: React.FC<PaginationProps> = ({
         disabled={currentPage === totalPages}
         className={`px-4 py-2 mx-1 rounded-lg ${
           currentPage === totalPages
-            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+            ? "bg-neutral-300 text-neutral-500 cursor-not-allowed"
             : "bg-orange-500 text-white"
         }`}
       >
@@ -283,9 +283,9 @@ const TeamSelector: React.FC = () => {
   const totalItems = filteredTeamMembers.length;
 
   return (
-    <div className="bg-gray-100 dark:bg-neutral-900 min-h-screen p-8">
+    <div className="bg-neutral-100 dark:bg-neutral-900 min-h-screen p-8">
       <h1 className="text-4xl sm:text-6xl font-extrabold text-center mb-6 animate-fadeInUp relative group">
-        <span className="text-gray-800 dark:text-white">Meet Our</span>{" "}
+        <span className="text-neutral-800 dark:text-white">Meet Our</span>{" "}
         <span className="text-orange-500">Team</span>
         <span className="absolute left-0 top-full w-full h-1 bg-gradient-to-r from-orange-400 to-orange-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
       </h1>
@@ -302,7 +302,7 @@ const TeamSelector: React.FC = () => {
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
               selectedCategory === category
                 ? "bg-orange-500 text-white"
-                : "bg-white text-black border border-gray-300 dark:bg-neutral-800 dark:text-white dark:border-neutral-700 hover:bg-gray-200 dark:hover:bg-neutral-700"
+                : "bg-white text-black border border-neutral-300 dark:bg-neutral-800 dark:text-white dark:border-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-700"
             }`}
           >
             {category}
@@ -326,7 +326,7 @@ const TeamSelector: React.FC = () => {
 
       {/* No Results Message */}
       {filteredTeamMembers.length === 0 && (
-        <p className="text-center text-gray-500 dark:text-gray-400 text-lg mt-6">
+        <p className="text-center text-neutral-500 dark:text-neutral-400 text-lg mt-6">
           No team members found in this category.
         </p>
       )}

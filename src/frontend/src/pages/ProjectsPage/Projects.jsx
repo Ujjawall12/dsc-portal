@@ -5,7 +5,7 @@ import ProjectSidebar from "@/components/Projects/ProjectSidebar";
 import { ArrowLeft, ArrowRight, SlidersHorizontalIcon } from "lucide-react";
 import ProjectInfoCard from "@/components/Projects/ProjectInfoCard";
 import ProjectVaulDrawer from "@/components/Projects/ProjectVaulDrawer";
-import { data, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import ProjectInfoCardSkeleton from "@/components/Projects/skeletons/ProjectInfoCardSkeleton";
 import { useDebouncedCallback } from "use-debounce";
 
