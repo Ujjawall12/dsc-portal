@@ -1,59 +1,67 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-    match: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-  },
-
-  branch: {
-    type: String,
-    enum: ["CSE", "ECE", "ME", "CE", "EE", "IPE", "CSE-DD", "ECE-DD"],
-    required: true,
-  },
-
-  field: {
-    type: String,
-    enum: ["Web", "AR/VR", "App Dev", "AI/ML", "Cloud", "UI/UX"],
-    required: true,
-  },
-  session: {
-    type: Number,
-    enum: [2020, 2021, 2022, 2023, 2024, 2025],
-    required: function () {
-      return ["member", "teamLead", "subLead"].includes(this.role);
+    fullName: {
+      type: String,
+      required: true,
+    },
+    username: {
+      type: String,
+      required: true,
+   
+    },
+    password: {
+      type: String,
+      required: true,
+      match: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    },
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
+    otp: {
+        type: String,
+        default: null,
+    },
+    otpExpiry: {
+        type: Date,
+        default: null,
+    },
+    branch: {
+      type: String,
+      enum: ['CSE', 'ECE', 'ME', 'CE', 'EE', 'IPE', 'CSE-DD', 'ECE-DD'],
+      // required: true
     },
   },
 
-  role: {
-    type: String,
-    enum: [
-      "admin",
-      "faculty",
-      "teamLead",
-      "subLead",
-      "member",
-      "participant",
-      "oldMember",
-    ],
-    default: "participant",
-  },
-});
+    field: {
+      type: String, 
+      enum: ['Web', 'AR/VR', 'App Dev', 'AI/ML', 'Cloud', 'UI/UX'],
+      // required: true
+    },
 
-module.exports = mongoose.model("User", UserSchema);
+    role: {
+      type: String,
+      enum: [
+        "admin",
+        "faculty",
+        "teamLead",
+        "subLead",
+        "member",
+        "participant",
+        "oldMember",
+      ],
+      default: "participant",
+    },
+  }
+);
+const User= mongoose.model("User", UserSchema);
+module.exports = User ;
+
+

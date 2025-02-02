@@ -1,10 +1,11 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const fs = require('fs');
-const path = require('path');
-const cors = require('cors');
-const projectRoutes = require('./routes/v1/project.routes');
-const eventRoutes = require('./routes/v1/event.routes');
+const express = require("express");
+const dotenv = require("dotenv");
+const fs = require("fs");
+const path = require("path");
+const connectDB = require("./db/connection");
+const cors = require("cors");
+const projectRoutes = require("./routes/v1/project.routes");
+const authRoutes = require("./routes/auth.routes");
 
 dotenv.config({
   path: './config.env',
@@ -24,10 +25,12 @@ app.use(express.json());
 // routes
 app.use('/api/v1/projects', projectRoutes);
 app.use('/api/v1/events', eventRoutes);
+app.use('/api/auth', authRoutes);
 
-app.get('/', (req, res) => {
-  const filePath = path.join(__dirname, 'sample.html');
-  fs.readFile(filePath, 'utf8', (err, data) => {
+app.get("/", (req, res) => {
+  const filePath = path.join(__dirname, "sample.html");
+  fs.readFile(filePath, "utf8", (err, data) => {
+
     if (err) {
       res.status(500).send('Error reading the HTML file');
       return;
