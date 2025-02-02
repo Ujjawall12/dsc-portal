@@ -1,6 +1,10 @@
 const express = require('express');
-const { signup, verifyOTP, login } = require('../controllers/auth.controller');
-const { signupValidation, validate } = require('../validation/validate');
+const {
+  signup,
+  verifyOTP,
+  login,
+} = require('../../controllers/auth.controller');
+const { signupValidation, validate } = require('../../validation/validate');
 
 const router = express.Router();
 
@@ -14,4 +18,3 @@ router.post('/verify-otp', verifyOTP);
 router.post('/login', login);
 
 module.exports = router;
-
