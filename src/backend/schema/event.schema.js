@@ -21,8 +21,13 @@ const eventSchema = new mongoose.Schema({
   },
   onlineLink: { type: String },
   simpleDescription: { type: String, required: true },
-  description: [{ type: Object, required: true }], // Replace with a proper description schema if needed
-  participants: { type: String }, // Future-proof for referencing another collection
+  description: [
+    {
+      heading: { type: String, required: true },
+      content: { type: String, required: true },
+    },
+  ],
+  participants: { type: Number }, // Future-proof for referencing another collection
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });

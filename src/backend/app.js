@@ -5,7 +5,8 @@ const path = require('path');
 const cors = require('cors');
 const projectRoutes = require('./routes/v1/project.routes');
 const eventRoutes = require('./routes/v1/event.routes');
-const memberRoutes = require('./routes/v1/members.route');
+const memberRoutes = require('./routes/v1/member.routes');
+const authRoutes = require('./routes/v1/auth.routes');
 
 dotenv.config({
   path: './config.env',
@@ -26,6 +27,7 @@ app.use(express.json());
 app.use('/api/v1/projects', projectRoutes);
 app.use('/api/v1/events', eventRoutes);
 app.use('/api/v1/members', memberRoutes);
+app.use('/api/v1/auth', authRoutes);
 
 app.get('/', (req, res) => {
   const filePath = path.join(__dirname, 'sample.html');
