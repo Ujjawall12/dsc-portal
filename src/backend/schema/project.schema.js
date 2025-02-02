@@ -64,7 +64,7 @@ const ProjectSchema = new mongoose.Schema({
     {
       link: {
         type: String,
-        required: true,
+        
       },
       heading: {
         type: String,
@@ -101,7 +101,7 @@ const ProjectSchema = new mongoose.Schema({
     type: [String],
     required: false,
   },
-  respostries: {
+  repositories: {
     type: [String],
     required: true,
   },

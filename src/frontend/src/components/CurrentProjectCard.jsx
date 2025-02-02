@@ -19,16 +19,15 @@ export default function CurrentProjectCard() {
     >
       <div className="-z-10 absolute top-0 left-0 right-0 h-full w-full bg-gradient-to-t from-transparent to-neutral-900"></div>
       <div className="grid grid-cols-2 w-[52rem] group-hover:-translate-x-1/2 transition-transform">
-        <h1 className="text-2xl font-bold text-neutral-200">Current Project</h1>
-        <h1 className="text-2xl font-bold text-green-500">Project Name</h1>
+        <h1 className="text-2xl font-bold text-neutral-200">DSC</h1>
+        <h1 className="text-2xl font-bold text-green-500">Developers Club</h1>
       </div>
       <p className="text-white">
-        Currently we are working on a project that aims to solve the issue
-        present in the current system.
+        On the side are some of the best projects that our team has worked on.
       </p>
-      <button className="btn btn-primary bg-green-700 mt-auto">
+      {/* <button className="btn btn-primary bg-green-700 mt-auto">
         View Project
-      </button>
+      </button> */}
     </motion.div>
   );
 }

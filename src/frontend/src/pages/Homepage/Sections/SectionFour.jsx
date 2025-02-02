@@ -94,7 +94,7 @@ const list = [
     textClassName: "-translate-x-[35%] group-hover:-translate-y-[260%]",
   },
   {
-    link: "/resources",
+    link: "/sign-up",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,7 @@ const list = [
     ),
     parentClassName:
       "bg-yellow-400 col-span-1 row-span-2 rounded-s-full rounded-br-full",
-    text: "Resources",
+    text: "Membership",
     textClassName: "-translate-x-[50%] group-hover:-translate-y-[500%]",
   },
   {

@@ -40,7 +40,7 @@ const ProjectTeamSection = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-10 text-gray-900 dark:text-gray-100">
+      <h2 className="text-4xl font-bold font-Exo text-center mb-10 text-gray-900 dark:text-gray-100">
         Our Team
       </h2>
 
@@ -48,7 +48,7 @@ const ProjectTeamSection = () => {
         {teamMembers.map((member, index) => (
           <Card
             key={index}
-            className="border-0 shadow-sm hover:shadow-md hover:scale-105 transform transition-transform duration-300 bg-gray-100 dark:bg-[#3C3D37]"
+            className="border-0 shadow-sm hover:shadow-md hover:scale-105 transform transition-transform duration-300 bg-gray-100 dark:bg-neutral-800"
           >
             <CardContent className="flex flex-col items-center p-8">
               {/* Profile Image */}

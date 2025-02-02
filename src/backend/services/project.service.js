@@ -37,13 +37,22 @@ const deleteProject = async (id) => {
   return deletedProject;
 };
 
-const findAllProjects = async (skip, limit) => {
-  const projects = await ProjectSchema.find().skip(skip).limit(limit);
+const findAllProjects = async (skip, limit, search, technology) => {
+  const query = {};
+  if (search) {
+    query.$or = [{ name: new RegExp(search, "i") }];
+  }
+  if (technology) {
+    query.technologies = {
+      $elemMatch: { $regex: new RegExp(technology, "i") },
+    };
+  }
+  const projects = await ProjectSchema.find(query).skip(skip).limit(limit);
   const totalProjects = await ProjectSchema.countDocuments();
   return {
     projects,
-    totalProjects
-  }
+    totalProjects,
+  };
 };
 
 module.exports = {

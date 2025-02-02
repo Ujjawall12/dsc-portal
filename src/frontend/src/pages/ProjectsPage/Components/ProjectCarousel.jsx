@@ -1,15 +1,80 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import CarouselCard from "./CarouselCard";
+import { useParams } from "react-router-dom";
 
-
-function ProjectCarousel () {
+function ProjectCarousel() {
   const [currentSet, setCurrentSet] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [projects, setProjects] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [startX, setStartX] = useState(0);
   const [offsetX, setOffsetX] = useState(0);
   const containerRef = useRef(null);
   const autoplayRef = useRef(null);
+  const { slug } = useParams();
+
+  const fetchData = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/projects`,
+      );
+      const resData = await response.json();
+      console.log(resData);
+      setProjects(resData.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  const otherProjects = projects?.filter((project) => project._id !== slug);
+  console.log("otherProjects", otherProjects);
+
+  const otherProjectsCarourselSets = [
+    [
+      {
+        image: otherProjects[0]?.images[0].link,
+        date: otherProjects[0]?.endDate,
+        title: otherProjects[0]?.headline,
+      },
+      {
+        image: otherProjects[0]?.images[0].link,
+        date: otherProjects[0]?.endDate,
+        title: otherProjects[0]?.headline,
+      },
+      {
+        image: otherProjects[0]?.images[0].link,
+        date: otherProjects[0]?.endDate,
+        title: otherProjects[0]?.headline,
+      },
+    ],
+    [
+      {
+        image: otherProjects[0]?.images[0].link,
+        date: otherProjects[0]?.endDate,
+        title: otherProjects[0]?.headline,
+      },
+      {
+        image: otherProjects[0]?.images[0].link,
+        date: otherProjects[0]?.endDate,
+        title: otherProjects[0]?.headline,
+      },
+      {
+        image: otherProjects[0]?.images[0].link,
+        date: otherProjects[0]?.endDate,
+        title: otherProjects[0]?.headline,
+      },
+    ],
+  ];
+
+  console.log(otherProjectsCarourselSets[0][0], "Carousel sets");
 
   const carouselSets = [
     [
@@ -125,7 +190,7 @@ function ProjectCarousel () {
             className="flex gap-x-4 transition-transform duration-300"
             style={{ transform: `translateX(${offsetX}px)` }}
           >
-            {carouselSets[currentSet].map((item, index) => (
+            {otherProjectsCarourselSets[currentSet].map((item, index) => (
               <CarouselCard key={`${currentSet}-${index}`} {...item} />
             ))}
           </div>
@@ -161,6 +226,6 @@ function ProjectCarousel () {
       </div>
     </div>
   );
-};
+}
 
 export default ProjectCarousel;

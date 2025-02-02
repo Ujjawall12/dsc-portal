@@ -1,12 +1,9 @@
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema(
-  {
-
+const UserSchema = new mongoose.Schema({
     fullName: {
       type: String,
       required: true,
-     
     },
     username: {
       type: String,
@@ -22,44 +19,26 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-
-
-
-      
       match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     },
-
-
-
     isVerified: {
       type: Boolean,
       default: false,
-  },
-  otp: {
-      type: String,
-      default: null,
-  },
-  otpExpiry: {
-      type: Date,
-      default: null,
-  },
-
-
-
-
-
-
-
-
-
-
-
-
+    },
+    otp: {
+        type: String,
+        default: null,
+    },
+    otpExpiry: {
+        type: Date,
+        default: null,
+    },
     branch: {
       type: String,
       enum: ['CSE', 'ECE', 'ME', 'CE', 'EE', 'IPE', 'CSE-DD', 'ECE-DD'],
       // required: true
     },
+  },
 
     field: {
       type: String, 
@@ -84,4 +63,5 @@ const UserSchema = new mongoose.Schema(
 );
 const User= mongoose.model("User", UserSchema);
 module.exports = User ;
+
 

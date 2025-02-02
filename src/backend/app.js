@@ -6,43 +6,33 @@ const connectDB = require("./db/connection");
 const cors = require("cors");
 const projectRoutes = require("./routes/v1/project.routes");
 const authRoutes = require("./routes/auth.routes");
-dotenv.config({
-  path: "./config.env",
-});
-dotenv.config({
-  path: "./secrets.env",
-});
 
-connectDB();
+dotenv.config({
+  path: './config.env',
+});
+dotenv.config({
+  path: './secrets.env',
+});
 
 const app = express();
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
-  }),
+    origin: ['http://localhost:5173', 'http://localhost:3000']
+  })
 );
 
 app.use(express.json());
 // routes
-app.use("/api/v1/projects", projectRoutes);
-
-
-
-
-
-
-
-
-
-
+app.use('/api/v1/projects', projectRoutes);
+app.use('/api/v1/events', eventRoutes);
 app.use('/api/auth', authRoutes);
-
 
 app.get("/", (req, res) => {
   const filePath = path.join(__dirname, "sample.html");
   fs.readFile(filePath, "utf8", (err, data) => {
+
     if (err) {
-      res.status(500).send("Error reading the HTML file");
+      res.status(500).send('Error reading the HTML file');
       return;
     }
     res.send(data);

@@ -5,11 +5,11 @@ const lists = {
   "ABOUT US": [
     {
       title: "About Us",
-      link: "/about-us",
+      link: "/about",
     },
     {
       title: "Our Team",
-      link: "/our-team",
+      link: "/Team",
     },
     {
       title: "Events",
@@ -19,15 +19,11 @@ const lists = {
   "GET INVOLVED": [
     {
       title: "Join Us",
-      link: "/join-us",
+      link: "/sign-up",
     },
     {
       title: "Our Projects",
       link: "/projects",
-    },
-    {
-      title: "Resources",
-      link: "/resources",
     },
   ],
 };
@@ -35,7 +31,7 @@ const lists = {
 export default function Footer() {
   return (
     <div className="flex flex-col w-full">
-      <div className="w-4/5 h-64 flex flex-col sm:flex-row sm:items-center rounded-xl overflow-hidden px-6 py-4 relative bg-violet-300 mx-auto translate-y-16 footer-head">
+      <div className="w-4/5 z-20 h-64 flex flex-col sm:flex-row sm:items-center rounded-xl overflow-hidden px-6 py-4 relative bg-violet-300 mx-auto translate-y-16 footer-head">
         <img
           src={stars}
           alt="stars"
@@ -49,11 +45,16 @@ export default function Footer() {
             Join Our Community today!!
           </span>
         </div>
-        <button className="w-28 h-11 bg-violet-300 mt-auto sm:mt-0 sm:ml-auto rounded-md text-neutral-900 font-medium text-md font-Urbanist tracking-wider hover:bg-violet-400 transition-colors active:bg-violet-200">
+        <button
+          className="w-28 h-11 bg-violet-300 mt-auto sm:mt-0 sm:ml-auto rounded-md text-neutral-900 font-medium text-md font-Urbanist tracking-wider hover:bg-violet-400 transition-colors active:bg-violet-200"
+          onClick={() => {
+            window.location.href = "/sign-up";
+          }}
+        >
           Join
         </button>
       </div>
-      <div className="flex flex-col md:flex-row gap-4 bg-slate-900 dark:bg-neutral-950 font-sans py-32 px-8 footer-content">
+      <div className="flex flex-col md:flex-row gap-4 bg-slate-900 dark:bg-neutral-950 font-sans py-32 px-8 footer-content z-10">
         <div className="flex flex-col flex-1 gap-4">
           <img src={icon} alt="icon" className="w-12 h-12" />
           <span className="text-neutral-200 text-xl font-semibold">
@@ -91,6 +92,7 @@ export default function Footer() {
             </div>
           ))}
         </div>
+        {/*
         <div className="flex flex-col gap-4 flex-1">
           <span className="text-neutral-400 text-xs tracking-widest font-medium">
             NOT SURE WHERE TO START?
@@ -114,6 +116,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
+        */}
       </div>
     </div>
   );

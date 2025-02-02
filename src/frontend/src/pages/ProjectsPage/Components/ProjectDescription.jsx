@@ -1,16 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/Projectutils/card";
-import {
-  Code,
-  GitBranch,
-  Layers,
-  Zap,
-  Shield,
-  Clock,
-} from "lucide-react";
+import { Code, GitBranch, Layers, Zap, Shield, Clock } from "lucide-react";
 
-function ProjectDescription () {
+function ProjectDescription({ description, repositories, technologies }) {
   const projectInfo = {
     description: {
       short:
@@ -77,12 +70,11 @@ function ProjectDescription () {
       },
     ],
   };
-
   return (
     <div className="w-full max-w-7xl mx-auto bg-white dark:bg-[rgb(23,23,23)]">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-100">
+        <h1 className="text-4xl font-bold font-Exo mb-4 text-gray-900 dark:text-gray-100">
           Project Description
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
@@ -93,20 +85,20 @@ function ProjectDescription () {
 
       {/* Highlights Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        {projectInfo.description.highlights.map((highlight, index) => (
+        {description?.map((highlight, index) => (
           <Card
             key={index}
-            className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-[#3C3D37]"
+            className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-neutral-800"
           >
             <CardContent className="flex flex-col items-center text-center">
-              <div className="mb-4 p-4 rounded-full bg-gray-200 dark:bg-gray-700">
+              <div className="mb-4 p-4 rounded-full bg-neutral-200 dark:bg-neutral-700">
                 {highlight.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-                {highlight.title}
+              <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
+                {highlight.heading}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                {highlight.detail}
+              <p className="text-neutral-600 dark:text-neutral-400">
+                {highlight.description}
               </p>
             </CardContent>
           </Card>
@@ -114,30 +106,30 @@ function ProjectDescription () {
       </div>
 
       {/* Features Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {projectInfo.features.map((feature, index) => (
           <Card
             key={index}
-            className="p-6 hover:shadow-lg transition-all duration-300 bg-gray-100 dark:bg-[#3C3D37]"
+            className="p-6 hover:shadow-lg transition-all duration-300 bg-neutral-100 dark:bg-neutral-800"
           >
             <CardContent>
               <div className="flex items-center gap-4 mb-4">
                 {feature.icon}
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+                <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100">
                   {feature.title}
                 </h3>
               </div>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-neutral-600 dark:text-neutral-400">
                 {feature.description}
               </p>
             </CardContent>
           </Card>
         ))}
-      </div>
+      </div> */}
 
       {/* Technologies and Repository */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-[#3C3D37]">
+        <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-neutral-800">
           <CardHeader className="pb-2 dark:bg-[rgb(53,52,52)]">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
               Technologies Used
@@ -145,13 +137,13 @@ function ProjectDescription () {
           </CardHeader>
           <CardContent>
             <ul className="space-y-2">
-              {projectInfo.technologies.map((tech, index) => (
+              {technologies.map((tech, index) => (
                 <li
                   key={index}
-                  className="flex items-center p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-[#536066] transition-all duration-300"
+                  className="flex items-center p-2 rounded-lg hover:bg-neutral-50 dark:hover:bg-[#536066] transition-all duration-300"
                 >
                   <span className="w-2 h-2 bg-blue-500 dark:bg-blue-300 rounded-full mr-2"></span>
-                  <span className="text-gray-900 dark:text-gray-100">
+                  <span className="text-neutral-900 dark:text-neutral-100">
                     {tech}
                   </span>
                 </li>
@@ -159,7 +151,7 @@ function ProjectDescription () {
             </ul>
           </CardContent>
         </Card>
-        <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-[#3C3D37]">
+        <Card className="p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-100 dark:bg-neutral-800">
           <CardHeader className="pb-2 dark:bg-[rgb(53,52,52)]">
             <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
               Code Repositories
@@ -167,33 +159,32 @@ function ProjectDescription () {
           </CardHeader>
           <CardContent>
             <ul className="space-y-2">
-              <li className="text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-[#536066] transition-all duration-300">
-                <GitBranch className="w-5 h-5" />
-                <a
-                  href={projectInfo.repository}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Main Repository
-                </a>
-              </li>
-              {projectInfo.additionalRepositories.map((repo, index) => (
-                <li
-                  key={index}
-                  className="text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-[#536066] transition-all duration-300"
-                >
+              {repositories && (
+                <li className="text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 p-3 rounded-lg hover:bg-neutral-50 dark:hover:bg-[#536066] transition-all duration-300">
                   <GitBranch className="w-5 h-5" />
-                  <a href={repo.link} target="_blank" rel="noopener noreferrer">
-                    {repo.name}
-                  </a>
+                  {repositories?.map((repo, index) => (
+                    <li
+                      key={index}
+                      className="text-blue-500 dark:text-blue-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 p-3 rounded-lg hover:bg-neutral-50 dark:hover:bg-[#536066] transition-all duration-300"
+                    >
+                      <GitBranch className="w-5 h-5" />
+                      <a
+                        href={repo.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {repo.name}
+                      </a>
+                    </li>
+                  ))}
                 </li>
-              ))}
+              )}
             </ul>
           </CardContent>
         </Card>
       </div>
     </div>
   );
-};
+}
 
 export default ProjectDescription;
