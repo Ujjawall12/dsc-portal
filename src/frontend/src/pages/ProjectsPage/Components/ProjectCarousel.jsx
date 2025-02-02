@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef, useCallback } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import CarouselCard from "./CarouselCard";
-import { useParams } from "react-router-dom";
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import CarouselCard from './CarouselCard';
+import { useParams } from 'react-router-dom';
 
 function ProjectCarousel() {
   const [currentSet, setCurrentSet] = useState(0);
@@ -18,7 +18,7 @@ function ProjectCarousel() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/v1/projects`,
+        `${import.meta.env.BACKEND_URL}/api/v1/projects`
       );
       const resData = await response.json();
       console.log(resData);
@@ -35,7 +35,7 @@ function ProjectCarousel() {
   }, [fetchData]);
 
   const otherProjects = projects?.filter((project) => project._id !== slug);
-  console.log("otherProjects", otherProjects);
+  console.log('otherProjects', otherProjects);
 
   const otherProjectsCarourselSets = [
     [
@@ -74,41 +74,41 @@ function ProjectCarousel() {
     ],
   ];
 
-  console.log(otherProjectsCarourselSets[0][0], "Carousel sets");
+  console.log(otherProjectsCarourselSets[0][0], 'Carousel sets');
 
   const carouselSets = [
     [
       {
-        image: "/sample-image.jpg",
-        date: "Dec 25, 2024",
-        title: "Latest Robotics Technology",
+        image: '/sample-image.jpg',
+        date: 'Dec 25, 2024',
+        title: 'Latest Robotics Technology',
       },
       {
-        image: "/sample-image.jpg",
-        date: "Dec 17, 2024",
-        title: "AI Integration Systems",
+        image: '/sample-image.jpg',
+        date: 'Dec 17, 2024',
+        title: 'AI Integration Systems',
       },
       {
-        image: "/sample-image.jpg",
-        date: "Dec 10, 2024",
-        title: "Future of Machine Learning",
+        image: '/sample-image.jpg',
+        date: 'Dec 10, 2024',
+        title: 'Future of Machine Learning',
       },
     ],
     [
       {
-        image: "/sample-image.jpg",
-        date: "Dec 5, 2024",
-        title: "Neural Network Advances",
+        image: '/sample-image.jpg',
+        date: 'Dec 5, 2024',
+        title: 'Neural Network Advances',
       },
       {
-        image: "/sample-image.jpg",
-        date: "Dec 1, 2024",
-        title: "Robotic Interface Design",
+        image: '/sample-image.jpg',
+        date: 'Dec 1, 2024',
+        title: 'Robotic Interface Design',
       },
       {
-        image: "/sample-image.jpg",
-        date: "Nov 28, 2024",
-        title: "Smart Automation Tools",
+        image: '/sample-image.jpg',
+        date: 'Nov 28, 2024',
+        title: 'Smart Automation Tools',
       },
     ],
   ];
@@ -122,7 +122,7 @@ function ProjectCarousel() {
         return newSet;
       });
     },
-    [carouselSets.length],
+    [carouselSets.length]
   );
 
   const startAutoplay = () => {
@@ -170,13 +170,13 @@ function ProjectCarousel() {
   const endDot = Math.min(carouselSets.length, startDot + visibleDots);
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-10 text-black dark:text-gray-100">
+    <div className='w-full max-w-7xl mx-auto'>
+      <h2 className='text-4xl font-bold text-center mb-10 text-black dark:text-gray-100'>
         Visual Media
       </h2>
-      <div className="max-w-6xl w-full mx-auto p-8 bg-gray-50 dark:bg-[#2D2D2D] rounded-2xl">
+      <div className='max-w-6xl w-full mx-auto p-8 bg-gray-50 dark:bg-[#2D2D2D] rounded-2xl'>
         <div
-          className="relative overflow-hidden"
+          className='relative overflow-hidden'
           ref={containerRef}
           onMouseDown={handleDragStart}
           onMouseMove={handleDragMove}
@@ -187,7 +187,7 @@ function ProjectCarousel() {
           onTouchEnd={handleDragEnd}
         >
           <div
-            className="flex gap-x-4 transition-transform duration-300"
+            className='flex gap-x-4 transition-transform duration-300'
             style={{ transform: `translateX(${offsetX}px)` }}
           >
             {otherProjectsCarourselSets[currentSet].map((item, index) => (
@@ -195,27 +195,27 @@ function ProjectCarousel() {
             ))}
           </div>
           <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white dark:bg-[#3C3D37] p-2 rounded-full shadow-md hover:shadow-lg flex items-center justify-center z-10"
+            className='absolute left-4 top-1/2 -translate-y-1/2 bg-white dark:bg-[#3C3D37] p-2 rounded-full shadow-md hover:shadow-lg flex items-center justify-center z-10'
             onClick={() => navigate(-1)}
-            aria-label="Previous set"
+            aria-label='Previous set'
           >
-            <ChevronLeft className="w-6 h-6 text-blue-600 dark:text-blue-300" />
+            <ChevronLeft className='w-6 h-6 text-blue-600 dark:text-blue-300' />
           </button>
           <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-[#3C3D37] p-2 rounded-full shadow-md hover:shadow-lg flex items-center justify-center z-10"
+            className='absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-[#3C3D37] p-2 rounded-full shadow-md hover:shadow-lg flex items-center justify-center z-10'
             onClick={() => navigate(1)}
-            aria-label="Next set"
+            aria-label='Next set'
           >
-            <ChevronRight className="w-6 h-6 text-blue-600 dark:text-blue-300" />
+            <ChevronRight className='w-6 h-6 text-blue-600 dark:text-blue-300' />
           </button>
-          <div className="flex justify-center gap-2 mt-6">
+          <div className='flex justify-center gap-2 mt-6'>
             {carouselSets.slice(startDot, endDot).map((_, index) => (
               <button
                 key={index + startDot}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index + startDot === currentSet
-                    ? "bg-blue-600 dark:bg-blue-300 scale-125"
-                    : "bg-gray-300 dark:bg-gray-500"
+                    ? 'bg-blue-600 dark:bg-blue-300 scale-125'
+                    : 'bg-gray-300 dark:bg-gray-500'
                 }`}
                 onClick={() => setCurrentSet(index + startDot)}
                 aria-label={`Go to set ${index + startDot + 1}`}
