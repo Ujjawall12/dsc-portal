@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 const projectRoutes = require('./routes/v1/project.routes');
+const eventRoutes = require('./routes/v1/event.routes');
 const memberRoutes = require('./routes/v1/members.route');
 
 dotenv.config({
