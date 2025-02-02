@@ -33,6 +33,13 @@ const UserSchema = new mongoose.Schema({
     enum: ["Web", "AR/VR", "App Dev", "AI/ML", "Cloud", "UI/UX"],
     required: true,
   },
+  session: {
+    type: Number,
+    enum: [2020, 2021, 2022, 2023, 2024, 2025],
+    required: function () {
+      return ["member", "teamLead", "subLead"].includes(this.role);
+    },
+  },
 
   role: {
     type: String,
