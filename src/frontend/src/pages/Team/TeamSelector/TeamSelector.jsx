@@ -173,7 +173,7 @@ const TeamSelector = () => {
           <ProfileCard
             key={index}
             image={`https://api.dicebear.com/9.x/adventurer/svg?seed=${getRandomName()}`}
-            name={member.Name}
+            name={member.name}
             position={member.position}
             category={member.category}
             year={member.year}
