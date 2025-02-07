@@ -8,7 +8,14 @@ dotenv.config({
   path: './secrets.env',
 });
 
-const MONGODB_URI = process.env.MONGODB_URI;
+let MONGODB_URI = process.env.MONGODB_URI;
+if (
+  MONGODB_URI.includes('<DB_USERNAME>') &&
+  MONGODB_URI.includes('<DB_PASSWORD>')
+) {
+  MONGODB_URI = MONGODB_URI.replace('<DB_USERNAME>', process.env.DB_USERNAME);
+  MONGODB_URI = MONGODB_URI.replace('<DB_PASSWORD>', process.env.DB_PASSWORD);
+}
 
 if (!MONGODB_URI) {
   throw new Error(
