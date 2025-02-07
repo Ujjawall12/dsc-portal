@@ -37,6 +37,10 @@ const UserSchema = new mongoose.Schema({
     enum: ['CSE', 'ECE', 'ME', 'CE', 'EE', 'IPE', 'CSE-DD', 'ECE-DD'],
     // required: true
   },
+  image: {
+    type: String,
+    required: false,
+  },
 
   field: {
     type: String,
