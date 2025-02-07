@@ -2,191 +2,6 @@ import React, { useEffect, useState } from 'react';
 import ProfileCard from '@/components/TeamPage/ProfileCard/ProfileCard';
 import MainLayout from '@/Layout/MainLayout';
 
-const teamMembers = [
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Alice Johnson',
-    position: 'Web Team Lead',
-    category: 'Web Team',
-    year: 'Year 3',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Bob Smith',
-    position: 'AI/ML Team Lead',
-    category: 'AI/ML Team',
-    year: 'Year 4',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Charlie Brown',
-    position: 'UI/UX Team Lead',
-    category: 'UI/UX Team',
-    year: 'Year 2',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Daisy Lee',
-    position: 'Android Team Lead',
-    category: 'Android Team',
-    year: 'Year 3',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Evan Wright',
-    position: 'Web Developer',
-    category: 'Web Team',
-    year: 'Year 2',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Fayla Grey',
-    position: 'AI/ML Mentor',
-    category: 'AI/ML Team',
-    year: 'Year 4',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'George Miller',
-    position: 'UI/UX Designer',
-    category: 'UI/UX Team',
-    year: 'Year 3',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Henry Lang',
-    position: 'Android Developer',
-    category: 'Android Team',
-    year: 'Year 3',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Ivy White',
-    position: 'Web Developer',
-    category: 'Web Team',
-    year: 'Year 2',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Jack Black',
-    position: 'AI/ML Researcher',
-    category: 'AI/ML Team',
-    year: 'Year 4',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Kimberly Brown',
-    position: 'UI/UX Researcher',
-    category: 'UI/UX Team',
-    year: 'Year 3',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Liam Green',
-    position: 'Android Researcher',
-    category: 'Android Team',
-    year: 'Year 2',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Mona Blue',
-    position: 'Web Developer',
-    category: 'Web Team',
-    year: 'Year 3',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Nina Grey',
-    position: 'AI/ML Specialist',
-    category: 'AI/ML Team',
-    year: 'Year 2',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Oscar Green',
-    position: 'UI/UX Designer',
-    category: 'UI/UX Team',
-    year: 'Year 4',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Paul White',
-    position: 'Android Developer',
-    category: 'Android Team',
-    year: 'Year 4',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Quinn Yellow',
-    position: 'Web Developer',
-    category: 'Web Team',
-    year: 'Year 2',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Rita Black',
-    position: 'AI/ML Researcher',
-    category: 'AI/ML Team',
-    year: 'Year 4',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Sam Blue',
-    position: 'UI/UX Designer',
-    category: 'UI/UX Team',
-    year: 'Year 2',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Tom Red',
-    position: 'Android Team Lead',
-    category: 'Android Team',
-    year: 'Year 3',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Uma Green',
-    position: 'Web Developer',
-    category: 'Web Team',
-    year: 'Year 4',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Vicky Blue',
-    position: 'AI/ML Specialist',
-    category: 'AI/ML Team',
-    year: 'Year 3',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Will Brown',
-    position: 'UI/UX Researcher',
-    category: 'UI/UX Team',
-    year: 'Year 2',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Xander Red',
-    position: 'Android Developer',
-    category: 'Android Team',
-    year: 'Year 4',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Yara White',
-    position: 'Web Team Lead',
-    category: 'Web Team',
-    year: 'Year 3',
-  },
-  {
-    image: 'https://via.placeholder.com/150',
-    name: 'Zane Black',
-    position: 'AI/ML Team Lead',
-    category: 'AI/ML Team',
-    year: 'Year 2',
-  },
-];
-
 const categories = [
   'All',
   'Web Team',
@@ -194,6 +9,39 @@ const categories = [
   'UI/UX Team',
   'Android Team',
 ];
+
+const validNames = [
+  'Alice',
+  'Bob',
+  'Charlie',
+  'Daisy',
+  'Evan',
+  'Fayla',
+  'George',
+  'Henry',
+  'Ivy',
+  'Jack',
+  'Kimberly',
+  'Liam',
+  'Mona',
+  'Nina',
+  'Oscar',
+  'Paul',
+  'Quinn',
+  'Rita',
+  'Sam',
+  'Tom',
+  'Uma',
+  'Vicky',
+  'Will',
+  'Xander',
+  'Yara',
+  'Zane',
+];
+
+const getRandomName = () => {
+  return validNames[Math.floor(Math.random() * validNames.length)];
+};
 
 const Pagination = ({
   currentPage,
@@ -263,10 +111,13 @@ const TeamSelector = () => {
     const data = await response.json();
     console.log(response);
     console.log(data);
-    if (response.success) {
-      setCurrentPage(response.meta.current);
-      setTotalItems(response.meta.pages);
-      setteamMembers(response.data);
+    if (response.ok && data.success) {
+      console.log(data.data);
+      setCurrentPage(data.meta.current);
+      setTotalItems(data.meta.pages);
+      setteamMembers(data.data);
+    } else {
+      console.log('Error fetching team members');
     }
   }
 
@@ -321,8 +172,8 @@ const TeamSelector = () => {
         {teamMembers.map((member, index) => (
           <ProfileCard
             key={index}
-            image={member.image}
-            name={member.name}
+            image={`https://api.dicebear.com/9.x/adventurer/svg?seed=${getRandomName()}`}
+            name={member.Name}
             position={member.position}
             category={member.category}
             year={member.year}
