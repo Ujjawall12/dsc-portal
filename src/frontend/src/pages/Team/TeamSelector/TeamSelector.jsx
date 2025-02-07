@@ -39,8 +39,11 @@ const validNames = [
   'Zane',
 ];
 
-const getRandomName = () => {
-  return validNames[Math.floor(Math.random() * validNames.length)];
+const getRandomName = (gender) => {
+  const genderFilter = gender === 'male' ? 'veryShortHair' : 'longHair';
+  const facialHair = gender === 'male' ? 'facialHair' : 'noFacialHair';
+  const accessories = gender === 'female' ? 'pins' : 'noEarrings';
+  return `https://api.dicebear.com/9.x/adventurer/svg?seed=${validNames[Math.floor(Math.random() * validNames.length)]}&${genderFilter}&${facialHair}&${accessories}`;
 };
 
 const Pagination = ({
@@ -114,7 +117,7 @@ const TeamSelector = () => {
     if (response.ok && data.success) {
       console.log(data.data);
       setCurrentPage(data.meta.current);
-      setTotalItems(data.meta.pages);
+      setTotalItems(data.meta.total); // Update totalItems with the total number of items
       setteamMembers(data.data);
     } else {
       console.log('Error fetching team members');
@@ -123,7 +126,7 @@ const TeamSelector = () => {
 
   useEffect(() => {
     getTeamMembers();
-  }, []);
+  }, [currentPage, selectedCategory]);
 
   // const filteredTeamMembers =
   //   selectedCategory === 'All'
@@ -172,7 +175,7 @@ const TeamSelector = () => {
         {teamMembers.map((member, index) => (
           <ProfileCard
             key={index}
-            image={`https://api.dicebear.com/9.x/adventurer/svg?seed=${getRandomName()}`}
+            image={member.image || getRandomName(member.gender)}
             name={member.name}
             position={member.position}
             category={member.category}
@@ -189,7 +192,7 @@ const TeamSelector = () => {
       )}
 
       {/* Pagination Component */}
-      {teamMembers.length > itemsPerPage && (
+      {totalItems > itemsPerPage && (
         <Pagination
           currentPage={currentPage}
           totalItems={totalItems}
