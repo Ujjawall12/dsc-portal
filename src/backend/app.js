@@ -18,7 +18,11 @@ dotenv.config({
 const app = express();
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'http://localhost:3000'],
+    origin: [
+      'http://localhost:5173',
+      'http://localhost:3000',
+      'https://ec2-18-136-203-105.ap-southeast-1.compute.amazonaws.com',
+    ],
   })
 );
 
