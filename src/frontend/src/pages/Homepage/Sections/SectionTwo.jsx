@@ -7,7 +7,7 @@ import ViewAllProjectCard from '@/components/ViewAllProjectCard';
 
 export default function SectionTwo() {
   const [projects, setProjects] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [, setIsLoading] = useState(false);
 
   const fetchData = useCallback(async () => {
     try {

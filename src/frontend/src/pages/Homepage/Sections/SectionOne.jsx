@@ -60,7 +60,7 @@ function SectionOne() {
               />
             </span>
             <span className="font-Exo font-normal text-center lg:text-start text-md dark:text-neutral-300 text-neutral-600">
-              Google Developer Student Clubs are university-based communities
+              Developer Student Clubs are university-based communities
               where students collaborate, learn, and solve real-world problems
               with technology.
             </span>
