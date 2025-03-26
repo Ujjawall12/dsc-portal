@@ -58,10 +58,10 @@ export default function Footer() {
         <div className="flex flex-col flex-1 gap-4">
           <img src={icon} alt="icon" className="w-12 h-12" />
           <span className="text-neutral-200 text-xl font-semibold">
-            Google Developer Student Club
+            Developer Student Club
           </span>
           <span className="text-neutral-200 text-sm font-medium">
-            A Google Developers program for university students to learn mobile
+            Developers program for university students to learn mobile
             and web development skills, design thinking skills and leadership
             skills.
           </span>
