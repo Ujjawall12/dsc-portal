@@ -103,7 +103,8 @@ body {
   .footer-head {
     background-color: #c4b5fd;
     opacity: 1;
-    background-image: radial-gradient(#000000 0.5px, transparent 0.5px),
+    background-image:
+      radial-gradient(#000000 0.5px, transparent 0.5px),
       radial-gradient(#000000 0.5px, #c4b5fd 0.5px);
     background-size: 20px 20px;
     background-position:

@@ -61,9 +61,8 @@ export default function Footer() {
             Developer Student Club
           </span>
           <span className="text-neutral-200 text-sm font-medium">
-            Developers program for university students to learn mobile
-            and web development skills, design thinking skills and leadership
-            skills.
+            Developers program for university students to learn mobile and web
+            development skills, design thinking skills and leadership skills.
           </span>
         </div>
         <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row my-8 md:my-0 gap-4 flex-1 sm:items-center md:items-start md:ml-12 lg:ml-0">

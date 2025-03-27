@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
   fullName: {
@@ -34,7 +34,7 @@ const UserSchema = new mongoose.Schema({
   },
   branch: {
     type: String,
-    enum: ['CSE', 'ECE', 'ME', 'CE', 'EE', 'IPE', 'CSE-DD', 'ECE-DD'],
+    enum: ["CSE", "ECE", "ME", "CE", "EE", "IPE", "CSE-DD", "ECE-DD"],
     // required: true
   },
   image: {
@@ -44,23 +44,23 @@ const UserSchema = new mongoose.Schema({
 
   field: {
     type: String,
-    enum: ['Web', 'AR/VR', 'App Dev', 'AI/ML', 'Cloud', 'UI/UX'],
+    enum: ["Web", "AR/VR", "App Dev", "AI/ML", "Cloud", "UI/UX"],
     // required: true
   },
 
   role: {
     type: String,
     enum: [
-      'admin',
-      'faculty',
-      'teamLead',
-      'subLead',
-      'member',
-      'participant',
-      'oldMember',
+      "admin",
+      "faculty",
+      "teamLead",
+      "subLead",
+      "member",
+      "participant",
+      "oldMember",
     ],
-    default: 'participant',
+    default: "participant",
   },
 });
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model("User", UserSchema);
 module.exports = User;

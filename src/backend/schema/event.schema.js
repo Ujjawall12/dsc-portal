@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const eventSchema = new mongoose.Schema({
   images: [
     {
-      link: { type: String, },
+      link: { type: String },
       alt: { type: String, required: true },
     },
   ],
