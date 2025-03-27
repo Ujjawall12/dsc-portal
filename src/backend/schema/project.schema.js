@@ -64,7 +64,6 @@ const ProjectSchema = new mongoose.Schema({
     {
       link: {
         type: String,
-        
       },
       heading: {
         type: String,

@@ -68,7 +68,9 @@ function EventsPage() {
 
         // Generate years array based on available data
         const currentYear = new Date().getFullYear();
-        const yearsList = Array.from({ length: 5 }, (_, i) => (currentYear - 2 + i).toString());
+        const yearsList = Array.from({ length: 5 }, (_, i) =>
+          (currentYear - 2 + i).toString(),
+        );
         setYears(yearsList);
       } catch (error) {
         console.error("Error fetching events:", error);

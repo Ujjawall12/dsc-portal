@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { FaGithub, FaLinkedin  } from "react-icons/fa";
+import { useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const ProfileCard = ({ image, name, position, github, linkedin }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [hoverOrigin, setHoverOrigin] = useState('left'); // Tracks the animation origin
+  const [hoverOrigin, setHoverOrigin] = useState("left"); // Tracks the animation origin
 
   const handleMouseEnter = (e) => {
     setIsHovered(true);
@@ -16,7 +16,7 @@ const ProfileCard = ({ image, name, position, github, linkedin }) => {
     // Determine if the cursor is near the center
     const isFromCenter = Math.abs(cursorX - cardWidth / 2) < cardWidth * 0.2; // Adjust 0.2 for sensitivity
     setHoverOrigin(
-      isFromCenter ? 'center' : cursorX < cardWidth / 2 ? 'left' : 'right'
+      isFromCenter ? "center" : cursorX < cardWidth / 2 ? "left" : "right",
     );
   };
 
@@ -26,19 +26,19 @@ const ProfileCard = ({ image, name, position, github, linkedin }) => {
 
   return (
     <div
-      className={`relative bg-white dark:bg-neutral-900 rounded-xl overflow-hidden border border-gray-200 dark:border-neutral-700 transition-all duration-500 ${
-        isHovered ? 'hover:shadow-md hover:scale-[1.02]' : ''
+      className={`relative bg-white dark:bg-neutral-900 rounded-xl overflow-hidden border border-gray-200 dark:border-neutral-700 transition-all max-w-72 duration-500 ${
+        isHovered ? "hover:shadow-md hover:scale-[1.02]" : ""
       }`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Profile Image with Hover Animation */}
-      <div className='relative h-72  overflow-hidden'>
+      <div className="relative h-[19rem]">
         <img
           src={image}
           alt={name}
-          className='w-full h-full object-cover'
-          loading='lazy'
+          className="w-full h-full object-cover object-top"
+          loading="lazy"
         />
         {/* <div
           className={`absolute inset-0 bg-gradient-to-b from-black/20 to-black/60 ${
@@ -46,34 +46,32 @@ const ProfileCard = ({ image, name, position, github, linkedin }) => {
           } transition-opacity duration-500`}
         /> */}
       </div>
-      <div className='p-4 pt-2 dark:text-white text-center'>
-        <div className='flex flex-col'>
-          <h2 className='font-normal text-lg'>
-            {name}
-          </h2>
-          <h3 className='text-neutral-500 dark:text-neutral-300 text-sm'>
+      <div className="p-4 pt-2 dark:text-white bg-transparent text-center">
+        <div className="flex flex-col">
+          <h2 className="font-normal text-lg">{name}</h2>
+          <h3 className="text-neutral-500 dark:text-neutral-300 text-sm">
             {position}
           </h3>
-          <div className='flex items-center justify-center gap-2 mt-2'>
-            <a className='cursor-pointer' href={github} target='_blank'>
-              <FaGithub className='text-xl text-neutral-700 dark:text-neutral-300'/>
+          <div className="flex items-center justify-center gap-2 mt-2">
+            <a className="cursor-pointer" href={github} target="_blank">
+              <FaGithub className="text-xl text-neutral-700 dark:text-neutral-300" />
             </a>
-            <a className='cursor-pointer' href={linkedin} target='_blank'>
-              <FaLinkedin className='text-xl text-neutral-700 dark:text-neutral-300'/>
+            <a className="cursor-pointer" href={linkedin} target="_blank">
+              <FaLinkedin className="text-xl text-neutral-700 dark:text-neutral-300" />
             </a>
           </div>
         </div>
         <div
           className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-orange-600 ${
-            isHovered ? 'scale-x-100' : 'scale-x-0'
+            isHovered ? "scale-x-100" : "scale-x-0"
           } transition-transform duration-500`}
           style={{
             transformOrigin:
-              hoverOrigin === 'center'
-                ? 'center'
-                : hoverOrigin === 'left'
-                  ? 'left'
-                  : 'right', // Dynamically set transform-origin
+              hoverOrigin === "center"
+                ? "center"
+                : hoverOrigin === "left"
+                  ? "left"
+                  : "right", // Dynamically set transform-origin
           }}
         />
       </div>

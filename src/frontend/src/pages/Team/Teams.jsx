@@ -1,5 +1,5 @@
-import MainLayout from 'Layout/MainLayout';
-import TeamSelector from './TeamSelector/TeamSelector';
+import MainLayout from "Layout/MainLayout";
+import TeamSelector from "./TeamSelector/TeamSelector";
 
 function Teams() {
   return (
