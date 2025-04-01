@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar } from "lucide-react";
 import EventCard from "./EventCard";
@@ -7,81 +7,109 @@ import MainLayout from "@/Layout/MainLayout";
 import Section from "@/Layout/Section";
 
 function EventsPage() {
-  const [years, setYears] = useState([]);
-  const [selectedYear, setSelectedYear] = useState(
-    new Date().getFullYear().toString(),
-  );
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [years] = useState(["2023", "2024", "2025"]);
+  const [selectedYear, setSelectedYear] = useState("2024");
   const [page, setPage] = useState(1);
-  const [totalEvents, setTotalEvents] = useState(0);
+  const eventsPerPage = 9;
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
-
-  // Function to format event data for EventCard
-  function formatEventForCard(event) {
-    return {
-      id: event._id,
-      title: event.name,
-      date: new Date(event.startDate).toLocaleDateString(),
-      description: event.simpleDescription,
-      image: event.images[0]?.link || "/placeholder-image.jpg",
-      details: event.description[0]?.content || "",
+  // Hardcoded events data
+  const eventsData = [
+    {
+      id: "1",
+      title: "Android Study Jams",
+      date: "February 15-28, 2024",
+      description: "Join us for an intensive learning program focused on Android app development using Kotlin.",
+      image: "/placeholder-image.jpg",
+      details: "Learn from experts, build real projects, and get hands-on experience with modern Android development.",
       duration: {
-        start: new Date(event.duration.start).toLocaleTimeString(),
-        end: new Date(event.duration.end).toLocaleTimeString(),
+        start: "6:00 PM",
+        end: "8:00 PM"
       },
-      mode: event.mode,
-      onlineLink: event.onlineLink,
-    };
-  }
+      mode: "Hybrid",
+      onlineLink: "https://meet.google.com/example"
+    },
+    {
+      id: "2",
+      title: "Web Development Workshop",
+      date: "March 10, 2024",
+      description: "Master modern web development with React and Node.js",
+      image: "/placeholder-image.jpg",
+      details: "Learn full-stack development from industry experts",
+      duration: {
+        start: "10:00 AM",
+        end: "4:00 PM"
+      },
+      mode: "In-person",
+      onlineLink: null
+    },
+    {
+      id: "3",
+      title: "Cloud Computing Summit",
+      date: "April 5, 2024",
+      description: "Explore cloud technologies and deployment strategies",
+      image: "/placeholder-image.jpg",
+      details: "Deep dive into AWS, Azure, and Google Cloud Platform",
+      duration: {
+        start: "9:00 AM",
+        end: "5:00 PM"
+      },
+      mode: "Online",
+      onlineLink: "https://meet.google.com/example2"
+    },
+    {
+      id: "4",
+      title: "AI & ML Workshop",
+      date: "May 15, 2024",
+      description: "Introduction to Artificial Intelligence and Machine Learning",
+      image: "/placeholder-image.jpg",
+      details: "Hands-on experience with popular ML frameworks",
+      duration: {
+        start: "11:00 AM",
+        end: "3:00 PM"
+      },
+      mode: "Hybrid",
+      onlineLink: "https://meet.google.com/example3"
+    },
+    {
+      id: "5",
+      title: "Cybersecurity Training",
+      date: "June 20, 2024",
+      description: "Learn about modern cybersecurity practices",
+      image: "/placeholder-image.jpg",
+      details: "Practical sessions on security testing and vulnerability assessment",
+      duration: {
+        start: "2:00 PM",
+        end: "6:00 PM"
+      },
+      mode: "In-person",
+      onlineLink: null
+    },
+    {
+      id: "6",
+      title: "DevOps Workshop",
+      date: "July 10, 2024",
+      description: "Master DevOps tools and practices",
+      image: "/placeholder-image.jpg",
+      details: "Learn CI/CD, containerization, and automation",
+      duration: {
+        start: "10:00 AM",
+        end: "4:00 PM"
+      },
+      mode: "Online",
+      onlineLink: "https://meet.google.com/example4"
+    }
+  ];
 
-  // Fetch events for the selected year
-  useEffect(() => {
-    const fetchEvents = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const URL = `${API_URL}/api/v1/events?year=${selectedYear}&page=${page}&max=9`;
-        console.log("Fetching from:", URL);
+  // Filter events by selected year and paginate
+  const filteredEvents = eventsData.filter(event => {
+    const eventYear = event.date.split(',')[1]?.trim();
+    return eventYear === selectedYear;
+  });
 
-        const response = await fetch(URL, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        console.log("Response status:", response.status);
-
-        if (!response.ok) {
-          throw new Error(`Failed to fetch events. Status: ${response.status}`);
-        }
-
-        const responseAwait = await response.json();
-        console.log("Response data:", responseAwait);
-
-        const { data, total } = responseAwait;
-        setEvents(data.map(formatEventForCard));
-        setTotalEvents(total);
-
-        // Generate years array based on available data
-        const currentYear = new Date().getFullYear();
-        const yearsList = Array.from({ length: 5 }, (_, i) =>
-          (currentYear - 2 + i).toString(),
-        );
-        setYears(yearsList);
-      } catch (error) {
-        console.error("Error fetching events:", error);
-        setError(error.message || "Failed to fetch events.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchEvents();
-  }, [selectedYear, page, API_URL]);
+  const totalEvents = filteredEvents.length;
+  const startIndex = (page - 1) * eventsPerPage;
+  const endIndex = startIndex + eventsPerPage;
+  const currentEvents = filteredEvents.slice(startIndex, endIndex);
 
   return (
     <MainLayout>
@@ -138,58 +166,44 @@ function EventsPage() {
 
           {/* Events Grid */}
           <div className="w-full">
-            {loading ? (
-              <div className="flex justify-center items-center h-64">
-                <p className="text-gray-600 dark:text-gray-400">
-                  Loading events...
-                </p>
-              </div>
-            ) : error ? (
-              <div className="flex justify-center items-center h-64">
-                <p className="text-red-600 dark:text-red-400">Error: {error}</p>
-              </div>
-            ) : (
-              <>
-                <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-                  <AnimatePresence mode="wait">
-                    {events.map((event) => (
-                      <EventCard key={event.id} {...event} />
-                    ))}
-                  </AnimatePresence>
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+              <AnimatePresence mode="wait">
+                {currentEvents.map((event) => (
+                  <EventCard key={event.id} {...event} />
+                ))}
+              </AnimatePresence>
 
-                  {events.length === 0 && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="col-span-full"
-                    >
-                      <p className="text-center text-gray-600 dark:text-gray-400 mt-4">
-                        No events scheduled for {selectedYear}
-                      </p>
-                    </motion.div>
-                  )}
-                </div>
+              {currentEvents.length === 0 && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="col-span-full"
+                >
+                  <p className="text-center text-gray-600 dark:text-gray-400 mt-4">
+                    No events scheduled for {selectedYear}
+                  </p>
+                </motion.div>
+              )}
+            </div>
 
-                {/* Pagination */}
-                {totalEvents > 9 && (
-                  <div className="flex justify-center mt-8 gap-2">
-                    <button
-                      onClick={() => setPage((p) => Math.max(1, p - 1))}
-                      disabled={page === 1}
-                      className="px-4 py-2 bg-black text-white rounded-lg disabled:opacity-50"
-                    >
-                      Previous
-                    </button>
-                    <button
-                      onClick={() => setPage((p) => p + 1)}
-                      disabled={page * 9 >= totalEvents}
-                      className="px-4 py-2 bg-black text-white rounded-lg disabled:opacity-50"
-                    >
-                      Next
-                    </button>
-                  </div>
-                )}
-              </>
+            {/* Pagination */}
+            {totalEvents > eventsPerPage && (
+              <div className="flex justify-center mt-8 gap-2">
+                <button
+                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                  disabled={page === 1}
+                  className="px-4 py-2 bg-black text-white rounded-lg disabled:opacity-50"
+                >
+                  Previous
+                </button>
+                <button
+                  onClick={() => setPage((p) => p + 1)}
+                  disabled={page * eventsPerPage >= totalEvents}
+                  className="px-4 py-2 bg-black text-white rounded-lg disabled:opacity-50"
+                >
+                  Next
+                </button>
+              </div>
             )}
           </div>
         </div>
