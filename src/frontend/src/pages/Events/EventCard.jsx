@@ -18,8 +18,8 @@ function EventCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <Link
-      to={`/events/${id}`}
+    <div
+      
       className={`bg-white dark:bg-neutral-800 max-w-sm rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-neutral-600 hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-500 cursor-pointer`}
     >
       <div className="relative h-40 xs:h-48 sm:h-64 overflow-hidden">
@@ -74,7 +74,7 @@ function EventCard({
           </div>
         </motion.div>
 
-        <button
+        {/* <button
           onClick={(e) => {
             e.preventDefault();
             setIsExpanded(!isExpanded);
@@ -93,9 +93,9 @@ function EventCard({
               className="group-hover:translate-y-1 transition-transform duration-300"
             />
           )}
-        </button>
+        </button> */}
       </div>
-    </Link>
+    </div>
   );
 }
 

@@ -108,7 +108,7 @@ function TeamSelector() {
             }`}
           >
             {year === 4
-              ? "Fourth Year"
+              ? "Final Year"
               : year === 3
                 ? "Third Year"
                 : year === 2

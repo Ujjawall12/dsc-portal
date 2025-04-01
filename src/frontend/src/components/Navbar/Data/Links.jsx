@@ -1,7 +1,7 @@
 const links = [
   { text: "Home", to: "/" },
-  { text: "About Us", to: "/about" },
-  // { text: "Events", to: "/events" },
+  // { text: "About Us", to: "/about" },
+  { text: "Events", to: "/events" },
   { text: "Team", to: "/team" },
   // { text: "Projects", to: "/projects" },
   // { text: "Membership", to: "/sign-up", type: "black" },

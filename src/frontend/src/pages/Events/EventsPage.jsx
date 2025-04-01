@@ -7,7 +7,7 @@ import MainLayout from "@/Layout/MainLayout";
 import Section from "@/Layout/Section";
 
 function EventsPage() {
-  const [years] = useState(["2023", "2024", "2025"]);
+  const [years] = useState(["2024"]);
   const [selectedYear, setSelectedYear] = useState("2024");
   const [page, setPage] = useState(1);
   const eventsPerPage = 9;
@@ -120,20 +120,20 @@ function EventsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex flex-row items-center gap-3">
+          <div className="flex flex-row justify-center items-center gap-3 mt-4">
             <Calendar className="w-8 h-8 text-black dark:text-white hidden sm:block" />
             <motion.h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-900 dark:text-gray-100 mb-2 font-Exo">
               Events
             </motion.h1>
           </div>
-          <p className="text-gray-600 dark:text-gray-400 sm:ml-12">
+          {/* <p className="text-gray-600 dark:text-gray-400 sm:ml-12  ">
             Discover and join amazing tech events
-          </p>
+          </p> */}
         </motion.div>
 
         <div className="flex flex-col mt-8 sm:flex-row sm:items-start sm:gap-8">
           {/* Year Selectors */}
-          <div className="sm:w-24 sm:py-7 sm:px-3 hidden sm:block">
+          {/* <div className="sm:w-24 sm:py-7 sm:px-3 hidden sm:block">
             <YearSelector
               years={years}
               selectedYear={selectedYear}
@@ -142,10 +142,10 @@ function EventsPage() {
                 setPage(1); // Reset page when year changes
               }}
             />
-          </div>
+          </div> */}
 
           {/* Mobile Year Selector */}
-          <div className="flex sm:hidden gap-2 mt-2 px-4 overflow-x-auto">
+          {/* <div className="flex sm:hidden gap-2 mt-2 px-4 overflow-x-auto">
             {years.map((year) => (
               <button
                 key={year}
@@ -162,14 +162,16 @@ function EventsPage() {
                 {year}
               </button>
             ))}
-          </div>
+          </div> */}
 
           {/* Events Grid */}
           <div className="w-full">
-            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+            <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">
               <AnimatePresence mode="wait">
                 {currentEvents.map((event) => (
-                  <EventCard key={event.id} {...event} />
+                  <div key={event.id} className="flex justify-center items-center">
+                    <EventCard  {...event} />
+                  </div>
                 ))}
               </AnimatePresence>
 
