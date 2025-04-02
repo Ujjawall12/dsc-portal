@@ -567,7 +567,7 @@ export const teamMembers = [
   {
     name: "Harshit Mahajan",
     position: "Third Year Member",
-    image: "https://i.ibb.co/84G8z3Xx/bc9fd4bd-de9b-4555-976c-8360576c6708.jpg",
+    image: "https://i.ibb.co/93f2CNng/harshitmahajan.jpg",
     linkedin: "",
     year: 3,
     github: "",
