@@ -7,13 +7,13 @@ import ViewAllProjectCard from "@/components/ViewAllProjectCard";
 
 export default function SectionTwo() {
   const [projects, setProjects] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [, setIsLoading] = useState(false);
 
   const fetchData = useCallback(async () => {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/v1/projects?page=1&count=3`,
+        `${import.meta.env.BACKEND_URL}/api/v1/projects?page=1&count=3`,
       );
       const { data } = await response.json();
       if (response.ok) {

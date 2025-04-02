@@ -45,7 +45,7 @@ function ProjectDetails() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/v1/projects/${slug}`,
+        `${import.meta.env.BACKEND_URL}/api/v1/projects/${slug}`,
       );
       if (!response.ok) {
         navigate("/not-found");

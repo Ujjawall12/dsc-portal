@@ -8,7 +8,7 @@ import EventDetails from "./pages/EventDetails/EventDetails";
 import NotFound from "./pages/NotFound";
 import SomethingWentWrong from "./pages/SomethingWentWrong";
 import Homepage from "./pages/Homepage/Homepage";
-import TeamSelector from "./pages/Team/TeamSelector/TeamSelector";
+import Teams from "./pages/Team/Teams";
 import SignIn from "./pages/Auth/SignIn";
 import SignUp from "./pages/Auth/SignUp";
 import ScrollToTop from "./components/ScrollToTop";
@@ -24,7 +24,7 @@ function RouteList() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/events/:slug" element={<EventDetails />} />
-        <Route path="/team" element={<TeamSelector />} />
+        <Route path="/team" element={<Teams />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:slug" element={<ProjectDetails />} />
         <Route path="/break" element={<SomethingWentWrong />} />

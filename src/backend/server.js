@@ -1,18 +1,19 @@
-const app = require('./app');
-const connectDB = require('./db/connection');
+const app = require("./app");
+const connectDB = require("./db/connection");
+const https = require("https");
+const fs = require("fs");
 
-const chalk = require('chalk');
-const port = process.env.PORT || 5000;
+connectDB("dsc");
 
-connectDB('dsc');
+const options = {};
+if (process.env.NODE_ENV === "production") {
+  // do not remove these as they are used in the ec2 instance where backend is hosting
+  options.key = fs.readFileSync("key.pem");
+  options.cert = fs.readFileSync("cert.pem");
+}
 
-app.listen(port, (err) => {
-  if (err) {
-    console.error(chalk.red('Failed to start server:'), err);
-  } else {
-    console.log(chalk.white.bgBlack.bold(` Backend Server is running on:  `));
-    console.log(
-      chalk.bold.greenBright(`   ➜ `, chalk.bold(`http://localhost:${port}`))
-    );
-  }
+https.createServer(options, app).listen(443, () => {
+  console.log(
+    "Server running on https://ec2-18-136-203-105.ap-southeast-1.compute.amazonaws.com",
+  );
 });

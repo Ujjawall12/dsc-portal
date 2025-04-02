@@ -1,7 +1,8 @@
 import { Card, CardContent } from "@/components/Projectutils/card";
 import { Twitter, Linkedin, Github, Mail } from "lucide-react";
+import { useEffect } from "react";
 
-const ProjectTeamSection = () => {
+function ProjectTeamSection() {
   const teamMembers = [
     {
       name: "Sarah Johnson",
@@ -106,6 +107,6 @@ const ProjectTeamSection = () => {
       </div>
     </div>
   );
-};
+}
 
 export default ProjectTeamSection;

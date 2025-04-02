@@ -1,14 +1,13 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  name: {
+  fullName: {
     type: String,
     required: true,
   },
   username: {
     type: String,
     required: true,
-    unique: true,
   },
   password: {
     type: String,
@@ -21,24 +20,32 @@ const UserSchema = new mongoose.Schema({
     unique: true,
     match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
   },
-
+  isVerified: {
+    type: Boolean,
+    default: false,
+  },
+  otp: {
+    type: String,
+    default: null,
+  },
+  otpExpiry: {
+    type: Date,
+    default: null,
+  },
   branch: {
     type: String,
     enum: ["CSE", "ECE", "ME", "CE", "EE", "IPE", "CSE-DD", "ECE-DD"],
-    required: true,
+    // required: true
+  },
+  image: {
+    type: String,
+    required: false,
   },
 
   field: {
     type: String,
     enum: ["Web", "AR/VR", "App Dev", "AI/ML", "Cloud", "UI/UX"],
-    required: true,
-  },
-  session: {
-    type: Number,
-    enum: [2020, 2021, 2022, 2023, 2024, 2025],
-    required: function () {
-      return ["member", "teamLead", "subLead"].includes(this.role);
-    },
+    // required: true
   },
 
   role: {
@@ -55,5 +62,5 @@ const UserSchema = new mongoose.Schema({
     default: "participant",
   },
 });
-
-module.exports = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
+module.exports = User;

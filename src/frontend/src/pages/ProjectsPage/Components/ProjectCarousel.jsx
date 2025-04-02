@@ -18,7 +18,7 @@ function ProjectCarousel() {
     try {
       setIsLoading(true);
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/v1/projects`,
+        `${import.meta.env.BACKEND_URL}/api/v1/projects`,
       );
       const resData = await response.json();
       console.log(resData);

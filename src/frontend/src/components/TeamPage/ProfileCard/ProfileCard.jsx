@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Linkedin, Github } from "lucide-react";
+import { useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-const ProfileCard = ({ image, name, position, category, year }) => {
+const ProfileCard = ({ image, name, position, github, linkedin }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [hoverOrigin, setHoverOrigin] = useState("left"); // Tracks the animation origin
 
@@ -26,56 +26,41 @@ const ProfileCard = ({ image, name, position, category, year }) => {
 
   return (
     <div
-      className={`relative bg-white dark:bg-neutral-900 rounded-xl shadow-md overflow-hidden border border-gray-200 dark:border-neutral-700 transition-all duration-500 ${
-        isHovered ? "hover:shadow-2xl hover:scale-[1.02]" : ""
+      className={`relative bg-white dark:bg-neutral-900 rounded-xl overflow-hidden border border-gray-200 dark:border-neutral-700 transition-all max-w-72 duration-500 ${
+        isHovered ? "hover:shadow-md hover:scale-[1.02]" : ""
       }`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Profile Image with Hover Animation */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-[19rem]">
         <img
           src={image}
           alt={name}
-          className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+          className="w-full h-full object-cover object-top"
+          loading="lazy"
         />
-        <div
+        {/* <div
           className={`absolute inset-0 bg-gradient-to-b from-black/20 to-black/60 ${
-            isHovered ? "opacity-100" : "opacity-0"
+            isHovered ? 'opacity-100' : 'opacity-0'
           } transition-opacity duration-500`}
-        />
+        /> */}
       </div>
-
-      {/* Profile Details */}
-      <div className="p-6 text-center relative">
-        <h2 className="text-lg font-semibold text-gray-800 dark:text-white transition-colors duration-300">
-          {name}
-        </h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 mb-6">
-          {position}
-        </p>
-
-        {/* Social Links */}
-        <div className="w-full flex justify-center items-center pt-2">
-          <div className="flex gap-4">
-            <a
-              href="#"
-              className="text-blue-500 hover:text-blue-700 transition duration-200"
-              aria-label="LinkedIn"
-            >
-              <Linkedin size={24} />
+      <div className="p-4 pt-2 dark:text-white bg-transparent text-center">
+        <div className="flex flex-col">
+          <h2 className="font-normal text-lg">{name}</h2>
+          <h3 className="text-neutral-500 dark:text-neutral-300 text-sm">
+            {position}
+          </h3>
+          <div className="flex items-center justify-center gap-2 mt-2">
+            <a className="cursor-pointer" href={github} target="_blank">
+              <FaGithub className="text-xl text-neutral-700 dark:text-neutral-300" />
             </a>
-            <a
-              href="#"
-              className="text-gray-900 dark:text-white hover:text-gray-700 dark:hover:text-gray-300 transition duration-200"
-              aria-label="GitHub"
-            >
-              <Github size={24} />
+            <a className="cursor-pointer" href={linkedin} target="_blank">
+              <FaLinkedin className="text-xl text-neutral-700 dark:text-neutral-300" />
             </a>
           </div>
         </div>
-
-        {/* Animated Bottom Line */}
         <div
           className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-orange-600 ${
             isHovered ? "scale-x-100" : "scale-x-0"

@@ -50,13 +50,14 @@ const addEvent = async (req, res) => {
       event: savedEvent,
     });
   } catch (error) {
-    console.error('Error in addEvent:', error);
-    return res.status(500).json({ message: "Internal server error", error: error.message });
+    console.error("Error in addEvent:", error);
+    return res
+      .status(500)
+      .json({ message: "Internal server error", error: error.message });
   }
 };
 
 module.exports = {
   getEvents,
-  addEvent
+  addEvent,
 };
-
