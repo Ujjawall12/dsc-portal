@@ -16,87 +16,83 @@ function EventsPage() {
   const eventsData = [
     {
       id: "1",
-      title: "Android Study Jams",
-      date: "February 15-28, 2024",
-      description: "Join us for an intensive learning program focused on Android app development using Kotlin.",
-      image: "/placeholder-image.jpg",
+      title: "Solution Challenge",
+      date: "January 2, 2024",
+      description: "Build innovative solutions to real-world problems using Google technologies! Join the challenge, collaborate, and make an impact with your ideas.",
+      image: "https://i.ibb.co/RTD19Wyz/All-that-you-need-to-know-about-GSC-at-a-glance-Swipe-right.jpg",
       details: "Learn from experts, build real projects, and get hands-on experience with modern Android development.",
       duration: {
-        start: "6:00 PM",
-        end: "8:00 PM"
+        start: "7:00 PM",
+        end: "8:30 PM"
       },
-      mode: "Hybrid",
-      onlineLink: "https://meet.google.com/example"
+      mode: "Online",
+      onlineLink: null
     },
     {
       id: "2",
-      title: "Web Development Workshop",
-      date: "March 10, 2024",
-      description: "Master modern web development with React and Node.js",
-      image: "/placeholder-image.jpg",
+      title: "Gen AI Study Jams",
+      date: "April 26-27, 2024",
+      description: "Dive into Generative AI with hands-on sessions! Learn how AI creates text, images, and more while exploring real-world applications. Perfect for all skill levels! ",
+      image: "https://i.ibb.co/4nw45mJ4/Don-t-be-a-Gen-Z-without-AI-Join-the-Study-Jam-Only-limited-slots-150-available-So-register-ASAP-bef.jpg",
       details: "Learn full-stack development from industry experts",
       duration: {
-        start: "10:00 AM",
-        end: "4:00 PM"
+        start: "2:00 PM",
+        end: " 4:00 PM"
       },
-      mode: "In-person",
+      mode: "Online",
       onlineLink: null
     },
     {
       id: "3",
-      title: "Cloud Computing Summit",
-      date: "April 5, 2024",
-      description: "Explore cloud technologies and deployment strategies",
-      image: "/placeholder-image.jpg",
+      title: "Among Us",
+      date: "April 11, 2024",
+      description: "Step into the world of Among Us, but this time, it's real! Navigate tasks, work with your crew, and uncover the impostors among you in this thrilling offline, real-life version. Stay sharp, trust wisely, and may the best crewmate win!",
+      image: "https://i.ibb.co/BK32VgVX/Join-us-for-a-real-life-Among-Us-showdown-Gather-your-crewmates-and-sharpen-your-detective-skills-be.jpg",
       details: "Deep dive into AWS, Azure, and Google Cloud Platform",
       duration: {
-        start: "9:00 AM",
-        end: "5:00 PM"
+        start: "3:00 PM",
+        end: "8:00 PM"
       },
-      mode: "Online",
-      onlineLink: "https://meet.google.com/example2"
+      mode: "Offline"
     },
     {
       id: "4",
-      title: "AI & ML Workshop",
-      date: "May 15, 2024",
-      description: "Introduction to Artificial Intelligence and Machine Learning",
-      image: "/placeholder-image.jpg",
+      title: "GDSC Design Day",
+      date: "April 1-3, 2024",
+      description: "Unleash your creativity! Join us for a day of design, innovation, and hands-on sessions to explore UI/UX, graphic design, and more. Let’s design something amazing! ",
+      image: "https://i.ibb.co/6J1WdD8p/Unveiling-a-universe-of-imagination-at-GDSC-Design-Day-in-collaboration-with-Friends-of-Figma-Hamirp.jpg",
       details: "Hands-on experience with popular ML frameworks",
       duration: {
-        start: "11:00 AM",
-        end: "3:00 PM"
+        start: "5:30 PM",
+        end: "7:00 PM"
       },
-      mode: "Hybrid",
-      onlineLink: "https://meet.google.com/example3"
+      mode: "Offline"
     },
     {
       id: "5",
-      title: "Cybersecurity Training",
-      date: "June 20, 2024",
-      description: "Learn about modern cybersecurity practices",
-      image: "/placeholder-image.jpg",
-      details: "Practical sessions on security testing and vulnerability assessment",
+      title: "Android Mania",
+      date: "Jan 27-29, 2024",
+      description: "Dive into the world of Android development! Learn the basics, build apps, and explore the latest trends in mobile tech. Perfect for beginners and enthusiasts!",
+      image: "https://i.ibb.co/KcNkPjjC/Calling-all-Android-enthusiasts-Android-app-dreams-taking-flight-Join-our-epic-3-day-workshop-and-bu.jpg",
+      details: "Hands-on experience with popular ML frameworks",
       duration: {
-        start: "2:00 PM",
-        end: "6:00 PM"
+        start: "5:00 PM",
+        end: "7:00 PM"
       },
-      mode: "In-person",
-      onlineLink: null
+      mode: "Offline"
     },
     {
       id: "6",
-      title: "DevOps Workshop",
-      date: "July 10, 2024",
-      description: "Master DevOps tools and practices",
-      image: "/placeholder-image.jpg",
-      details: "Learn CI/CD, containerization, and automation",
+      title: "ML Study Jam",
+      date: "Feb 19-20, 2024",
+      description: "Kickstart your journey into Machine Learning with hands-on sessions! Learn core ML concepts, build models, and explore real-world applications. Perfect for all skill levels! ",
+      image: "https://i.ibb.co/4g5ynbR2/Attention-technophiles-Feel-like-you-are-lagging-behind-in-this-fast-paced-AI-fuelled-world-Stay-no.jpg",
+      details: "Hands-on experience with popular ML frameworks",
       duration: {
-        start: "10:00 AM",
-        end: "4:00 PM"
+        start: "5:30 PM",
+        end: "7:00 PM"
       },
-      mode: "Online",
-      onlineLink: "https://meet.google.com/example4"
+      mode: "Offline"
     }
   ];
 
@@ -133,16 +129,16 @@ function EventsPage() {
 
         <div className="flex flex-col mt-8 sm:flex-row sm:items-start sm:gap-8">
           {/* Year Selectors */}
-          {/* <div className="sm:w-24 sm:py-7 sm:px-3 hidden sm:block">
-            <YearSelector
+          <div className="sm:w-24 sm:py-7 sm:px-3 hidden sm:block">
+            {/* <YearSelector
               years={years}
               selectedYear={selectedYear}
               onYearSelect={(year) => {
                 setSelectedYear(year);
                 setPage(1); // Reset page when year changes
               }}
-            />
-          </div> */}
+            /> */}
+          </div>
 
           {/* Mobile Year Selector */}
           {/* <div className="flex sm:hidden gap-2 mt-2 px-4 overflow-x-auto">
